@@ -54,14 +54,38 @@
 		A5CDA722215D6940006BFF16 /* RestPicky */ = {
 			isa = PBXGroup;
 			children = (
-				A5CDA723215D6940006BFF16 /* AppDelegate.swift */,
-				A5CDA725215D6940006BFF16 /* ViewController.swift */,
-				A5CDA727215D6940006BFF16 /* Main.storyboard */,
+				A5CDA737215D9B39006BFF16 /* Views */,
+				A5CDA736215D9B2A006BFF16 /* Controllers */,
+				A5CDA735215D9B1E006BFF16 /* Models */,
 				A5CDA72A215D6943006BFF16 /* Assets.xcassets */,
-				A5CDA72C215D6943006BFF16 /* LaunchScreen.storyboard */,
 				A5CDA72F215D6943006BFF16 /* Info.plist */,
 			);
 			path = RestPicky;
+			sourceTree = "<group>";
+		};
+		A5CDA735215D9B1E006BFF16 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5CDA736215D9B2A006BFF16 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5CDA723215D6940006BFF16 /* AppDelegate.swift */,
+				A5CDA725215D6940006BFF16 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A5CDA737215D9B39006BFF16 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5CDA72C215D6943006BFF16 /* LaunchScreen.storyboard */,
+				A5CDA727215D6940006BFF16 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,7 +308,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XD8PH7862X;
 				INFOPLIST_FILE = RestPicky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,7 +328,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XD8PH7862X;
 				INFOPLIST_FILE = RestPicky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
