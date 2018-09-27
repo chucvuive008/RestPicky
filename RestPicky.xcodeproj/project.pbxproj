@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA723215D6940006BFF16 /* AppDelegate.swift */; };
 		A5CDA726215D6940006BFF16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA725215D6940006BFF16 /* ViewController.swift */; };
 		A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA727215D6940006BFF16 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.release.xcconfig"; sourceTree = "<group>"; };
+		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDA723215D6940006BFF16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CDA725215D6940006BFF16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		A5CDA72A215D6943006BFF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5CDA72D215D6943006BFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5CDA72F215D6943006BFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPicky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		084F3E1F4B5DB8D9A4A61EBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */,
+				6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A5CDA717215D6940006BFF16 = {
 			isa = PBXGroup;
 			children = (
 				A5CDA722215D6940006BFF16 /* RestPicky */,
 				A5CDA721215D6940006BFF16 /* Products */,
+				084F3E1F4B5DB8D9A4A61EBD /* Pods */,
+				BB778661CFDAE57008435B4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +104,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BB778661CFDAE57008435B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5CDA732215D6944006BFF16 /* Build configuration list for PBXNativeTarget "RestPicky" */;
 			buildPhases = (
+				7FFBD09F5588B8DCF73A079B /* [CP] Check Pods Manifest.lock */,
 				A5CDA71C215D6940006BFF16 /* Sources */,
 				A5CDA71D215D6940006BFF16 /* Frameworks */,
 				A5CDA71E215D6940006BFF16 /* Resources */,
+				92171474174D5EBE21EC84EE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -153,6 +179,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7FFBD09F5588B8DCF73A079B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestPicky-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92171474174D5EBE21EC84EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5CDA71C215D6940006BFF16 /* Sources */ = {
@@ -304,6 +387,7 @@
 		};
 		A5CDA733215D6944006BFF16 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -324,6 +408,7 @@
 		};
 		A5CDA734215D6944006BFF16 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
