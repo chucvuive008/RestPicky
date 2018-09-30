@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA723215D6940006BFF16 /* AppDelegate.swift */; };
-		A5CDA726215D6940006BFF16 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA725215D6940006BFF16 /* ViewController.swift */; };
 		A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA727215D6940006BFF16 /* Main.storyboard */; };
 		A5CDA72B215D6943006BFF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA72A215D6943006BFF16 /* Assets.xcassets */; };
 		A5CDA72E215D6943006BFF16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA72C215D6943006BFF16 /* LaunchScreen.storyboard */; };
+		A5D78C1A2160728900E48A3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5D78C192160728900E48A3B /* GoogleService-Info.plist */; };
+		A5D78C1C2160737A00E48A3B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C1B2160737A00E48A3B /* LoginViewController.swift */; };
+		A5D78C1E216089B400E48A3B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C1D216089B400E48A3B /* RegisterViewController.swift */; };
+		A5D78C20216089D800E48A3B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C1F216089D800E48A3B /* SearchViewController.swift */; };
+		A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C2121608A6600E48A3B /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,11 +24,15 @@
 		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDA723215D6940006BFF16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5CDA725215D6940006BFF16 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A5CDA728215D6940006BFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5CDA72A215D6943006BFF16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5CDA72D215D6943006BFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5CDA72F215D6943006BFF16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5D78C192160728900E48A3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A5D78C1B2160737A00E48A3B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A5D78C1D216089B400E48A3B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		A5D78C1F216089D800E48A3B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A5D78C2121608A6600E48A3B /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPicky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,6 +78,7 @@
 		A5CDA722215D6940006BFF16 /* RestPicky */ = {
 			isa = PBXGroup;
 			children = (
+				A5D78C192160728900E48A3B /* GoogleService-Info.plist */,
 				A5CDA737215D9B39006BFF16 /* Views */,
 				A5CDA736215D9B2A006BFF16 /* Controllers */,
 				A5CDA735215D9B1E006BFF16 /* Models */,
@@ -90,7 +99,10 @@
 			isa = PBXGroup;
 			children = (
 				A5CDA723215D6940006BFF16 /* AppDelegate.swift */,
-				A5CDA725215D6940006BFF16 /* ViewController.swift */,
+				A5D78C1B2160737A00E48A3B /* LoginViewController.swift */,
+				A5D78C1D216089B400E48A3B /* RegisterViewController.swift */,
+				A5D78C1F216089D800E48A3B /* SearchViewController.swift */,
+				A5D78C2121608A6600E48A3B /* TabViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5CDA72E215D6943006BFF16 /* LaunchScreen.storyboard in Resources */,
+				A5D78C1A2160728900E48A3B /* GoogleService-Info.plist in Resources */,
 				A5CDA72B215D6943006BFF16 /* Assets.xcassets in Resources */,
 				A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */,
 			);
@@ -242,7 +255,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5CDA726215D6940006BFF16 /* ViewController.swift in Sources */,
+				A5D78C1E216089B400E48A3B /* RegisterViewController.swift in Sources */,
+				A5D78C1C2160737A00E48A3B /* LoginViewController.swift in Sources */,
+				A5D78C20216089D800E48A3B /* SearchViewController.swift in Sources */,
+				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
