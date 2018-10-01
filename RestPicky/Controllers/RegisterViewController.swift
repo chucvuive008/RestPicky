@@ -36,7 +36,13 @@ class RegisterViewController: UIViewController {
         SVProgressHUD.show()
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (user, error) in
             if error != nil {
-                print(error)
+                print(error!.localizedDescription)
+                if error!.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred." {
+                    self.alert(title: "" , message: "Network Error")
+                } else {
+                    self.alert(title: "", message: "\(error!.localizedDescription)")
+                }
+//                print(error?.localizedDescription)
                 SVProgressHUD.dismiss()
             } else {
                 print("register Successful!")
@@ -44,6 +50,14 @@ class RegisterViewController: UIViewController {
                 self.performSegue(withIdentifier: "RegisterToSearch", sender: self)
             }
         }
+    }
+    
+    func alert (title: String , message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
