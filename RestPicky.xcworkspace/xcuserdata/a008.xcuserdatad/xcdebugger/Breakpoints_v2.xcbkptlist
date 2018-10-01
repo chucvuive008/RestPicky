@@ -7,6 +7,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
+<<<<<<< HEAD
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestPicky/Controllers/LoginViewController.swift"
@@ -29,6 +30,30 @@
             timestampString = "560058115.0450391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+=======
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/LoginViewController.swift"
+            timestampString = "560058115.044515"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "SignInButtonPress(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/LoginViewController.swift"
+            timestampString = "560058115.0450391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+>>>>>>> dev
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "SignInButtonPress(_:)"

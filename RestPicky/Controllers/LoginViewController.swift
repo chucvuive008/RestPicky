@@ -42,6 +42,14 @@ class LoginViewController: UIViewController {
         { (user, error) in
             if error != nil {
                 print (error!)
+                if error!.localizedDescription == "Network error (such as timeout, interrupted connection or unreachable host) has occurred." {
+                    self.alert(title: "" , message: "Network Error")
+                } else if error!.localizedDescription == "There is no user record corresponding to this identifier. The user may have been deleted."{
+                    self.alert(title: "", message: "User does not exist")
+                } else {
+                    self.alert(title: "", message: "\(error!.localizedDescription)")
+                }
+                SVProgressHUD.dismiss()
             } else {
                 print("Log in successful")
                 SVProgressHUD.dismiss()
@@ -49,5 +57,13 @@ class LoginViewController: UIViewController {
             }
             
         }
+    }
+    
+    func alert (title: String , message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
     }
 }
