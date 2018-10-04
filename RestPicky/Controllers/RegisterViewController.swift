@@ -46,8 +46,18 @@ class RegisterViewController: UIViewController {
                 SVProgressHUD.dismiss()
             } else {
                 print("register Successful!")
+                let actionCodeSettings = ActionCodeSettings()
+                actionCodeSettings.url = URL(string: "https://www.restpicky.com")
+                actionCodeSettings.handleCodeInApp = true
+                actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "RegisterToSearch", sender: self)
+                Auth.auth().currentUser?.sendEmailVerification( completion: { (error) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                })
+//               
             }
         }
     }

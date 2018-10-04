@@ -10,6 +10,8 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'SVProgressHUD'
 pod 'ChameleonFramework'
+pod 'FirebaseUI/Auth'
+pod 'FirebaseUI/Google'
 end
 
 post_install do |installer|

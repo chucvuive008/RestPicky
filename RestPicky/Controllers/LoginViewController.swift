@@ -38,6 +38,7 @@ class LoginViewController: UIViewController {
     @IBAction func SignInButtonPress(_ sender: Any) {
         SVProgressHUD.show()
         //TODO: Log in the user
+        
         Auth.auth().signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!)
         { (user, error) in
             if error != nil {
@@ -51,9 +52,17 @@ class LoginViewController: UIViewController {
                 }
                 SVProgressHUD.dismiss()
             } else {
-                print("Log in successful")
+                
                 SVProgressHUD.dismiss()
-                self.performSegue(withIdentifier: "LoginToSearch", sender: self)
+                print(Auth.auth().currentUser?.isEmailVerified)
+                if (Auth.auth().currentUser?.isEmailVerified)! {
+                    print("Log in successful")
+                    self.performSegue(withIdentifier: "LoginToSearch", sender: self)
+                }
+                else {
+                    self.alert(title: "", message: "Please verify your email")
+                }
+//
             }
             
         }
