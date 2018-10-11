@@ -55,6 +55,14 @@ class RegisterViewController: UIViewController {
                     if let error = error {
                         print(error.localizedDescription)
                         return
+                    } else {
+                        let alert = UIAlertController(title: "", message: "Please check your email for verification", preferredStyle: .alert)
+                        
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                            self.dismiss(animated: true, completion: nil)
+                        }))
+                        
+                        self.present(alert, animated: true, completion: nil)
                     }
                 })
 //               
