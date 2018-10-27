@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
             } else {
                 
                 SVProgressHUD.dismiss()
-                
+                print(Auth.auth().currentUser?.isEmailVerified)
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     print("Log in successful")
                     self.performSegue(withIdentifier: "LoginToSearch", sender: self)
