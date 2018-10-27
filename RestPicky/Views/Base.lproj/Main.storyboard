@@ -922,16 +922,25 @@
         <!--Profile-->
         <scene sceneID="CN5-uP-91J">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mms-Tu-wGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="WND-we-non" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NKD-05-V1X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpf-Cm-y3h">
+                                <rect key="frame" x="166" y="227" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6bb-tU-02z"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="rTM-oP-0jF"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mms-Tu-wGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1816" y="912"/>
         </scene>
@@ -977,7 +986,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BurgerIcon" width="128" height="127.5"/>
+        <image name="BurgerIcon" width="128" height="127"/>
         <image name="LoginPageBackground" width="674" height="1200"/>
         <image name="PizzaIcon" width="128" height="128"/>
         <image name="RightArrow" width="128" height="128"/>
