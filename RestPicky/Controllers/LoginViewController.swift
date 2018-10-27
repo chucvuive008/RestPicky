@@ -11,12 +11,12 @@ import SVProgressHUD
 import Firebase
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.usernameTextField.layer.borderWidth = 0
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
             } else {
                 
                 SVProgressHUD.dismiss()
-                print(Auth.auth().currentUser?.isEmailVerified)
+                
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     print("Log in successful")
                     self.performSegue(withIdentifier: "LoginToSearch", sender: self)
@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
                 else {
                     self.alert(title: "", message: "Please verify your email")
                 }
-//
+                //
             }
             
         }
