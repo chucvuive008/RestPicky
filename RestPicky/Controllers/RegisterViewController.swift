@@ -19,7 +19,6 @@ struct retaurant{
 
 class RegisterViewController: UIViewController {
 
-
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
