@@ -313,14 +313,8 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-<<<<<<< HEAD
         <image name="BookmarkIcon" width="14" height="14"/>
-=======
         <image name="BurgerIcon" width="128" height="127.5"/>
->>>>>>> 431243dfaa31d167c3e4c6635b2576a1b1eeb875
-=======
->>>>>>> parent of 431243d... edit register
         <image name="LoginPageBackground" width="674" height="1200"/>
         <image name="Search" width="25" height="25"/>
         <image name="SearchIconHightlight" width="128" height="128"/>
