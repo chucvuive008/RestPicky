@@ -17,6 +17,8 @@
 		A5D78C1E216089B400E48A3B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C1D216089B400E48A3B /* RegisterViewController.swift */; };
 		A5D78C20216089D800E48A3B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C1F216089D800E48A3B /* SearchViewController.swift */; };
 		A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C2121608A6600E48A3B /* TabViewController.swift */; };
+		A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048D218435AB0035A202 /* Restaurant.swift */; };
+		A5F10490218435AB0035A202 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048E218435AB0035A202 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		A5D78C1D216089B400E48A3B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A5D78C1F216089D800E48A3B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A5D78C2121608A6600E48A3B /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		A5F1048D218435AB0035A202 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		A5F1048E218435AB0035A202 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPicky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -91,6 +95,8 @@
 		A5CDA735215D9B1E006BFF16 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A5F1048D218435AB0035A202 /* Restaurant.swift */,
+				A5F1048E218435AB0035A202 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,9 +294,11 @@
 			files = (
 				A5D78C1E216089B400E48A3B /* RegisterViewController.swift in Sources */,
 				A5D78C1C2160737A00E48A3B /* LoginViewController.swift in Sources */,
+				A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */,
 				A5D78C20216089D800E48A3B /* SearchViewController.swift in Sources */,
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
+				A5F10490218435AB0035A202 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
