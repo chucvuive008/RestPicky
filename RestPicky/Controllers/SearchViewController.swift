@@ -43,6 +43,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "restaurantlist"{
             let seg = segue.destination as! RestaurantListViewController
             seg.type = selectedType
+            seg.restaurant = newRestaurants[0]
         }
     }
 

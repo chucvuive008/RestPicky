@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
+		A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */; };
 		A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594C5782188E38C0062C104 /* RestaurantListViewController.swift */; };
 		A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA723215D6940006BFF16 /* AppDelegate.swift */; };
 		A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA727215D6940006BFF16 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.release.xcconfig"; sourceTree = "<group>"; };
 		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
+		A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A594C5782188E38C0062C104 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDA723215D6940006BFF16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				A5D78C1F216089D800E48A3B /* SearchViewController.swift */,
 				A5D78C2121608A6600E48A3B /* TabViewController.swift */,
 				A594C5782188E38C0062C104 /* RestaurantListViewController.swift */,
+				A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
+				A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */,
 				A5F10490218435AB0035A202 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
