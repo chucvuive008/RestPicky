@@ -7,17 +7,45 @@
 //
 
 import UIKit
+import Firebase
 
+//Delegate and datasource needed for tableview
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //Our list for the tableview
     let list = ["Reviews", "Photos", "Bookmarks", "Recents"]
     
+    //Elements on the page
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    
+    //Firebase database reference
+    var ref: DatabaseReference!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Firebase database reference
+        ref = Database.database().reference()
+        
+        //TableView data
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //Retreive user "name" from database
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let username = value?["name"] as? String ?? ""
+            print(username)
+            //Set usernameLabel
+            self.usernameLabel.text = username
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
         
             // Do any additional setup after loading the view.
     }
@@ -29,6 +57,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = list[indexPath.row]
+        cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         return cell
     }
     
