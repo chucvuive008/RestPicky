@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1262D2184F879009EC4DD /* ProfileViewController.swift */; };
+		85F964FA2187D235007AE716 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 85F964F92187D235007AE716 /* images */; };
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA723215D6940006BFF16 /* AppDelegate.swift */; };
 		A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA727215D6940006BFF16 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.release.xcconfig"; sourceTree = "<group>"; };
 		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
+		85F1262D2184F879009EC4DD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		85F964F92187D235007AE716 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDA723215D6940006BFF16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CDA728215D6940006BFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		A5CDA722215D6940006BFF16 /* RestPicky */ = {
 			isa = PBXGroup;
 			children = (
+				85F964F92187D235007AE716 /* images */,
 				A5D78C192160728900E48A3B /* GoogleService-Info.plist */,
 				A5CDA737215D9B39006BFF16 /* Views */,
 				A5CDA736215D9B2A006BFF16 /* Controllers */,
@@ -109,6 +114,7 @@
 				A5D78C1D216089B400E48A3B /* RegisterViewController.swift */,
 				A5D78C1F216089D800E48A3B /* SearchViewController.swift */,
 				A5D78C2121608A6600E48A3B /* TabViewController.swift */,
+				85F1262D2184F879009EC4DD /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +197,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F964FA2187D235007AE716 /* images in Resources */,
 				A5CDA72E215D6943006BFF16 /* LaunchScreen.storyboard in Resources */,
 				A5D78C1A2160728900E48A3B /* GoogleService-Info.plist in Resources */,
 				A5CDA72B215D6943006BFF16 /* Assets.xcassets in Resources */,
@@ -298,6 +305,7 @@
 				A5D78C20216089D800E48A3B /* SearchViewController.swift in Sources */,
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
+				85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */,
 				A5F10490218435AB0035A202 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
