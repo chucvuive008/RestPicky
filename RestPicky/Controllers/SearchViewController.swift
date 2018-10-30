@@ -22,6 +22,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchField.layer.borderWidth = 0
         CollectionTableView.delegate = self
         CollectionTableView.dataSource = self
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +45,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             seg.type = selectedType
         }
     }
+
     
     @IBAction func SelectRestaurantType(_ sender: UIButton) {
         if sender.tag == 1{
@@ -67,46 +70,62 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         performSegue(withIdentifier: "restaurantlist", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        let collectionName = cell.viewWithTag(1) as! UILabel
+        let collectionName = cell.viewWithTag(5) as! UILabel
         collectionName.text = restaurantCollectionsName[indexPath.row]
+        
+
+        
         for i in 1...6 {
             if indexPath.row == 0 {
-                let restaurantImage = cell.viewWithTag(i+2) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
                 restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
-                let restaurantName = cell.viewWithTag(i + 8) as! UILabel
+                let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[i-1].name
             }else if indexPath.row == 1 {
-                let restaurantImage = cell.viewWithTag(i+2) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
                 restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
-                let restaurantName = cell.viewWithTag(i + 8) as! UILabel
+                let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[i-1].name
             }else if indexPath.row == 2 {
-                let restaurantImage = cell.viewWithTag(i+2) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
                 restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
-                let restaurantName = cell.viewWithTag(i + 8) as! UILabel
+                let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[i-1].name
             }else if indexPath.row == 3 {
-                let restaurantImage = cell.viewWithTag(i+2) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
                 restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
-                let restaurantName = cell.viewWithTag(i + 8) as! UILabel
+                let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[i-1].name
+            }
+            
+            let forwardArrowButton = cell.viewWithTag(6) as? UIButton
+            if forwardArrowButton != nil {
+                forwardArrowButton!.tag = indexPath.row
+                forwardArrowButton!.addTarget(self, action: #selector(self.ForwardArrowBtnPress(sender:)), for: .touchUpInside)
             }
         }
         
-//        restaurantImage.setImage(image, for: .normal)
         return cell
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    @objc func ForwardArrowBtnPress(sender: UIButton){
+        if sender.tag == 0 {
+            selectedType = "New Restaurants"
+        }else if sender.tag == 1 {
+            selectedType = "Top Restaurants"
+        }else if sender.tag == 2 {
+            selectedType = "Random Restaurants"
+        }else if sender.tag == 3 {
+            selectedType = "Most Review"
+        }
+        performSegue(withIdentifier: "restaurantlist", sender: self)
+    }
+
     
 }
