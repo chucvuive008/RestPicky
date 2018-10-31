@@ -42,9 +42,6 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return 180
     }
     
-
-
-    
     @IBAction func SelectRestaurantType(_ sender: UIButton) {
         if sender.tag == 1{
             selectedType = "American"
@@ -108,7 +105,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 forwardArrowButton!.addTarget(self, action: #selector(self.ForwardArrowBtnPress(sender:)), for: .touchUpInside)
             }
         }
-        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none 
         return cell
     }
     

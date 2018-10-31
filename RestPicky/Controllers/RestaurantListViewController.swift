@@ -50,6 +50,8 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         phone.text = restaurantList[indexPath.row].phoneNumber
         image.image = restaurantList[indexPath.row].images[0]
         
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none 
+        
         return cell
     }
     
