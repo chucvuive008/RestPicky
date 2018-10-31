@@ -10,11 +10,12 @@ import UIKit
 
 class RestaurantListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var restaurant = Restaurant()
+    var restaurantList = [Restaurant]()
+    var selectedRestaurant = Restaurant()
     @IBOutlet weak var restaurantsTableView: UITableView!
-    
     @IBOutlet weak var titleLabel: UILabel!
     var type = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,23 +34,34 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return restaurantList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        let name = cell.viewWithTag(100) as! UILabel
+        let address = cell.viewWithTag(101) as! UILabel
+        let phone = cell.viewWithTag(102) as! UILabel
+        let image = cell.viewWithTag(103) as! UIImageView
+        
+        name.text = restaurantList[indexPath.row].name
+        address.text = restaurantList[indexPath.row].street + ", " + restaurantList[indexPath.row].city + ", " + restaurantList[indexPath.row].state + ", \(restaurantList[indexPath.row].zipcode)"
+        phone.text = restaurantList[indexPath.row].phoneNumber
+        image.image = restaurantList[indexPath.row].images[0]
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRestaurant = restaurantList[indexPath.row]
         performSegue(withIdentifier: "restaurantdetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "restaurantdetail"{
             let seg = segue.destination as! RestaurantDetailViewController
-            seg.restaurant = restaurant
+            seg.restaurant = selectedRestaurant
         }
     }
     /*

@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var ref : DatabaseReference?
     var selectedType = ""
     var newRestaurants = [Restaurant]()
+    var selectedRestaurantList = [Restaurant]()
     let restaurantCollectionsName = ["New Restaurants", "Top Restaurants", "Random Restaurants", "Most review"]
     @IBOutlet weak var CollectionTableView: UITableView!
     
@@ -22,8 +26,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         searchField.layer.borderWidth = 0
         CollectionTableView.delegate = self
         CollectionTableView.dataSource = self
-        
-        
+        ref = Database.database().reference()
         // Do any additional setup after loading the view.
     }
     
@@ -39,13 +42,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return 180
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "restaurantlist"{
-            let seg = segue.destination as! RestaurantListViewController
-            seg.type = selectedType
-            seg.restaurant = newRestaurants[0]
-        }
-    }
+
 
     
     @IBAction func SelectRestaurantType(_ sender: UIButton) {
@@ -85,24 +82,24 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         for i in 1...6 {
             if indexPath.row == 0 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
+                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[i-1].name
+                restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 1 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
+                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[i-1].name
+                restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 2 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
+                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[i-1].name
+                restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 3 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[i-1].images[0], for: .normal)
+                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[i-1].name
+                restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }
             
             let forwardArrowButton = cell.viewWithTag(6) as? UIButton
@@ -115,9 +112,19 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "restaurantlist"{
+            let seg = segue.destination as! RestaurantListViewController
+            seg.type = selectedType
+            seg.restaurantList = selectedRestaurantList
+            seg.selectedRestaurant = newRestaurants[0]
+        }
+    }
+    
     @objc func ForwardArrowBtnPress(sender: UIButton){
         if sender.tag == 0 {
             selectedType = "New Restaurants"
+            selectedRestaurantList = newRestaurants
         }else if sender.tag == 1 {
             selectedType = "Top Restaurants"
         }else if sender.tag == 2 {
@@ -128,5 +135,23 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         performSegue(withIdentifier: "restaurantlist", sender: self)
     }
 
+    func getPhoto (urlString : String, restaurant: Restaurant){
+        let url = URL(string: urlString)
+        
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async {
+                if data != nil{
+                    restaurant.images.append(UIImage(data: data!)!)
+                }
+            }
+        }).resume()
+    }
+    
+   
+    
     
 }
