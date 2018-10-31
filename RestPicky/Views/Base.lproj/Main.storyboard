@@ -934,8 +934,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D3a-rR-vzD">
+                                <rect key="frame" x="127.5" y="538" width="120" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9R4-J2-NKt"/>
+                                    <constraint firstAttribute="width" constant="120" id="deB-KP-ef9"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="D3a-rR-vzD" firstAttribute="centerX" secondItem="7YQ-iF-gDo" secondAttribute="centerX" id="1AG-Tb-QvI"/>
+                            <constraint firstItem="nNn-Tj-Jr0" firstAttribute="bottom" secondItem="D3a-rR-vzD" secondAttribute="bottom" constant="30" id="B60-33-MTu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nNn-Tj-Jr0"/>
                     </view>
                 </viewController>
@@ -958,8 +973,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iH-kt-8jb">
+                                <rect key="frame" x="127.5" y="538" width="120" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="h1c-3t-MFp"/>
+                                    <constraint firstAttribute="height" constant="50" id="oEr-eU-pVb"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5iH-kt-8jb" firstAttribute="centerX" secondItem="toG-0c-5SK" secondAttribute="centerX" id="3Ut-Ki-svZ"/>
+                            <constraint firstItem="3mB-EY-c0A" firstAttribute="bottom" secondItem="5iH-kt-8jb" secondAttribute="bottom" constant="30" id="VJe-zS-BDD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3mB-EY-c0A"/>
                     </view>
                 </viewController>
@@ -982,8 +1012,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dlZ-53-Ycy">
+                                <rect key="frame" x="128" y="538" width="120" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="Vj3-Yz-rwv"/>
+                                    <constraint firstAttribute="height" constant="50" id="YBd-B4-mLj"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cPk-Iy-hTc" firstAttribute="bottom" secondItem="dlZ-53-Ycy" secondAttribute="bottom" constant="30" id="Nxr-W2-n8t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="cPk-Iy-hTc"/>
                     </view>
                 </viewController>
@@ -1006,8 +1050,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Arc-ms-7lD">
+                                <rect key="frame" x="127" y="538" width="120" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="9nI-Ma-7Ns"/>
+                                    <constraint firstAttribute="width" constant="120" id="bbj-C8-oZK"/>
+                                </constraints>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h3v-FP-Ucv" firstAttribute="bottom" secondItem="Arc-ms-7lD" secondAttribute="bottom" constant="30" id="WGE-WG-ziP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="h3v-FP-Ucv"/>
                     </view>
                 </viewController>
@@ -1015,7 +1073,7 @@
             </objects>
             <point key="canvasLocation" x="2693.5999999999999" y="2473.313343328336"/>
         </scene>
-        <!--Profile-->
+        <!--Profile View Controller-->
         <scene sceneID="CN5-uP-91J">
             <objects>
                 <viewController id="WND-we-non" customClass="ProfileViewController" customModule="RestPicky" customModuleProvider="target" sceneMemberID="viewController">
@@ -1024,13 +1082,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIp-Af-3a9">
-                                <rect key="frame" x="148" y="238" width="79" height="21"/>
+                                <rect key="frame" x="148" y="282" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginPageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="xsv-fO-Shf">
-                                <rect key="frame" x="67.5" y="80" width="240" height="128"/>
+                                <rect key="frame" x="67.5" y="124" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="13y-Fn-SI8"/>
                                     <constraint firstAttribute="height" constant="128" id="xvm-dD-MlJ"/>
@@ -1051,6 +1109,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Od-42-edc">
+                                <rect key="frame" x="313" y="124" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="newPhoto:" destination="WND-we-non" eventType="touchUpInside" id="Af2-K1-57o"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -1061,7 +1127,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6bb-tU-02z"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="rTM-oP-0jF"/>
+                    <navigationItem key="navigationItem" id="S5G-k4-LJJ"/>
                     <connections>
                         <outlet property="profileImage" destination="xsv-fO-Shf" id="EMc-15-4q3"/>
                         <outlet property="tableView" destination="0vX-TR-If0" id="aFA-xL-3V5"/>
@@ -1074,7 +1140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mms-Tu-wGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="1692"/>
+            <point key="canvasLocation" x="2696.8000000000002" y="1691.6041979010497"/>
         </scene>
         <!--ACTIVITY-->
         <scene sceneID="8lh-Hl-LDp">
@@ -1107,7 +1173,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="cA8-YK-Fcc" kind="relationship" relationship="viewControllers" id="iwy-U4-AG6"/>
-                        <segue destination="WND-we-non" kind="relationship" relationship="viewControllers" id="R2N-eh-sTI"/>
+                        <segue destination="2SP-2L-Kb8" kind="relationship" relationship="viewControllers" id="W8C-Bi-JHg"/>
                         <segue destination="d4E-1G-MNY" kind="relationship" relationship="viewControllers" id="aPm-jr-SFK"/>
                         <segue destination="t4x-El-Dh3" kind="relationship" relationship="viewControllers" id="5tg-Oa-kM2"/>
                     </connections>
@@ -1115,6 +1181,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuq-dj-yRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1007" y="134"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="dKP-jq-lue">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2SP-2L-Kb8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="rTM-oP-0jF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fRq-m8-O5Q">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WND-we-non" kind="relationship" relationship="rootViewController" id="nHS-bF-HKl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nc8-2N-hb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1757.5999999999999" y="1691.6041979010497"/>
         </scene>
     </scenes>
     <resources>

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 //Delegate and datasource needed for tableview
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Our list for the tableview
     let list = ["Reviews", "Photos", "Bookmarks", "Recents"]
@@ -50,6 +50,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Do any additional setup after loading the view.
     }
     
+    //New Photo Button
+    @IBAction func newPhoto(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+            print("present")
+        }
+        print("pressed")
+    }
+    
+    //Image Controller
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("success")
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //Table Actions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
