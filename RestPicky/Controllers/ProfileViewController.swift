@@ -26,6 +26,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Set Back Button properties
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = UIColor.white;
+        
+        //Navigation Title properties
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
+        //Image properties
+//        profileImage.layer.borderWidth = 1.0
+//        profileImage.layer.masksToBounds = false
+//        profileImage.layer.borderColor = UIColor.white.cgColor
+//        profileImage.layer.cornerRadius = 150 / 2
+//        profileImage.clipsToBounds = true
+//        
         //Firebase database reference
         ref = Database.database().reference()
         
