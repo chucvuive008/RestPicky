@@ -934,11 +934,12 @@
                         <outlet property="CollectionTableView" destination="sjI-eM-jYu" id="2BO-2a-wZX"/>
                         <outlet property="searchField" destination="Cvo-C8-vt5" id="Thc-OH-aXL"/>
                         <segue destination="MAb-z2-5bu" kind="show" identifier="restaurantlist" id="LCo-sA-ubp"/>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="restaurantdetail" id="PMx-lm-UNI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXc-Gw-mJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244.8000000000002" y="132.23388305847078"/>
+            <point key="canvasLocation" x="2208" y="94"/>
         </scene>
         <!--Restaurant List View Controller-->
         <scene sceneID="G4f-MY-JOK">
@@ -1161,7 +1162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4V-Pa-P3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="-88"/>
+            <point key="canvasLocation" x="2711" y="-567"/>
         </scene>
         <!--bookmark-->
         <scene sceneID="l7y-NW-FUp">
@@ -1267,5 +1268,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
+        <segue reference="PMx-lm-UNI"/>
     </inferredMetricsTieBreakers>
 </document>

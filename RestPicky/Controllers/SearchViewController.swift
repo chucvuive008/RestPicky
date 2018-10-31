@@ -13,6 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     
     var ref : DatabaseReference?
     var selectedType = ""
+    var selectedRestaurant = Restaurant()
     var newRestaurants = [Restaurant]()
     var selectedRestaurantList = [Restaurant]()
     let restaurantCollectionsName = ["New Restaurants", "Top Restaurants", "Random Restaurants", "Most review"]
@@ -78,8 +79,12 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         for i in 1...6 {
             if indexPath.row == 0 {
-                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
+                let restaurantImage = cell.viewWithTag(i+6) as? UIButton
+                if restaurantImage != nil{
+                    restaurantImage!.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
+                    restaurantImage!.tag = 100 * i + indexPath.row
+                    restaurantImage!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+                }
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 1 {
@@ -104,9 +109,99 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 forwardArrowButton!.tag = indexPath.row
                 forwardArrowButton!.addTarget(self, action: #selector(self.ForwardArrowBtnPress(sender:)), for: .touchUpInside)
             }
+            
+//            let restaurantButton1 = cell.viewWithTag(7) as? UIButton
+//            if restaurantButton1 != nil {
+//                restaurantButton1!.tag = 100 + indexPath.row
+//                restaurantButton1!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
+//
+//            let restaurantButton2 = cell.viewWithTag(8) as? UIButton
+//            if restaurantButton2 != nil {
+//                restaurantButton2!.tag = 200 + indexPath.row
+//                restaurantButton2!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
+//
+//            let restaurantButton3 = cell.viewWithTag(9) as? UIButton
+//            if restaurantButton3 != nil {
+//                restaurantButton3!.tag = 300 + indexPath.row
+//                restaurantButton3!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
+//
+//            let restaurantButton4 = cell.viewWithTag(10) as? UIButton
+//            if restaurantButton4 != nil {
+//                restaurantButton4!.tag = 400 + indexPath.row
+//                restaurantButton4!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
+//
+//            let restaurantButton5 = cell.viewWithTag(11) as? UIButton
+//            if restaurantButton5 != nil {
+//                restaurantButton5!.tag = 500 + indexPath.row
+//                restaurantButton5!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
+//
+//            let restaurantButton6 = cell.viewWithTag(12) as? UIButton
+//            if restaurantButton6 != nil {
+//                restaurantButton6!.tag = 600 + indexPath.row
+//                restaurantButton6!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+//            }
         }
         cell.selectionStyle = UITableViewCell.SelectionStyle.none 
         return cell
+    }
+    
+    @objc func restaurantBtnPress(sender: UIButton){
+        if sender.tag == 100 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 1]
+        }else if sender.tag == 101 {
+            
+        } else if sender.tag == 102{
+            
+        }else if sender.tag == 103 {
+            
+        }else if sender.tag == 200 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 2]
+        }else if sender.tag == 201 {
+            
+        } else if sender.tag == 202{
+            
+        }else if sender.tag == 203 {
+            
+        }else if sender.tag == 300 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 3]
+        }else if sender.tag == 301 {
+            
+        } else if sender.tag == 302{
+            
+        }else if sender.tag == 303 {
+            
+        } else if sender.tag == 400 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 4]
+        }else if sender.tag == 401 {
+            
+        } else if sender.tag == 402{
+            
+        }else if sender.tag == 403 {
+            
+        }else if sender.tag == 500 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 5]
+        }else if sender.tag == 501 {
+            
+        } else if sender.tag == 502{
+            
+        }else if sender.tag == 503 {
+            
+        }else if sender.tag == 600 {
+            selectedRestaurant = newRestaurants[newRestaurants.count - 6]
+        }else if sender.tag == 601 {
+            
+        } else if sender.tag == 602{
+            
+        }else if sender.tag == 603 {
+            
+        }
+        
+        performSegue(withIdentifier: "restaurantdetail", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,6 +210,11 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             seg.type = selectedType
             seg.restaurantList = selectedRestaurantList
             seg.selectedRestaurant = newRestaurants[0]
+        }
+        
+        if segue.identifier == "restaurantdetail"{
+            let seg = segue.destination as! RestaurantDetailViewController
+            seg.restaurant = selectedRestaurant
         }
     }
     
