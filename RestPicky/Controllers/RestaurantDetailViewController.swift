@@ -30,6 +30,54 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
+    @IBOutlet weak var buttonRateStar5: UIButton!
+    @IBOutlet weak var buttonRateStar4: UIButton!
+    @IBOutlet weak var buttonRateStar3: UIButton!
+    @IBOutlet weak var buttonRateStar2: UIButton!
+    @IBOutlet weak var buttonRateStar1: UIButton!
+    
+    
+    
+    @IBAction func rateStar5(_ sender: Any) {
+        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar4.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar5.setImage(UIImage(named: "YellowStarIcon"), for: [])
+    }
+    
+    @IBAction func rateStar4(_ sender: Any) {
+        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar4.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
+    }
+    
+    @IBAction func rateStar3(_ sender: Any) {
+        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
+    }
+    
+    @IBAction func rateStar2(_ sender: Any) {
+        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar3.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
+    }
+    
+    @IBAction func rateStar1(_ sender: Any) {
+        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
+        buttonRateStar2.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar3.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
+        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
+    }
+    
     @IBAction func backBtnPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

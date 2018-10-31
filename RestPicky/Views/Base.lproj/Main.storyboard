@@ -1212,9 +1212,70 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UIV-7H-tBp" userLabel="Rate Stack View">
+                                <rect key="frame" x="339" y="302" width="20" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmc-Fk-OiA">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="EZQ-89-Hbz"/>
+                                            <constraint firstAttribute="height" constant="20" id="gfH-KQ-5as"/>
+                                        </constraints>
+                                        <state key="normal" image="BlankStarIcon"/>
+                                        <connections>
+                                            <action selector="rateStar5:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="5LH-e9-wt1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m0s-LC-ssF">
+                                        <rect key="frame" x="0.0" y="25" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="GXZ-J6-Rqp"/>
+                                            <constraint firstAttribute="height" constant="20" id="HQt-yv-rwN"/>
+                                        </constraints>
+                                        <state key="normal" image="BlankStarIcon"/>
+                                        <connections>
+                                            <action selector="rateStar4:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="b4d-qD-K5k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Kc-hF-S2f">
+                                        <rect key="frame" x="0.0" y="50" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="DwN-fu-LVO"/>
+                                            <constraint firstAttribute="height" constant="20" id="ziz-by-A2M"/>
+                                        </constraints>
+                                        <state key="normal" image="BlankStarIcon"/>
+                                        <connections>
+                                            <action selector="rateStar3:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="ENn-qw-1Nt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-xE-0Xi">
+                                        <rect key="frame" x="0.0" y="75" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="a3G-2p-DZ4"/>
+                                            <constraint firstAttribute="width" constant="20" id="lq2-1r-jB0"/>
+                                        </constraints>
+                                        <state key="normal" image="BlankStarIcon"/>
+                                        <connections>
+                                            <action selector="rateStar2:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="NK5-PD-Jbb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmv-xS-7Y6">
+                                        <rect key="frame" x="0.0" y="100" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="lYJ-uM-VLq"/>
+                                            <constraint firstAttribute="height" constant="20" id="mu9-WZ-9hG"/>
+                                        </constraints>
+                                        <state key="normal" image="BlankStarIcon"/>
+                                        <connections>
+                                            <action selector="rateStar1:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="JaP-z4-VCB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="UIV-7H-tBp" firstAttribute="top" secondItem="5a5-tB-G7r" secondAttribute="bottom" constant="8" id="32W-uV-GzA"/>
                             <constraint firstItem="fd5-6J-ozj" firstAttribute="top" secondItem="iBC-ho-prf" secondAttribute="top" id="428-wh-6mJ"/>
                             <constraint firstItem="Lgl-k5-9TA" firstAttribute="top" secondItem="KcM-kY-qTm" secondAttribute="bottom" constant="8" id="4YK-8h-IiZ"/>
                             <constraint firstItem="u66-Vp-Kcv" firstAttribute="top" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="7" id="8JW-RE-csM"/>
@@ -1226,6 +1287,7 @@
                             <constraint firstItem="u66-Vp-Kcv" firstAttribute="leading" secondItem="KcM-kY-qTm" secondAttribute="trailing" constant="27" id="jOS-0A-C6N"/>
                             <constraint firstItem="CyX-16-qWI" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="16" id="oSQ-bA-EnY"/>
                             <constraint firstItem="CyX-16-qWI" firstAttribute="top" secondItem="5a5-tB-G7r" secondAttribute="bottom" constant="8" id="pHC-kt-8qL"/>
+                            <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="UIV-7H-tBp" secondAttribute="trailing" constant="16" id="pYh-lV-0Wn"/>
                             <constraint firstItem="KcM-kY-qTm" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="16" id="xMB-ZR-0lm"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="fd5-6J-ozj" secondAttribute="trailing" id="yIn-Jy-0PA"/>
                             <constraint firstItem="5a5-tB-G7r" firstAttribute="top" secondItem="fd5-6J-ozj" secondAttribute="bottom" id="zXD-TC-971" userLabel="Restaurant Image.top = View.bottom"/>
@@ -1234,6 +1296,11 @@
                     </view>
                     <connections>
                         <outlet property="Street" destination="iFq-d6-vfp" id="v1O-f7-7zA"/>
+                        <outlet property="buttonRateStar1" destination="rmv-xS-7Y6" id="TP0-aW-6Kc"/>
+                        <outlet property="buttonRateStar2" destination="Ebk-xE-0Xi" id="9sv-Uh-u8M"/>
+                        <outlet property="buttonRateStar3" destination="5Kc-hF-S2f" id="zb7-a7-aMB"/>
+                        <outlet property="buttonRateStar4" destination="m0s-LC-ssF" id="tlg-bL-fiQ"/>
+                        <outlet property="buttonRateStar5" destination="hmc-Fk-OiA" id="gAt-MV-oqq"/>
                         <outlet property="cityStateZip" destination="ciu-ET-a3H" id="hNo-of-jsB"/>
                         <outlet property="restaurantImage" destination="5a5-tB-G7r" id="210-Sq-ond"/>
                         <outlet property="star1" destination="2AL-60-sse" id="2qM-6v-1Fa"/>
@@ -1331,6 +1398,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BlankStarIcon" width="128" height="128"/>
         <image name="BurgerIcon" width="128" height="127"/>
         <image name="HeartIcon" width="128" height="128"/>
         <image name="Indian" width="128" height="128"/>
