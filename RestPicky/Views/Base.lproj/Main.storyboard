@@ -480,7 +480,7 @@
                                 <rect key="frame" x="0.0" y="156" width="750" height="275"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="6E2-Fj-6a0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="6E2-Fj-6a0">
                                         <rect key="frame" x="0.0" y="28" width="750" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6E2-Fj-6a0" id="koa-dv-H3Q">
@@ -494,7 +494,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjh-NA-vf2">
-                                                    <rect key="frame" x="1100" y="11" width="20" height="20"/>
+                                                    <rect key="frame" x="725" y="11" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="3jY-Go-aT0"/>
                                                         <constraint firstAttribute="width" constant="20" id="nDY-GW-1B5"/>
@@ -502,7 +502,7 @@
                                                     <state key="normal" title="Button" image="RightArrow"/>
                                                 </button>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-cx-riJ">
-                                                    <rect key="frame" x="0.0" y="66" width="1125" height="134"/>
+                                                    <rect key="frame" x="0.0" y="66" width="750" height="134"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xO6-D5-qYP">
                                                             <rect key="frame" x="10" y="0.0" width="734" height="124"/>
