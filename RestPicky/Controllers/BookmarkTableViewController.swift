@@ -11,6 +11,7 @@ import UIKit
 class BookmarkTableViewController: UITableViewController {
 
     var restaurants = [Restaurant]()
+    var selectedRestaurant = Restaurant()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,7 +55,17 @@ class BookmarkTableViewController: UITableViewController {
         return cell
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "restaurantdetail"{
+            let seg = segue.destination as! RestaurantDetailViewController
+            seg.restaurant = selectedRestaurant
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRestaurant = restaurants[indexPath.row]
+        performSegue(withIdentifier: "restaurantdetail", sender: self)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

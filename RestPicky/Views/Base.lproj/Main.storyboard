@@ -1314,7 +1314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4V-Pa-P3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="-88.605697151424295"/>
+            <point key="canvasLocation" x="3535" y="1027"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="TQE-dS-s9C">
@@ -1701,10 +1701,13 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Bookmark" id="zTh-qc-5aF"/>
+                    <connections>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="restaurantdetail" id="GtE-5M-wN3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XG3-fc-Nkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1005.6" y="1136.5817091454273"/>
+            <point key="canvasLocation" x="5092" y="359"/>
         </scene>
         <!--Profile-->
         <scene sceneID="dKP-jq-lue">
@@ -1751,6 +1754,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
-        <segue reference="4xb-Rg-8rO"/>
+        <segue reference="GtE-5M-wN3"/>
     </inferredMetricsTieBreakers>
 </document>
