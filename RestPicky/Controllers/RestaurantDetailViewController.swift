@@ -15,7 +15,7 @@ class RestaurantDetailViewController: UIViewController {
         super.viewDidLoad()
         
         titleLabel.text = restaurant.name
-        Street.text = restaurant.street + "123 Main St." 
+        Street.text = restaurant.street 
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
         restaurantImage.image = restaurant.images[0]
         
