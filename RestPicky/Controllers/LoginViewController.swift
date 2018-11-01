@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -22,6 +22,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         self.usernameTextField.layer.borderWidth = 0
         self.passwordTextField.layer.borderWidth = 0
         self.usernameTextField.layer.cornerRadius = 16
@@ -34,6 +38,12 @@ class LoginViewController: UIViewController {
         ref = Database.database().reference()
         getRestaurants(restaurantArray: newRestaurants)
         // Do any additional setup after loading the view.
+        
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     @IBAction func signUpButtonPress(_ sender: Any) {
@@ -99,7 +109,7 @@ class LoginViewController: UIViewController {
     }
     
     func getRestaurants(restaurantArray: Array<Restaurant>){
-        ref?.child("restaurant").queryLimited(toLast: 6).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("restaurant").queryLimited(toLast: 10).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [DataSnapshot] {
                 for child in result {
                     let orderID = child.key
