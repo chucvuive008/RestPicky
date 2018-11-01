@@ -104,5 +104,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    @IBAction func signoutBtnPress(_ sender: Any) {
+         self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
+            try! Auth.auth().signOut()
+    }
+    
     
 }
