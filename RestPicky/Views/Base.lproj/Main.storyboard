@@ -1316,22 +1316,6 @@
             </objects>
             <point key="canvasLocation" x="4436" y="-88.605697151424295"/>
         </scene>
-        <!--bookmark-->
-        <scene sceneID="l7y-NW-FUp">
-            <objects>
-                <viewController id="t4x-El-Dh3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="51f-O7-PyY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="7Nu-ba-A8Z"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="bookmark" id="j3g-xJ-Gas"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lp2-eV-ucP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1050" y="907"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="TQE-dS-s9C">
             <objects>
@@ -1595,12 +1579,41 @@
                         <segue destination="cA8-YK-Fcc" kind="relationship" relationship="viewControllers" id="iwy-U4-AG6"/>
                         <segue destination="2SP-2L-Kb8" kind="relationship" relationship="viewControllers" id="W8C-Bi-JHg"/>
                         <segue destination="d4E-1G-MNY" kind="relationship" relationship="viewControllers" id="aPm-jr-SFK"/>
-                        <segue destination="t4x-El-Dh3" kind="relationship" relationship="viewControllers" id="5tg-Oa-kM2"/>
+                        <segue destination="PLE-Ig-bAl" kind="relationship" relationship="viewControllers" id="nyW-yd-BCM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuq-dj-yRw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1007" y="134"/>
+        </scene>
+        <!--Bookmark-->
+        <scene sceneID="UaB-Xd-n3I">
+            <objects>
+                <tableViewController id="PLE-Ig-bAl" customClass="BookmarkTableViewController" customModule="RestPicky" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pvt-fX-W66">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="MNA-NB-P9L">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MNA-NB-P9L" id="Ckt-bh-xvI">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="PLE-Ig-bAl" id="s6c-Th-g2v"/>
+                            <outlet property="delegate" destination="PLE-Ig-bAl" id="h8h-ZR-WLT"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Bookmark" id="zTh-qc-5aF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XG3-fc-Nkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006" y="1137"/>
         </scene>
         <!--Profile-->
         <scene sceneID="dKP-jq-lue">
@@ -1625,7 +1638,7 @@
     </scenes>
     <resources>
         <image name="BlankStarIcon" width="128" height="128"/>
-        <image name="BurgerIcon" width="128" height="127"/>
+        <image name="BurgerIcon" width="128" height="127.5"/>
         <image name="HeartIcon" width="128" height="128"/>
         <image name="Indian" width="128" height="128"/>
         <image name="LoginPageBackground" width="674" height="1200"/>
@@ -1641,7 +1654,7 @@
         <image name="back" width="128" height="128"/>
         <image name="food" width="128" height="128"/>
         <image name="meat" width="128" height="128"/>
-        <image name="placeholder" width="320" height="320"/>
+        <image name="placeholder" width="240" height="240"/>
         <image name="search" width="12.5" height="12.5"/>
         <image name="soup" width="128" height="128"/>
     </resources>

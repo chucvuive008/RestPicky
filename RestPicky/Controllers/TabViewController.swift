@@ -41,7 +41,10 @@ class TabViewController: UITabBarController {
             if let searchViewController = viewController as? SearchViewController {
                 searchViewController.newRestaurants = newRestaurants
             }
-        
+            
+            if let bookmarkViewController = viewController as? BookmarkTableViewController {
+                bookmarkViewController.restaurants = newRestaurants
+            }
         }
     }
     
