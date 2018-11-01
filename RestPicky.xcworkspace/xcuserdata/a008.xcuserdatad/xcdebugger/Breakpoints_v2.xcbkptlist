@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestPicky/Controllers/LoginViewController.swift"
-            timestampString = "560368770.816502"
+            timestampString = "562726300.649582"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "SignInButtonPress(_:)"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "getRestaurantDetail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestPicky/Controllers/LoginViewController.swift"
-            timestampString = "560368770.816579"
+            timestampString = "562726300.65025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "SignInButtonPress(_:)"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "getPhoto(urlString:restaurant:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.143428"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "607"
+            endingLineNumber = "607"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestPicky/Controllers/LoginViewController.swift"
-            timestampString = "560368770.816637"
+            timestampString = "562726300.651104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "SignInButtonPress(_:)"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getRestaurantDetail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RestPicky/Controllers/RegisterViewController.swift"
-            timestampString = "560373143.67425"
+            filePath = "RestPicky/Controllers/LoginViewController.swift"
+            timestampString = "562726300.651633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "signUpButtonPress(_:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "getRestaurantDetail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RestPicky/Controllers/RegisterViewController.swift"
-            timestampString = "560373143.675254"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.1440721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "signUpButtonPress(_:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "getAmericanRestaurants(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +105,109 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RestPicky/Controllers/RegisterViewController.swift"
-            timestampString = "560373143.676015"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.1443909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "signUpButtonPress(_:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.144693"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "getAmericanRestaurants(type:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.145032"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "getAmericanRestaurants(type:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.145347"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "getAmericanRestaurants(type:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RestPicky.SearchViewController.getRestaurantsByType(type: Swift.String) -&gt; Swift.Array&lt;RestPicky.Restaurant&gt;"
+                  moduleName = "RestPicky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a008/Desktop/IOS_Development/IOS12_Swift4_Udemy/RestPicky/RestPicky/Controllers/SearchViewController.swift"
+                  timestampString = "562719695.051101"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "154">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in RestPicky.SearchViewController.getRestaurantsByType(type: Swift.String) -&gt; Swift.Array&lt;RestPicky.Restaurant&gt;"
+                  moduleName = "RestPicky"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a008/Desktop/IOS_Development/IOS12_Swift4_Udemy/RestPicky/RestPicky/Controllers/SearchViewController.swift"
+                  timestampString = "562719695.0599771"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "90">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RestPicky/Controllers/SearchViewController.swift"
+            timestampString = "562724613.145658"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "getAmericanRestaurants(type:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

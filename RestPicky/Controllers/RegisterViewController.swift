@@ -17,7 +17,7 @@ struct retaurant{
     var name: String
 }
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -27,6 +27,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
         
         ref = Database.database().reference()
         
@@ -42,6 +47,11 @@ class RegisterViewController: UIViewController {
         emailTextField.layer.borderWidth = 0
         passwordTextField.layer.borderWidth = 0
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     @IBAction func backButtonPress(_ sender: Any) {

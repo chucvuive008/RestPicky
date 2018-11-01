@@ -10,25 +10,42 @@ import UIKit
 import Firebase
 
 class TabViewController: UITabBarController {
-    
+    var finish = false
     var user = User()
     var currentUser : String?
     var ref : DatabaseReference?
+    var newRestaurants = [Restaurant]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         ref = Database.database().reference()
         user.uid = Auth.auth().currentUser?.uid ?? ""
-        ref?.child("user").child(user.uid).observeSingleEvent(of: .value) { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            self.user.name = value?["name"] as? String ?? ""
-            self.user.email = value?["email"] as? String ?? ""
+        ref?.child("restaurant").observeSingleEvent(of: .value) { (snapshot) in
+            if let result = snapshot.children.allObjects as? [DataSnapshot] {
+                for child in result {
+                    let orderID = child.key
+                    print(orderID)
+                }
+            }
         }
         
-        print(user.email)
+
+
+        
+        guard let viewControllers = viewControllers else {
+            return
+        }
+    
+        for viewController in viewControllers{
+            if let searchViewController = viewController as? SearchViewController {
+                searchViewController.newRestaurants = newRestaurants
+            }
+        
+        }
     }
     
+
     
     /*
      // MARK: - Navigation

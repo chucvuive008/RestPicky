@@ -10,15 +10,22 @@ import UIKit
 import SVProgressHUD
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    var img = UIImage()
+    var newRestaurants = [Restaurant]()
+    var ref : DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         self.usernameTextField.layer.borderWidth = 0
         self.passwordTextField.layer.borderWidth = 0
         self.usernameTextField.layer.cornerRadius = 16
@@ -28,7 +35,15 @@ class LoginViewController: UIViewController {
         
         self.signInButton.layer.cornerRadius = 16
         self.signUpButton.layer.cornerRadius = 16
+        ref = Database.database().reference()
+        getRestaurants(restaurantArray: newRestaurants)
         // Do any additional setup after loading the view.
+        
+    }
+    
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     @IBAction func signUpButtonPress(_ sender: Any) {
@@ -58,6 +73,7 @@ class LoginViewController: UIViewController {
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     print("Log in successful")
                     self.performSegue(withIdentifier: "LoginToSearch", sender: self)
+                    
                 }
                 else {
                     self.alert(title: "", message: "Please verify your email")
@@ -65,6 +81,81 @@ class LoginViewController: UIViewController {
                 //
             }
             
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "LoginToSearch" {
+            let controller = segue.destination as! TabViewController
+            controller.newRestaurants = newRestaurants
+            
+        }
+    }
+    
+    func getPhoto (urlString : String, restaurant: Restaurant){
+        let url = URL(string: urlString)
+        
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async {
+                if data != nil{
+                    restaurant.images.append(UIImage(data: data!)!)
+                }
+            }
+        }).resume()
+    }
+    
+    func getRestaurants(restaurantArray: Array<Restaurant>){
+        ref?.child("restaurant").queryLimited(toLast: 10).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [DataSnapshot] {
+                for child in result {
+                    let orderID = child.key
+                    self.newRestaurants.append(Restaurant(localId: Int(orderID)!))
+                }
+                self.getRestaurantDetail()
+            }
+        })
+    }
+    
+    func getRestaurantDetail(){
+        for i in 0..<newRestaurants.count{
+            ref?.child("restaurant/\(newRestaurants[i].id)").observeSingleEvent(of: .value, with: { (snapshot) in
+                if let result = snapshot.value as? NSDictionary {
+                    for child in result {
+                        if child.key as! String == "images"{
+                            if let childSnapshot = snapshot.childSnapshot(forPath: "images").value{
+                                print((childSnapshot as AnyObject).count!)
+                                for index in 1..<(childSnapshot as AnyObject).count!{
+                                
+                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.newRestaurants[i].id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.newRestaurants[i])
+                                }
+                            }
+                        }else if child.key as! String == "street"{
+                            self.newRestaurants[i].street = child.value as! String
+                        }else if child.key as! String == "city"{
+                            self.newRestaurants[i].city = child.value as! String
+                        }else if child.key as! String == "state"{
+                            self.newRestaurants[i].state = child.value as!  String
+                        }else if child.key as! String == "latitude"{
+                            self.newRestaurants[i].latitude = child.value as! Double
+                        }else if child.key as! String == "longitude"{
+                            self.newRestaurants[i].longitude = child.value as! Double
+                        }else if child.key as! String == "name"{
+                            self.newRestaurants[i].name = child.value as! String
+                        }else if child.key as! String == "phone"{
+                            self.newRestaurants[i].phoneNumber = child.value as! String
+                        }else if child.key as! String == "zipcode"{
+                            self.newRestaurants[i].zipcode = child.value as! Int
+                        }else if child.key as! String == "type"{
+                            self.newRestaurants[i].type = child.value as! String
+                        }
+                        
+                    }
+                }
+            })
         }
     }
     
