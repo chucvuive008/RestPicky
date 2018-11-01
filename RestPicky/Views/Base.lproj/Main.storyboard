@@ -1296,6 +1296,9 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonCall:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="XZO-UD-Ijj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-LB-wDw">
                                 <rect key="frame" x="217" y="445.5" width="150" height="40"/>
@@ -1414,6 +1417,7 @@
                         <outlet property="buttonRateStar5" destination="hmc-Fk-OiA" id="gAt-MV-oqq"/>
                         <outlet property="cityStateZip" destination="ciu-ET-a3H" id="hNo-of-jsB"/>
                         <outlet property="numberReviews" destination="u66-Vp-Kcv" id="b7t-WK-CZa"/>
+                        <outlet property="phoneNumber" destination="buS-Ey-Yfe" id="MEw-Az-S3h"/>
                         <outlet property="restaurantImage" destination="5a5-tB-G7r" id="210-Sq-ond"/>
                         <outlet property="star1" destination="2AL-60-sse" id="2qM-6v-1Fa"/>
                         <outlet property="star2" destination="H59-pU-Aby" id="CMh-LE-fgx"/>

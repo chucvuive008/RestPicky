@@ -10,13 +10,9 @@ import UIKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let itemList = ["Calamary Fried", "Fish Taco Bits", "Coconut Shrimp", "Shrimp Coctail"]
-    
-    let priceList = ["$5.99", "$5.99", "$5.99", "$5.99"]
-    
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(itemList.count)
+        return(restaurantMenu.count)
     }
     
     // create a cell for each table view row
@@ -27,8 +23,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         let menuItem = cell.viewWithTag(1000) as! UILabel
         let price = cell.viewWithTag(1001) as! UILabel
         
-        menuItem.text = itemList[indexPath.row]
-        price.text = priceList[indexPath.row]
+        menuItem.text = restaurantMenu[indexPath.row].name
+        price.text = "$\(restaurantMenu[indexPath.row].price)"
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
@@ -37,16 +33,19 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
 
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
-    
     var restaurant = Restaurant()
     var total = 0.0
-    var restaurantMenu = ["Calamary Fried": "$5.99",
-                          "Fish Taco Bits": "$5.99",
-                          "Coconut Shrimp": "$5.99",
-                          "Shrimp Coctail": "$5.99",] as [AnyHashable : String]
+    var restaurantMenu = [Menu]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        restaurantMenu.append(Menu(uid: "1", category: "Entry", name: "Calamary Fried", price: 5.99))
+        restaurantMenu.append(Menu(uid: "2", category: "Entry", name: "Fish Taco Bits", price: 7.99))
+        restaurantMenu.append(Menu(uid: "3", category: "Entry", name: "Coconut Shrimp", price: 8.99))
+        restaurantMenu.append(Menu(uid: "4", category: "Entry", name: "Shrimp Coctail", price: 9.99))
+        restaurantMenu.append(Menu(uid: "5", category: "Entry", name: "Fish Especial Soup", price: 6.99))
+        
         
         total = restaurant.rating * Double(reviews)
         
@@ -59,6 +58,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         paintStars(raiting: restaurant.rating)
         
         
+        phoneNumber.setTitle("Call (\(restaurant.phoneNumber))", for: [])
         
         // Do any additional setup after loading the view.
     }
@@ -77,6 +77,13 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var buttonRateStar2: UIButton!
     @IBOutlet weak var buttonRateStar1: UIButton!
     
+    
+    @IBOutlet weak var phoneNumber: UIButton!
+    @IBAction func buttonCall(_ sender: Any) {
+        if let url = URL(string: "tel://\(restaurant.phoneNumber)") {
+            UIApplication.shared.openURL(url)
+        }
+    }
     
     
     @IBAction func rateStar5(_ sender: Any) {
@@ -132,12 +139,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBAction func backBtnPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var restaurantImage: UIImageView!
-    
     @IBOutlet weak var Street: UILabel!
-    
     @IBOutlet weak var cityStateZip: UILabel!
     
     func rate(myRate: Int)
