@@ -10,7 +10,6 @@ import UIKit
 
 class BookmarkTableViewController: UITableViewController {
 
-    
     var restaurants = [Restaurant]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,31 +19,41 @@ class BookmarkTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        print(restaurants[1].street)
-        print(restaurants[2].city)
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return restaurants.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let nameLabel = cell.viewWithTag(1) as! UILabel
+        let addressLabel = cell.viewWithTag(2) as! UILabel
+        let phoneLabel = cell.viewWithTag(3) as! UILabel
+        let restaurantImageView = cell.viewWithTag(4) as! UIImageView
+        
+        nameLabel.text = restaurants[indexPath.row].name
+        addressLabel.text = restaurants[indexPath.row].street + ", " + restaurants[indexPath.row].city + ", " + restaurants[indexPath.row].state + ", \(restaurants[indexPath.row].zipcode)"
+        phoneLabel.text = restaurants[indexPath.row].phoneNumber
+        
+        restaurantImageView.image = restaurants[indexPath.row].images[0]
+        
         // Configure the cell...
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.
