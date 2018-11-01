@@ -1531,7 +1531,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6bb-tU-02z"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="S5G-k4-LJJ"/>
+                    <navigationItem key="navigationItem" title="Profile" id="S5G-k4-LJJ">
+                        <barButtonItem key="rightBarButtonItem" title="sign out" id="SkB-Mu-qHF">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="signoutBtnPress:" destination="WND-we-non" id="SiN-Yw-6uK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="profileImage" destination="xsv-fO-Shf" id="EMc-15-4q3"/>
                         <outlet property="tableView" destination="0vX-TR-If0" id="aFA-xL-3V5"/>

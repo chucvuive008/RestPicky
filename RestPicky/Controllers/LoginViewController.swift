@@ -41,6 +41,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
