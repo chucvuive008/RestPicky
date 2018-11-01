@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -83,6 +84,27 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         if let url = URL(string: "tel://\(restaurant.phoneNumber)") {
             UIApplication.shared.openURL(url)
         }
+    }
+    
+    
+    @IBAction func buttonDirections(_ sender: Any) {
+        let lat1 : NSString = NSString(format:"%f", restaurant.latitude)
+        let lng1 : NSString = NSString(format:"%f", restaurant.longitude)
+        
+        let latitude:CLLocationDegrees =  lat1.doubleValue
+        let longitude:CLLocationDegrees =  lng1.doubleValue
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(restaurant.name)"
+        mapItem.openInMaps(launchOptions: options)
     }
     
     
