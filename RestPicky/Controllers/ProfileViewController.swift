@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
+        
         //Image properties
 //        profileImage.layer.borderWidth = 1.0
 //        profileImage.layer.masksToBounds = false
@@ -74,8 +75,36 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             imagePicker.sourceType = .camera;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
+            
         }
     }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+    func uploadMedia( image: UIImage) {
+        let storageRef = Storage.storage().reference().child("/user/")
+        var uploadData = image.pngData()
+        let uploadTask = storageRef.putData(uploadData!, metadata: nil, completion: {(metadata, error) in
+                guard let metadata = metadata else {
+                    return
+                }
+            })
+        // Add a progress observer to an upload task
+        let observer = uploadTask.observe(.progress) { snapshot in
+            // A progress event occured
+            print(snapshot)
+        }
+        }
     
     //Image Controller
     func imagePickerController(_ picker: UIImagePickerController,
@@ -85,6 +114,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         profileImage.image = selectedImage
         
+        uploadMedia(image: resizeImage(image: selectedImage, newWidth: 10))
+        print("function upload media")
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
