@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //Firebase database reference
     var ref: DatabaseReference!
-    
+    var userID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        
+        let user = Auth.auth().currentUser
+        if let user = user {
+            // The user's ID, unique to the Firebase project.
+            // Do NOT use this value to authenticate with your backend server,
+            // if you have one. Use getTokenWithCompletion:completion: instead.
+            self.userID = user.uid
+        }
         //Image properties
 //        profileImage.layer.borderWidth = 1.0
 //        profileImage.layer.masksToBounds = false
@@ -92,7 +98,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func uploadMedia( image: UIImage) {
-        let storageRef = Storage.storage().reference().child("/user/")
+        let databaseRef = ref.child("user/").child(userID).child("profilePics/")
+        let storageRef = Storage.storage().reference().child("user/").child(userID).child("profilePics/")
+        
         var uploadData = image.pngData()
         let uploadTask = storageRef.putData(uploadData!, metadata: nil, completion: {(metadata, error) in
                 guard let metadata = metadata else {
@@ -113,8 +121,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         profileImage.image = selectedImage
-        
-        uploadMedia(image: resizeImage(image: selectedImage, newWidth: 10))
+        //Upload to firebase
+        uploadMedia(image: selectedImage)
         print("function upload media")
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
