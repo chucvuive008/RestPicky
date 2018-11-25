@@ -114,7 +114,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getRestaurants(restaurantArray: Array<Restaurant>){
-        ref?.child("restaurant").queryLimited(toLast: 10).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("restaurant").queryLimited(toLast: 100).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [DataSnapshot] {
                 for child in result {
                     let orderID = child.key

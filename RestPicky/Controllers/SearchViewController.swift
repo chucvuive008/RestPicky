@@ -14,7 +14,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var ref : DatabaseReference?
     var selectedType = ""
     var selectedRestaurant = Restaurant()
+    
     var newRestaurants = [Restaurant]()
+    var randomRestaurants = [Restaurant]()
     var americanRestaurants = [Restaurant]()
     var italianRestaurants = [Restaurant]()
     var japaneseRestaurants = [Restaurant]()
@@ -37,16 +39,23 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         CollectionTableView.delegate = self
         CollectionTableView.dataSource = self
         ref = Database.database().reference()
-        getAmericanRestaurants(type: "American")
-        getItalianRestaurants(type: "Italian")
-        getJapaneseRestaurants(type: "Japanese")
-        getSeafoodRestaurants(type: "Seafood")
-        getMexicanRestaurants(type: "Mexican")
-        getIndianRestaurants(type: "Indian")
-        getChineseRestaurants(type: "Chinese")
-        getSoupRestaurants(type: "Soup")
-        getSteakRestaurants(type: "Steak")
-        // Do any additional setup after loading the view.
+        americanRestaurants = getRestaurantByType(type: "American")
+        italianRestaurants = getRestaurantByType(type: "Italian")
+        japaneseRestaurants = getRestaurantByType(type: "Japanese")
+        seafoodRestaurants = getRestaurantByType(type: "Seafood")
+        mexicoRestaurants = getRestaurantByType(type: "Mexican")
+        indianRestaurants = getRestaurantByType(type: "Indian")
+        chineseRestaurants = getRestaurantByType(type: "Chinese")
+        soupRestaurants = getRestaurantByType(type: "Soup")
+        steakRestaurants = getRestaurantByType(type: "Steak")
+        var selectedNums = [Int]()
+        while selectedNums.count < 10{
+            let randomNum = Int.random(in: 0..<newRestaurants.count)
+            if !selectedNums.contains(randomNum){
+                selectedNums.append(randomNum)
+                randomRestaurants.append(newRestaurants[randomNum])
+            }
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,400 +70,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         return 180
     }
     
-    func getAmericanRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.americanRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.americanRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.americanRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.americanRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.americanRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.americanRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.americanRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.americanRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.americanRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.americanRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.americanRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.americanRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
+    func getRestaurantByType(type: String) -> Array<Restaurant> {
+        var restaurants = [Restaurant]()
+        for restaurant in newRestaurants{
+            if restaurant.type == type
+            {
+                restaurants.append(restaurant)
             }
-        })
-    }
-    
-    func getItalianRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.italianRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.italianRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.italianRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.italianRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.italianRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.italianRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.italianRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.italianRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.italianRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.italianRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.italianRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.italianRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getJapaneseRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.japaneseRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.japaneseRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.japaneseRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.japaneseRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.japaneseRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.japaneseRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.japaneseRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.japaneseRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.japaneseRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.japaneseRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.japaneseRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.japaneseRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getSeafoodRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.seafoodRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.seafoodRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.seafoodRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.seafoodRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.seafoodRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.seafoodRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.seafoodRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.seafoodRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.seafoodRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.seafoodRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.seafoodRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.seafoodRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getMexicanRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.mexicoRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.mexicoRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.mexicoRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.mexicoRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.mexicoRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.mexicoRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.mexicoRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.mexicoRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.mexicoRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.mexicoRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.mexicoRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.mexicoRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getIndianRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.indianRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.indianRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.indianRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.indianRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.indianRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.indianRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.indianRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.indianRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.indianRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.indianRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.indianRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.indianRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getChineseRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.chineseRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.chineseRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.chineseRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.chineseRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.chineseRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.chineseRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.chineseRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.chineseRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.chineseRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.chineseRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.chineseRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.chineseRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getSoupRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.soupRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.soupRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.soupRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.soupRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.soupRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.soupRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.soupRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.soupRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.soupRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.soupRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.soupRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.soupRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
-    }
-    
-    func getSteakRestaurants(type: String){
-        ref?.child("restaurant").queryOrdered(byChild: "type").queryEqual(toValue: type).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let restaurantList = snapshot.value as? NSDictionary{
-                for restaurant in restaurantList {
-                    
-                    let key = restaurant.key as! String
-                    self.steakRestaurants.append(Restaurant(localId: Int(key)!))
-                    let children = restaurant.value as! NSDictionary
-                    for child in children{
-                        if child.key as! String == "images"{
-                            
-                            if let childSnapshot = snapshot.childSnapshot(forPath: "\(key)/images").value{
-                                print((childSnapshot as AnyObject).count!)
-                                for index in 1..<(childSnapshot as AnyObject).count!{
-                                    
-                                    self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.steakRestaurants.last!.id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.steakRestaurants.last!)
-                                }
-                            }
-                        }else if child.key as! String == "street"{
-                            self.steakRestaurants.last!.street = child.value as! String
-                        }else if child.key as! String == "city"{
-                            self.steakRestaurants.last!.city = child.value as! String
-                        }else if child.key as! String == "state"{
-                            self.steakRestaurants.last!.state = child.value as!  String
-                        }else if child.key as! String == "latitude"{
-                            self.steakRestaurants.last!.latitude = child.value as! Double
-                        }else if child.key as! String == "longitude"{
-                            self.steakRestaurants.last!.longitude = child.value as! Double
-                        }else if child.key as! String == "name"{
-                            self.steakRestaurants.last!.name = child.value as! String
-                        }else if child.key as! String == "phone"{
-                            self.steakRestaurants.last!.phoneNumber = child.value as! String
-                        }else if child.key as! String == "zipcode"{
-                            self.steakRestaurants.last!.zipcode = child.value as! Int
-                        }else if child.key as! String == "type"{
-                            self.steakRestaurants.last!.type = child.value as! String
-                        }
-                    }
-                    
-                }
-            }
-        })
+        }
+        return restaurants
     }
     
     @IBAction func SelectRestaurantType(_ sender: UIButton) {
@@ -517,10 +141,14 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 2 {
-                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
-                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
+                let restaurantImage = cell.viewWithTag(i+6) as? UIButton
+                if restaurantImage != nil {
+                    restaurantImage!.setImage(randomRestaurants[i - 1].images[0], for: .normal)
+                    restaurantImage!.tag = 100 * i + indexPath.row
+                    restaurantImage!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+                }
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[newRestaurants.count - i].name
+                restaurantName.text = randomRestaurants[i - 1].name
             }else if indexPath.row == 3 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
                 restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
@@ -545,7 +173,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 101 {
             
         } else if sender.tag == 102{
-            
+            selectedRestaurant = randomRestaurants[0]
         }else if sender.tag == 103 {
             
         }else if sender.tag == 200 {
@@ -553,7 +181,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 201 {
             
         } else if sender.tag == 202{
-            
+            selectedRestaurant = randomRestaurants[1]
         }else if sender.tag == 203 {
             
         }else if sender.tag == 300 {
@@ -561,7 +189,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 301 {
             
         } else if sender.tag == 302{
-            
+            selectedRestaurant = randomRestaurants[2]
         }else if sender.tag == 303 {
             
         } else if sender.tag == 400 {
@@ -569,7 +197,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 401 {
             
         } else if sender.tag == 402{
-            
+            selectedRestaurant = randomRestaurants[3]
         }else if sender.tag == 403 {
             
         }else if sender.tag == 500 {
@@ -577,7 +205,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 501 {
             
         } else if sender.tag == 502{
-            
+            selectedRestaurant = randomRestaurants[4]
         }else if sender.tag == 503 {
             
         }else if sender.tag == 600 {
@@ -585,7 +213,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }else if sender.tag == 601 {
             
         } else if sender.tag == 602{
-            
+            selectedRestaurant = randomRestaurants[5]
         }else if sender.tag == 603 {
             
         }
@@ -615,6 +243,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             selectedType = "Top Restaurants"
         }else if sender.tag == 2 {
             selectedType = "Random Restaurants"
+            selectedRestaurantList = randomRestaurants
         }else if sender.tag == 3 {
             selectedType = "Most Review"
         }
