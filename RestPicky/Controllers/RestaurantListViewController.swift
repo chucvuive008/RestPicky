@@ -61,7 +61,7 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
             image.image = restaurantList[restaurantList.count - indexPath.row - 1].images[0]
         }else{
             setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: restaurantList[indexPath.row])
-            
+            setBookMarkImage(heartImage: heatImage, user: user, restaurantId: restaurantList[indexPath.row].id)
             name.text = restaurantList[indexPath.row].name
             address.text = restaurantList[indexPath.row].street + ", " + restaurantList[indexPath.row].city + ", " + restaurantList[indexPath.row].state + ", \(restaurantList[indexPath.row].zipcode)"
             phone.text = restaurantList[indexPath.row].phoneNumber

@@ -1784,14 +1784,13 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-M8-jEZ">
-                                                    <rect key="frame" x="215" y="84.5" width="20" height="20"/>
+                                                <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7rK-dC-pVw">
+                                                    <rect key="frame" x="225" y="114.5" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="41U-j9-XGC"/>
-                                                        <constraint firstAttribute="height" constant="20" id="DJA-GP-ufI"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Sze-u7-hFK"/>
+                                                        <constraint firstAttribute="height" constant="20" id="kxf-Y1-05N"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="HeartIcon"/>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gaZ-Le-qqY" firstAttribute="leading" secondItem="Bqh-Md-2Su" secondAttribute="trailing" constant="20" id="0Uh-3G-gXb"/>
@@ -1800,9 +1799,9 @@
                                                 <constraint firstItem="gaZ-Le-qqY" firstAttribute="top" secondItem="aNh-0f-c49" secondAttribute="top" constant="20" id="Ewp-bt-VBU"/>
                                                 <constraint firstItem="Bqh-Md-2Su" firstAttribute="top" secondItem="aNh-0f-c49" secondAttribute="top" constant="10" id="JEF-gx-LuM"/>
                                                 <constraint firstAttribute="bottom" secondItem="gaZ-Le-qqY" secondAttribute="bottom" constant="20" id="PId-Rt-YWd"/>
+                                                <constraint firstItem="gaZ-Le-qqY" firstAttribute="leading" secondItem="7rK-dC-pVw" secondAttribute="trailing" constant="20" id="UNK-SH-eFw"/>
                                                 <constraint firstItem="Bqh-Md-2Su" firstAttribute="leading" secondItem="aNh-0f-c49" secondAttribute="leading" constant="15" id="VRf-Yo-afa"/>
-                                                <constraint firstItem="gaZ-Le-qqY" firstAttribute="leading" secondItem="aG1-M8-jEZ" secondAttribute="trailing" constant="20" id="afD-4W-gLM"/>
-                                                <constraint firstAttribute="bottom" secondItem="aG1-M8-jEZ" secondAttribute="bottom" constant="5" id="fTd-Lo-vIT"/>
+                                                <constraint firstAttribute="bottom" secondItem="7rK-dC-pVw" secondAttribute="bottom" constant="5" id="h9z-qh-nN4"/>
                                                 <constraint firstItem="VQy-FO-ng9" firstAttribute="leading" secondItem="aNh-0f-c49" secondAttribute="leading" constant="15" id="ird-dr-74f"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2026,6 +2025,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
-        <segue reference="4xb-Rg-8rO"/>
+        <segue reference="91z-fY-mCg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,7 +28,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         restaurantsTableView.delegate = self
         restaurantsTableView.dataSource = self
         searchBar.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
+
+        self.view.endEditing(true)
+//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
         // Do any additional setup after loading the view.
     }
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
@@ -51,6 +53,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let address = cell.viewWithTag(101) as! UILabel
         let phone = cell.viewWithTag(102) as! UILabel
         let image = cell.viewWithTag(103) as! UIImageView
+        let heatImage = cell.viewWithTag(104) as! UIImageView
         let starImage1 = cell.viewWithTag(50) as! UIImageView
         let starImage2 = cell.viewWithTag(51) as! UIImageView
         let starImage3 = cell.viewWithTag(52) as! UIImageView
@@ -58,7 +61,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         let starImage5 = cell.viewWithTag(54) as! UIImageView
         
         setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: currentRestaurantList[indexPath.row])
-        
+        setBookMarkImage(heartImage: heatImage, user: user, restaurantId: currentRestaurantList[indexPath.row].id)
         name.text = currentRestaurantList[indexPath.row].name
         address.text = currentRestaurantList[indexPath.row].street + ", " + currentRestaurantList[indexPath.row].city + ", " + currentRestaurantList[indexPath.row].state + ", \(currentRestaurantList[indexPath.row].zipcode)"
         phone.text = currentRestaurantList[indexPath.row].phoneNumber
@@ -70,7 +73,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRestaurant = restaurantList[indexPath.row]
+        selectedRestaurant = currentRestaurantList[indexPath.row]
         performSegue(withIdentifier: "restaurantdetail", sender: self)
     }
     
@@ -144,6 +147,15 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             image3.image = UIImage(named: "YellowStarIcon")
             image4.image = UIImage(named: "YellowStarIcon")
             image5.image = UIImage(named: "YellowStarIcon")
+        }
+    }
+    
+    func setBookMarkImage(heartImage : UIImageView, user : User, restaurantId : Int){
+        if user.restaurantsIdBookmark.contains(restaurantId)
+        {
+            heartImage.image = UIImage(named: "HeartIcon")
+        }else{
+            heartImage.image = UIImage(named: "heart")
         }
     }
     /*
