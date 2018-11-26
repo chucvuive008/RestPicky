@@ -125,6 +125,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         for i in 1...6 {
             if indexPath.row == 0 {
                 let restaurantImage = cell.viewWithTag(i+6) as? UIButton
+                let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
+                let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
+                let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
+                let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
+                let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: newRestaurants[newRestaurants.count - i])
                 if restaurantImage != nil{
                     restaurantImage!.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                     restaurantImage!.tag = 100 * i + indexPath.row
@@ -134,11 +140,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 1 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
+                let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
+                let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
+                let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
+                let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
+                let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: newRestaurants[newRestaurants.count - i])
                 restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 2 {
                 let restaurantImage = cell.viewWithTag(i+6) as? UIButton
+                let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
+                let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
+                let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
+                let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
+                let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: randomRestaurants[i - 1])
                 if restaurantImage != nil {
                     restaurantImage!.setImage(randomRestaurants[i - 1].images[0], for: .normal)
                     restaurantImage!.tag = 100 * i + indexPath.row
@@ -148,6 +166,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 restaurantName.text = randomRestaurants[i - 1].name
             }else if indexPath.row == 3 {
                 let restaurantImage = cell.viewWithTag(i+6) as! UIButton
+                let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
+                let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
+                let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
+                let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
+                let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: newRestaurants[newRestaurants.count - i])
                 restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
@@ -263,6 +287,55 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }).resume()
     }
     
+    func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, restaurant: Restaurant){
+        var totalRating : Double = 0
+        for review in restaurant.review{
+            totalRating += review.rating
+        }
+        var averageRating = 0.0
+        
+        if restaurant.review.count != 0{
+            averageRating = totalRating/Double(restaurant.review.count)
+        }
+        
+        if averageRating < 0.5{
+            image1.image = UIImage(named: "BlankStarIcon")
+            image2.image = UIImage(named: "BlankStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 0.5 && averageRating < 1.5{
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "BlankStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 1.5 && averageRating < 2.5 {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 2.5 && averageRating < 3.5{
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 3.5 && averageRating < 4.5 {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "YellowStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "YellowStarIcon")
+            image5.image = UIImage(named: "YellowStarIcon")
+        }
+    }
     
     
     

@@ -527,35 +527,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="opy-HI-cgi">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-cA-aFq">
+                                                                                <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Anz-cA-aFq">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="3gT-66-FeV"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="6z7-LI-Ban"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="W6s-y5-NP8">
+                                                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="W6s-y5-NP8">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="DZl-tz-CA9"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="aNv-9C-cyU"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-8U-5hH">
+                                                                                <imageView userInteractionEnabled="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-8U-5hH">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="OoS-Kg-9HJ"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="x5k-2X-ohr"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-7B-Cgs">
+                                                                                <imageView userInteractionEnabled="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-7B-Cgs">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="PmL-rf-Bnp"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="uhf-Ba-Hig"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="65U-L2-V2C">
+                                                                                <imageView userInteractionEnabled="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="65U-L2-V2C">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="JLa-zi-AhA"/>
@@ -590,35 +590,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="YTl-0U-m6b">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="64k-Db-MDp">
+                                                                                <imageView userInteractionEnabled="NO" tag="55" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="64k-Db-MDp">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="AIi-NH-aI5"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="Bpw-4k-oHf"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6pJ-kf-sDw">
+                                                                                <imageView userInteractionEnabled="NO" tag="56" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="6pJ-kf-sDw">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="VRk-6Q-dHb"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="Vud-XN-Nej"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3iu-Ny-JlZ">
+                                                                                <imageView userInteractionEnabled="NO" tag="57" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3iu-Ny-JlZ">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="SB2-Pk-dKp"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="gWL-Xi-s1W"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qnO-lH-R3r">
+                                                                                <imageView userInteractionEnabled="NO" tag="58" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qnO-lH-R3r">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="2jz-Lt-PjI"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="hLv-SL-w3X"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="egL-Ol-oMu">
+                                                                                <imageView userInteractionEnabled="NO" tag="59" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="egL-Ol-oMu">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="1Lc-nq-0rd"/>
@@ -653,35 +653,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IjU-UD-wlZ">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vrn-yY-Pg9">
+                                                                                <imageView userInteractionEnabled="NO" tag="60" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vrn-yY-Pg9">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="CUB-bc-toq"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="imk-Jb-LCo"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y8z-c6-u8y">
+                                                                                <imageView userInteractionEnabled="NO" tag="61" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y8z-c6-u8y">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="KxE-kq-vIZ"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="iE1-p9-vAd"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="R8Y-Gv-suT">
+                                                                                <imageView userInteractionEnabled="NO" tag="62" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="R8Y-Gv-suT">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="Asv-Bl-AAX"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="PSJ-V1-XmC"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-zZ-BU6">
+                                                                                <imageView userInteractionEnabled="NO" tag="63" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-zZ-BU6">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="G2T-Kq-094"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="c2e-aw-Z3Y"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aD7-4E-6p7">
+                                                                                <imageView userInteractionEnabled="NO" tag="64" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aD7-4E-6p7">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="ZpD-ZN-9SV"/>
@@ -716,35 +716,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="dN8-Ji-XBh">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gU6-Vp-PaB">
+                                                                                <imageView userInteractionEnabled="NO" tag="65" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gU6-Vp-PaB">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="P2P-EY-57F"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="lpd-tQ-ukU"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BXi-8x-07b">
+                                                                                <imageView userInteractionEnabled="NO" tag="66" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BXi-8x-07b">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="Hly-Ms-CT4"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="hcD-3y-rIG"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1h4-Bv-Uw1">
+                                                                                <imageView userInteractionEnabled="NO" tag="67" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1h4-Bv-Uw1">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="eDK-bh-9u2"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="tAM-mF-7GP"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JAm-e3-bfM">
+                                                                                <imageView userInteractionEnabled="NO" tag="68" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JAm-e3-bfM">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="HbE-bZ-k1C"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="W3K-3g-LaC"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ctJ-9B-4YC">
+                                                                                <imageView userInteractionEnabled="NO" tag="69" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ctJ-9B-4YC">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="WPn-g7-oeo"/>
@@ -779,35 +779,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="3fw-Pf-npu">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-gB-QpP">
+                                                                                <imageView userInteractionEnabled="NO" tag="70" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="r9O-gB-QpP">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="nce-V4-j4X"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="yBD-Rx-Gm5"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-ew-PqR">
+                                                                                <imageView userInteractionEnabled="NO" tag="71" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-ew-PqR">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="TuC-4t-RlH"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="XZ1-gE-J2j"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8Ph-0n-ks8">
+                                                                                <imageView userInteractionEnabled="NO" tag="72" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8Ph-0n-ks8">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="Cir-XA-6U3"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="qI2-8O-hxG"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-jH-gr5">
+                                                                                <imageView userInteractionEnabled="NO" tag="73" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gMb-jH-gr5">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="k4R-m2-MPn"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="lSI-KD-LGy"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-vd-9FT">
+                                                                                <imageView userInteractionEnabled="NO" tag="74" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-vd-9FT">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="Jh4-kK-GKZ"/>
@@ -842,35 +842,35 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="d67-LT-JEE">
                                                                             <rect key="frame" x="0.0" y="104" width="114" height="20"/>
                                                                             <subviews>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-zL-li2">
+                                                                                <imageView userInteractionEnabled="NO" tag="75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="YDv-zL-li2">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="AVL-96-3CG"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="Y16-DJ-cQy"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-Fi-Lol">
+                                                                                <imageView userInteractionEnabled="NO" tag="76" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="x5V-Fi-Lol">
                                                                                     <rect key="frame" x="23" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="6F3-IU-OHk"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="c55-BB-29y"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-fY-Piy">
+                                                                                <imageView userInteractionEnabled="NO" tag="77" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-fY-Piy">
                                                                                     <rect key="frame" x="46.5" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="20" id="cDc-ti-91P"/>
                                                                                         <constraint firstAttribute="width" constant="20" id="jdw-VO-mc1"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="h3D-7i-UnF">
+                                                                                <imageView userInteractionEnabled="NO" tag="78" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="h3D-7i-UnF">
                                                                                     <rect key="frame" x="69.5" y="0.0" width="21.5" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="MS2-v7-mIL"/>
                                                                                         <constraint firstAttribute="height" constant="20" id="wt4-n2-foK"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-Xm-LSk">
+                                                                                <imageView userInteractionEnabled="NO" tag="79" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EZx-Xm-LSk">
                                                                                     <rect key="frame" x="93" y="0.0" width="21" height="20"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="20" id="W55-eB-yWZ"/>
@@ -1019,35 +1019,35 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="RH6-mc-lIl">
                                                     <rect key="frame" x="15" y="114.5" width="124" height="20"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-tr-SMZ">
+                                                        <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="J5c-tr-SMZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="1TX-Hf-CcO"/>
                                                                 <constraint firstAttribute="height" constant="20" id="WeB-Z0-7Ms"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yx5-Ne-Fbn">
+                                                        <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yx5-Ne-Fbn">
                                                             <rect key="frame" x="26" y="0.0" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="NLm-hd-10U"/>
                                                                 <constraint firstAttribute="height" constant="20" id="TEo-a3-ixL"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pDB-FM-H1B">
+                                                        <imageView userInteractionEnabled="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pDB-FM-H1B">
                                                             <rect key="frame" x="52" y="0.0" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="m3g-1U-vjZ"/>
                                                                 <constraint firstAttribute="height" constant="20" id="xuM-XF-qaK"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2gx-Od-SgB">
+                                                        <imageView userInteractionEnabled="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2gx-Od-SgB">
                                                             <rect key="frame" x="78" y="0.0" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="KQM-LJ-8fw"/>
                                                                 <constraint firstAttribute="width" constant="20" id="OO1-7V-zqb"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="V71-iK-p1A">
+                                                        <imageView userInteractionEnabled="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="V71-iK-p1A">
                                                             <rect key="frame" x="104" y="0.0" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="O0o-Rx-S9e"/>
@@ -1686,7 +1686,13 @@
                                             <constraint firstAttribute="width" constant="365" id="eF3-Mw-aP0"/>
                                             <constraint firstAttribute="height" constant="50" id="sWO-MP-CJR"/>
                                         </constraints>
+                                        <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1698,9 +1704,119 @@
                                     <constraint firstAttribute="bottom" secondItem="jRq-WY-ZEd" secondAttribute="bottom" constant="5" id="crK-jK-0Pb"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89r-C9-uA1">
+                                <rect key="frame" x="0.0" y="80" width="375" height="538"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="140" id="9Mv-1A-H0G">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Mv-1A-H0G" id="aNh-0f-c49">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ShrimpIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gaZ-Le-qqY">
+                                                    <rect key="frame" x="265" y="20" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="uMX-1t-TmL"/>
+                                                        <constraint firstAttribute="height" constant="100" id="vno-PK-PEL"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Bqh-Md-2Su">
+                                                    <rect key="frame" x="15" y="10" width="230" height="69"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AO6-vp-xVZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="230" height="24"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vV3-tH-Ers">
+                                                            <rect key="frame" x="0.0" y="26" width="230" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADi-qh-mJz">
+                                                            <rect key="frame" x="0.0" y="48.5" width="230" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="VQy-FO-ng9">
+                                                    <rect key="frame" x="15" y="114.5" width="124" height="20"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xXA-Oh-qL1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="Uic-e2-lCe"/>
+                                                                <constraint firstAttribute="width" constant="20" id="z46-Rc-dMs"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="45M-hz-GGc">
+                                                            <rect key="frame" x="26" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="GuY-Hf-gqt"/>
+                                                                <constraint firstAttribute="height" constant="20" id="d8a-04-qtP"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="53F-os-4Ym">
+                                                            <rect key="frame" x="52" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="YM0-bB-fMq"/>
+                                                                <constraint firstAttribute="height" constant="20" id="zcu-yF-tqv"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="gED-JF-UQB">
+                                                            <rect key="frame" x="78" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="cWO-qD-5Ca"/>
+                                                                <constraint firstAttribute="height" constant="20" id="lkT-ra-2HS"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="m82-9D-GRn">
+                                                            <rect key="frame" x="104" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="GIr-Rt-ckS"/>
+                                                                <constraint firstAttribute="height" constant="20" id="gM7-VW-D9e"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG1-M8-jEZ">
+                                                    <rect key="frame" x="215" y="84.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="41U-j9-XGC"/>
+                                                        <constraint firstAttribute="height" constant="20" id="DJA-GP-ufI"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="HeartIcon"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gaZ-Le-qqY" firstAttribute="leading" secondItem="Bqh-Md-2Su" secondAttribute="trailing" constant="20" id="0Uh-3G-gXb"/>
+                                                <constraint firstAttribute="bottom" secondItem="VQy-FO-ng9" secondAttribute="bottom" constant="5" id="6tV-yS-aQF"/>
+                                                <constraint firstAttribute="trailing" secondItem="gaZ-Le-qqY" secondAttribute="trailing" constant="10" id="BgT-Fc-18d"/>
+                                                <constraint firstItem="gaZ-Le-qqY" firstAttribute="top" secondItem="aNh-0f-c49" secondAttribute="top" constant="20" id="Ewp-bt-VBU"/>
+                                                <constraint firstItem="Bqh-Md-2Su" firstAttribute="top" secondItem="aNh-0f-c49" secondAttribute="top" constant="10" id="JEF-gx-LuM"/>
+                                                <constraint firstAttribute="bottom" secondItem="gaZ-Le-qqY" secondAttribute="bottom" constant="20" id="PId-Rt-YWd"/>
+                                                <constraint firstItem="Bqh-Md-2Su" firstAttribute="leading" secondItem="aNh-0f-c49" secondAttribute="leading" constant="15" id="VRf-Yo-afa"/>
+                                                <constraint firstItem="gaZ-Le-qqY" firstAttribute="leading" secondItem="aG1-M8-jEZ" secondAttribute="trailing" constant="20" id="afD-4W-gLM"/>
+                                                <constraint firstAttribute="bottom" secondItem="aG1-M8-jEZ" secondAttribute="bottom" constant="5" id="fTd-Lo-vIT"/>
+                                                <constraint firstItem="VQy-FO-ng9" firstAttribute="leading" secondItem="aNh-0f-c49" secondAttribute="leading" constant="15" id="ird-dr-74f"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="89r-C9-uA1" firstAttribute="leading" secondItem="QPV-M5-1J5" secondAttribute="leading" id="0R9-h4-eZN"/>
+                            <constraint firstItem="89r-C9-uA1" firstAttribute="bottom" secondItem="QPV-M5-1J5" secondAttribute="bottom" id="10V-Ym-elt"/>
+                            <constraint firstItem="89r-C9-uA1" firstAttribute="top" secondItem="NBD-R2-5F1" secondAttribute="bottom" id="G2Q-hA-wkc"/>
+                            <constraint firstItem="89r-C9-uA1" firstAttribute="trailing" secondItem="QPV-M5-1J5" secondAttribute="trailing" id="S6s-xp-JlI"/>
                             <constraint firstItem="NBD-R2-5F1" firstAttribute="trailing" secondItem="QPV-M5-1J5" secondAttribute="trailing" id="cf0-XB-9Kh"/>
                             <constraint firstItem="NBD-R2-5F1" firstAttribute="leading" secondItem="QPV-M5-1J5" secondAttribute="leading" id="kkC-1v-Ldt"/>
                             <constraint firstItem="NBD-R2-5F1" firstAttribute="top" secondItem="qrM-J8-4mJ" secondAttribute="top" id="ygP-lu-Udr"/>
@@ -1709,7 +1825,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" image="Search" landscapeImage="Search" largeContentSizeImage="Search" id="cBi-y2-kXZ"/>
                     <connections>
+                        <outlet property="restaurantsTableView" destination="89r-C9-uA1" id="qRn-dC-0cm"/>
                         <outlet property="searchBar" destination="jRq-WY-ZEd" id="sVT-PH-Sq8"/>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="restaurantdetail" id="91z-fY-mCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qO-bU-hkQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1790,35 +1908,35 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fib-du-Ghv">
                                             <rect key="frame" x="15" y="114.5" width="100" height="20"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vON-C4-pU1">
+                                                <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="vON-C4-pU1">
                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="Ezw-TA-1Z8"/>
                                                         <constraint firstAttribute="height" constant="20" id="PKh-xV-BQO"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GdI-1I-OWp">
+                                                <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GdI-1I-OWp">
                                                     <rect key="frame" x="20" y="0.0" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="F6W-0Z-3oX"/>
                                                         <constraint firstAttribute="height" constant="20" id="X2E-fV-VN9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fDi-b7-wpD">
+                                                <imageView userInteractionEnabled="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fDi-b7-wpD">
                                                     <rect key="frame" x="40" y="0.0" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="6qo-U4-al5"/>
                                                         <constraint firstAttribute="width" constant="20" id="jqX-M6-YNG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Pvc-4Y-JsP">
+                                                <imageView userInteractionEnabled="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Pvc-4Y-JsP">
                                                     <rect key="frame" x="60" y="0.0" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="AeI-Xp-wyI"/>
                                                         <constraint firstAttribute="width" constant="20" id="Gkl-M3-uHX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8kX-MB-LPw">
+                                                <imageView userInteractionEnabled="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8kX-MB-LPw">
                                                     <rect key="frame" x="80" y="0.0" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="O7g-sL-zda"/>
@@ -1909,6 +2027,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
-        <segue reference="PMx-lm-UNI"/>
+        <segue reference="GtE-5M-wN3"/>
     </inferredMetricsTieBreakers>
 </document>

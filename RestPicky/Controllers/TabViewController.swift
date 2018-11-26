@@ -32,8 +32,11 @@ class TabViewController: UITabBarController {
         }
         
         for viewController in self.viewControllers!{
-            if let searchViewController = viewController as? HomeViewController {
-                searchViewController.newRestaurants = self.newRestaurants
+            if let homeViewController = viewController as? HomeViewController {
+                homeViewController.newRestaurants = self.newRestaurants
+            }
+            if let searchViewController = viewController as? SearchViewController{
+                searchViewController.restaurantList = self.newRestaurants
             }
         }
         

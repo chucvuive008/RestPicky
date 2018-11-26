@@ -44,12 +44,26 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         let address = cell.viewWithTag(101) as! UILabel
         let phone = cell.viewWithTag(102) as! UILabel
         let image = cell.viewWithTag(103) as! UIImageView
-        
-        name.text = restaurantList[indexPath.row].name
-        address.text = restaurantList[indexPath.row].street + ", " + restaurantList[indexPath.row].city + ", " + restaurantList[indexPath.row].state + ", \(restaurantList[indexPath.row].zipcode)"
-        phone.text = restaurantList[indexPath.row].phoneNumber
-        image.image = restaurantList[indexPath.row].images[0]
-        
+        let starImage1 = cell.viewWithTag(50) as! UIImageView
+        let starImage2 = cell.viewWithTag(51) as! UIImageView
+        let starImage3 = cell.viewWithTag(52) as! UIImageView
+        let starImage4 = cell.viewWithTag(53) as! UIImageView
+        let starImage5 = cell.viewWithTag(54) as! UIImageView
+        if type == "New Restaurants"{
+            setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: restaurantList[restaurantList.count - indexPath.row - 1])
+            
+            name.text = restaurantList[restaurantList.count - indexPath.row - 1].name
+            address.text = restaurantList[restaurantList.count - indexPath.row - 1].street + ", " + restaurantList[restaurantList.count - indexPath.row - 1].city + ", " + restaurantList[restaurantList.count - indexPath.row - 1].state + ", \(restaurantList[restaurantList.count - indexPath.row - 1].zipcode)"
+            phone.text = restaurantList[restaurantList.count - indexPath.row - 1].phoneNumber
+            image.image = restaurantList[restaurantList.count - indexPath.row - 1].images[0]
+        }else{
+            setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: restaurantList[indexPath.row])
+            
+            name.text = restaurantList[indexPath.row].name
+            address.text = restaurantList[indexPath.row].street + ", " + restaurantList[indexPath.row].city + ", " + restaurantList[indexPath.row].state + ", \(restaurantList[indexPath.row].zipcode)"
+            phone.text = restaurantList[indexPath.row].phoneNumber
+            image.image = restaurantList[indexPath.row].images[0]
+        }
         cell.selectionStyle = UITableViewCell.SelectionStyle.none 
         
         return cell
@@ -64,6 +78,56 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         if segue.identifier == "restaurantdetail"{
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
+        }
+    }
+    
+    func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, restaurant: Restaurant){
+        var totalRating : Double = 0
+        for review in restaurant.review{
+            totalRating += review.rating
+        }
+        var averageRating = 0.0
+        
+        if restaurant.review.count != 0{
+            averageRating = totalRating/Double(restaurant.review.count)
+        }
+        
+        if averageRating < 0.5{
+            image1.image = UIImage(named: "BlankStarIcon")
+            image2.image = UIImage(named: "BlankStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 0.5 && averageRating < 1.5{
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "BlankStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 1.5 && averageRating < 2.5 {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "BlankStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 2.5 && averageRating < 3.5{
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "BlankStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else if averageRating >= 3.5 && averageRating < 4.5 {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "YellowStarIcon")
+            image5.image = UIImage(named: "BlankStarIcon")
+        } else {
+            image1.image = UIImage(named: "YellowStarIcon")
+            image2.image = UIImage(named: "YellowStarIcon")
+            image3.image = UIImage(named: "YellowStarIcon")
+            image4.image = UIImage(named: "YellowStarIcon")
+            image5.image = UIImage(named: "YellowStarIcon")
         }
     }
     /*
