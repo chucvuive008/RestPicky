@@ -138,7 +138,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.newRestaurants[i].id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.newRestaurants[i])
                                 }
                             }
-                        }else if child.key as! String == "street"{
+                        }else if child.key as! String == "review"{
+                            if let childSnapshot = snapshot.childSnapshot(forPath: "review/").value as? NSArray{
+                                for index in 1..<childSnapshot.count{
+                                    let review = Review()
+                                    if let dic = (childSnapshot[index] as? NSDictionary){
+                                        for property in dic{
+                                            if property.key as! String == "id"{
+                                                review.id = property.value as! Int
+                                            }else if property.key as! String == "comment"{
+                                                review.comment = property.value as! String
+                                            }else if property.key as! String == "rating"{
+                                                review.rating = property.value as! Double
+                                            }else if property.key as! String == "userId"{
+                                                review.userId = property.value as! String
+                                            }
+                                        }
+                                    }
+                                    self.newRestaurants[i].review.append(review)
+                                }
+                            }
+                        }
+                        else if child.key as! String == "street"{
                             self.newRestaurants[i].street = child.value as! String
                         }else if child.key as! String == "city"{
                             self.newRestaurants[i].city = child.value as! String

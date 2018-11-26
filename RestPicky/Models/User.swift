@@ -12,6 +12,7 @@ public class User {
     var name : String
     var uid : String
     var email : String
+    var restaurantsIdBookmark = [Int]()
     
     init() {
         name = ""
