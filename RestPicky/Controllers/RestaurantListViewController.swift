@@ -12,6 +12,8 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
 
     var restaurantList = [Restaurant]()
     var selectedRestaurant = Restaurant()
+    var user = User()
+    
     @IBOutlet weak var restaurantsTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     var type = ""
@@ -44,6 +46,7 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         let address = cell.viewWithTag(101) as! UILabel
         let phone = cell.viewWithTag(102) as! UILabel
         let image = cell.viewWithTag(103) as! UIImageView
+        let heatImage = cell.viewWithTag(104) as! UIImageView
         let starImage1 = cell.viewWithTag(50) as! UIImageView
         let starImage2 = cell.viewWithTag(51) as! UIImageView
         let starImage3 = cell.viewWithTag(52) as! UIImageView
@@ -51,7 +54,7 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         let starImage5 = cell.viewWithTag(54) as! UIImageView
         if type == "New Restaurants"{
             setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: restaurantList[restaurantList.count - indexPath.row - 1])
-            
+            setBookMarkImage(heartImage: heatImage, user: user, restaurantId: restaurantList[restaurantList.count - indexPath.row - 1].id)
             name.text = restaurantList[restaurantList.count - indexPath.row - 1].name
             address.text = restaurantList[restaurantList.count - indexPath.row - 1].street + ", " + restaurantList[restaurantList.count - indexPath.row - 1].city + ", " + restaurantList[restaurantList.count - indexPath.row - 1].state + ", \(restaurantList[restaurantList.count - indexPath.row - 1].zipcode)"
             phone.text = restaurantList[restaurantList.count - indexPath.row - 1].phoneNumber
@@ -128,6 +131,15 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
             image3.image = UIImage(named: "YellowStarIcon")
             image4.image = UIImage(named: "YellowStarIcon")
             image5.image = UIImage(named: "YellowStarIcon")
+        }
+    }
+    
+    func setBookMarkImage(heartImage : UIImageView, user : User, restaurantId : Int){
+        if user.restaurantsIdBookmark.contains(restaurantId)
+        {
+            heartImage.image = UIImage(named: "HeartIcon")
+        }else{
+            heartImage.image = UIImage(named: "heart")
         }
     }
     /*

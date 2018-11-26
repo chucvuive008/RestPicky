@@ -13,7 +13,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     var restaurantList = [Restaurant]()
     var currentRestaurantList = [Restaurant]()
     var selectedRestaurant = Restaurant()
-
+    var user = User()
     @IBOutlet weak var restaurantsTableView: UITableView!
     
     @IBOutlet weak var searchBar: UISearchBar!

@@ -31,60 +31,31 @@ class TabViewController: UITabBarController {
             }
         }
         
-        for viewController in self.viewControllers!{
-            if let homeViewController = viewController as? HomeViewController {
-                homeViewController.newRestaurants = self.newRestaurants
-            }
-            if let searchViewController = viewController as? SearchViewController{
+        getBookmarkRestaurants()
+        
+        for viewController in viewControllers!{
+            if let bookmarkViewController = viewController as? BookmarkTableViewController
+            {
+                bookmarkViewController.restaurants = self.bookmarkRestaurants
+                bookmarkViewController.user = self.user
+            }else if let searchViewController = viewController as? SearchViewController{
                 searchViewController.restaurantList = self.newRestaurants
-            }
-        }
-        
-        ref?.child("user/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let result = snapshot.value as? NSDictionary {
-                for child in result{
-                    if child.key as! String == "bookmark"{
-                        if let childSnapshot = snapshot.childSnapshot(forPath: "bookmark/").value as? NSArray{
-                            for i in 1..<childSnapshot.count{
-                                if let dic = childSnapshot[i] as? NSDictionary{
-                                    for property in dic{
-                                        if property.key as! String == "restaurantId"{
-                                            self.user.restaurantsIdBookmark.append(property.value as! Int)
-                                        }
-                                    }
-                                }
-                            }
-                            getBookmarkRestaurants()
-                            for viewController in self.viewControllers!{
-                                if let bookmarkViewController = viewController as? BookmarkTableViewController
-                                {
-                                    bookmarkViewController.restaurants = self.bookmarkRestaurants
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        })
-        
-        guard let viewControllers = viewControllers else {
-            return
-        }
-    
-
-        
-        func getBookmarkRestaurants(){
-            for restaurant in newRestaurants{
-                if user.restaurantsIdBookmark.contains(restaurant.id){
-                    bookmarkRestaurants.append(restaurant)
-                }
-
+                searchViewController.user = self.user
+            }else if let homeViewController = viewController as? HomeViewController {
+                homeViewController.newRestaurants = self.newRestaurants
+                homeViewController.user = self.user
             }
         }
     }
     
-
+    func getBookmarkRestaurants(){
+        for restaurant in newRestaurants{
+            if user.restaurantsIdBookmark.contains(restaurant.id){
+                bookmarkRestaurants.append(restaurant)
+            }
+            
+        }
+    }
     
     /*
      // MARK: - Navigation

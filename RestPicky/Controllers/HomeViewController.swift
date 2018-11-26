@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectedType = ""
     var selectedRestaurant = Restaurant()
     
+    var user = User()
     var newRestaurants = [Restaurant]()
     var randomRestaurants = [Restaurant]()
     var americanRestaurants = [Restaurant]()
@@ -246,6 +247,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if segue.identifier == "restaurantlist"{
             let seg = segue.destination as! RestaurantListViewController
             seg.type = selectedType
+            seg.user = user
             seg.restaurantList = selectedRestaurantList
             seg.selectedRestaurant = newRestaurants[0]
         }

@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var img = UIImage()
     var newRestaurants = [Restaurant]()
     var ref : DatabaseReference?
+    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,11 +75,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 
                 SVProgressHUD.dismiss()
-                
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     print("Log in successful")
-                    self.performSegue(withIdentifier: "LoginToSearch", sender: self)
-                    
+                    self.user.uid = Auth.auth().currentUser?.uid ?? ""
+                    self.ref?.child("user/\(self.user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let result = snapshot.value as? NSDictionary {
+                            for child in result{
+                                if child.key as! String == "bookmark"{
+                                    if let childSnapshot = snapshot.childSnapshot(forPath: "bookmark/").value as? NSArray{
+                                        for i in 1..<childSnapshot.count{
+                                            if let dic = childSnapshot[i] as? NSDictionary{
+                                                for property in dic{
+                                                    if property.key as! String == "restaurantId"{
+                                                        self.user.restaurantsIdBookmark.append(property.value as! Int)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        SVProgressHUD.dismiss()
+                        self.performSegue(withIdentifier: "LoginToSearch", sender: self)
+                    })
                 }
                 else {
                     self.alert(title: "", message: "Please verify your email")
@@ -93,7 +113,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "LoginToSearch" {
             let controller = segue.destination as! TabViewController
             controller.newRestaurants = newRestaurants
-            
+            controller.user = user
         }
     }
     

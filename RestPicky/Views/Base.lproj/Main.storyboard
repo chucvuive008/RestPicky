@@ -476,7 +476,7 @@
                                 <rect key="frame" x="0.0" y="149" width="750" height="282"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="6E2-Fj-6a0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="180" id="6E2-Fj-6a0">
                                         <rect key="frame" x="0.0" y="28" width="750" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6E2-Fj-6a0" id="koa-dv-H3Q">
@@ -490,7 +490,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjh-NA-vf2">
-                                                    <rect key="frame" x="725" y="11" width="20" height="20"/>
+                                                    <rect key="frame" x="1100" y="11" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="3jY-Go-aT0"/>
                                                         <constraint firstAttribute="width" constant="20" id="nDY-GW-1B5"/>
@@ -498,7 +498,7 @@
                                                     <state key="normal" title="Button" image="RightArrow"/>
                                                 </button>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8iR-cx-riJ">
-                                                    <rect key="frame" x="0.0" y="66" width="750" height="134"/>
+                                                    <rect key="frame" x="0.0" y="66" width="1125" height="134"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xO6-D5-qYP">
                                                             <rect key="frame" x="10" y="0.0" width="734" height="124"/>
@@ -1056,24 +1056,23 @@
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" tag="104" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pF-I0-nkg">
-                                                    <rect key="frame" x="215" y="84.5" width="20" height="20"/>
+                                                <imageView userInteractionEnabled="NO" tag="104" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeartIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SeM-ne-Z64">
+                                                    <rect key="frame" x="225" y="114.5" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="y0J-yg-jda"/>
-                                                        <constraint firstAttribute="height" constant="20" id="zh2-7G-4tI"/>
+                                                        <constraint firstAttribute="width" constant="20" id="nAZ-sD-vgj"/>
+                                                        <constraint firstAttribute="height" constant="20" id="qZy-kk-Cnm"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button" image="HeartIcon"/>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="RH6-mc-lIl" secondAttribute="bottom" constant="5" id="6ub-Rx-lnF"/>
-                                                <constraint firstItem="VV9-hl-JJu" firstAttribute="leading" secondItem="8pF-I0-nkg" secondAttribute="trailing" constant="20" id="CfJ-a1-4Oi"/>
                                                 <constraint firstItem="Xf8-Gs-fZT" firstAttribute="top" secondItem="eUx-g6-JBJ" secondAttribute="top" constant="10" id="JQg-M2-bLh"/>
                                                 <constraint firstItem="VV9-hl-JJu" firstAttribute="top" secondItem="eUx-g6-JBJ" secondAttribute="top" constant="20" id="QhI-Xf-FMh"/>
+                                                <constraint firstItem="VV9-hl-JJu" firstAttribute="leading" secondItem="SeM-ne-Z64" secondAttribute="trailing" constant="20" id="TFW-v0-qDV"/>
                                                 <constraint firstAttribute="bottom" secondItem="VV9-hl-JJu" secondAttribute="bottom" constant="20" id="UFD-hz-ccO"/>
                                                 <constraint firstItem="VV9-hl-JJu" firstAttribute="leading" secondItem="Xf8-Gs-fZT" secondAttribute="trailing" constant="20" id="VsZ-Wv-sHc"/>
-                                                <constraint firstAttribute="bottom" secondItem="8pF-I0-nkg" secondAttribute="bottom" constant="5" id="dPN-At-6rJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="VV9-hl-JJu" secondAttribute="trailing" constant="10" id="jbK-HB-sRg"/>
+                                                <constraint firstAttribute="bottom" secondItem="SeM-ne-Z64" secondAttribute="bottom" constant="5" id="nvF-YP-P0G"/>
                                                 <constraint firstItem="Xf8-Gs-fZT" firstAttribute="leading" secondItem="eUx-g6-JBJ" secondAttribute="leading" constant="15" id="scY-0d-H2i"/>
                                                 <constraint firstItem="RH6-mc-lIl" firstAttribute="leading" secondItem="eUx-g6-JBJ" secondAttribute="leading" constant="15" id="uSP-sR-e6A"/>
                                             </constraints>
@@ -2027,6 +2026,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
-        <segue reference="GtE-5M-wN3"/>
+        <segue reference="4xb-Rg-8rO"/>
     </inferredMetricsTieBreakers>
 </document>

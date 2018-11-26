@@ -12,6 +12,7 @@ class BookmarkTableViewController: UITableViewController {
 
     var restaurants = [Restaurant]()
     var selectedRestaurant = Restaurant()
+    var user = User()
     override func viewDidLoad() {
         super.viewDidLoad()
 
