@@ -24,6 +24,7 @@ public class Restaurant {
     var longitude: Double
     var type : String
     var images = [UIImage]()
+    var review = [Review]()
     
     init() {
         id = 0
@@ -37,6 +38,7 @@ public class Restaurant {
         latitude = 0
         longitude = 0
         type = ""
+        
     }
     
     init(localId: Int) {
