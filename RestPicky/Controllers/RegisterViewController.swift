@@ -79,7 +79,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         actionCodeSettings.url = URL(string: "https://www.restpicky.com")
                         actionCodeSettings.handleCodeInApp = true
                         actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-                        self.ref?.child("user").child(Auth.auth().currentUser!.uid).setValue(["name":self.NameTextField.text, "email": self.emailTextField.text])
+                        //Added address and phone to name and email
+                        self.ref?.child("user").child(Auth.auth().currentUser!.uid).setValue(["name":self.NameTextField.text!, "email": self.emailTextField.text!, "address": "", "phone": "","profileImage" : ""])
                         SVProgressHUD.dismiss()
                         Auth.auth().currentUser?.sendEmailVerification( completion: { (error) in
                             if let error = error {

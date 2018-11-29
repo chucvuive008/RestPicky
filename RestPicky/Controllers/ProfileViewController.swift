@@ -13,7 +13,7 @@ import Firebase
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Our list for the tableview
-    let list = ["Reviews", "Photos", "Bookmarks", "Recents"]
+    let list = ["Reviews", "Photos", "Edit"]
     
     //Elements on the page
     @IBOutlet weak var usernameLabel: UILabel!
