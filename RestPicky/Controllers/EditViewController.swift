@@ -15,6 +15,7 @@ class EditViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    
     @IBAction func submitButton(_ sender: Any) {
         //If text field is not empty update database with values entered
         if(nameTextField.text != ""){postProfileInfo(type: "name", text: nameTextField.text!)}
@@ -28,6 +29,7 @@ class EditViewController: UIViewController {
         let childUpdates = [type: text]
         databaseRef.ref.child("user").child(userId!).updateChildValues(childUpdates)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         databaseRef = Database.database().reference()

@@ -50,49 +50,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let starsRef = Storage.storage().reference().child("image.jpg")
         let prf = "profileImage"
         self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/user%2F\(userID!)%2F\(prf).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", profImg: profileImage)
-        
-        //downloadImage(withURL: <#T##URL#>, completion: <#T##(UIImage?) -> ()#>)
-//        // Download to the local filesystem
-//        let downloadTask = islandRef.write(toFile: ) { url, error in
-//            if let error = error {
-//                // Uh-oh, an error occurred!
-//                print("here")
-//            } else {
-//                // Local file URL for "images/island.jpg" is returned
-//                print("returned")
-//            }
-//        }
-//        islandRef.downloadURL { storageUrl, error in
-//            if let error = error {
-//                // Handle any errors
-//                print("error with url")
-//            } else {
-//                // Get the download URL for 'images/stars.jpg'
-//                print(storageUrl)
-//                print(storageUrl?.absoluteString)
-//                if let url = NSURL(string: (storageUrl?.absoluteString)!) {
-//                    if let data = NSData(contentsOf: url as URL) {
-//                        self.profileImage.image = UIImage(data: data as Data)
-//                    }
-//                }
-//            }
-//        }
-        //Image properties
-//        profileImage.layer.borderWidth = 1.0
-//        profileImage.layer.masksToBounds = false
-//        profileImage.layer.borderColor = UIColor.white.cgColor
-//        profileImage.layer.cornerRadius = 150 / 2
-//        profileImage.clipsToBounds = true
-//        
-        //Firebase database reference
-        ref = Database.database().reference()
-        
+    
         //TableView data
         tableView.delegate = self
         tableView.dataSource = self
         
         //Retreive user "name" from database
-        //let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
         ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -104,12 +68,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-            // Do any additional setup after loading the view.
     }
+    
     func getPhoto (urlString : String, profImg: UIImageView){
         let url = URL(string: urlString)
-        
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
             if error != nil {
                 print(error!)
@@ -133,22 +95,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             imagePicker.sourceType = .camera;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
-            
         }
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return newImage!
     }
-    
     
     func uploadMedia( image: UIImage) {
 //        let databaseRef = ref.child("user/").child(userID).child("profilePics/")
@@ -197,11 +155,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: list[indexPath.row].lowercased() + "Segue", sender: self)
     }
     
-    
     @IBAction func signoutBtnPress(_ sender: Any) {
          self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
             try! Auth.auth().signOut()
     }
-    
-    
 }
