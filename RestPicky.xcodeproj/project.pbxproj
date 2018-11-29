@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448AA88321B0526700293F0A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448AA88221B0526700293F0A /* EditViewController.swift */; };
 		8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576A870218BBF2700B5C628 /* ReviewsViewController.swift */; };
 		85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1262D2184F879009EC4DD /* ProfileViewController.swift */; };
 		9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DCF7218B4B7900493ED2 /* Menu.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		448AA88221B0526700293F0A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.release.xcconfig"; sourceTree = "<group>"; };
 		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
 		8576A870218BBF2700B5C628 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */,
 				8576A870218BBF2700B5C628 /* ReviewsViewController.swift */,
 				A5F79A5921ABB3140056CC37 /* SearchViewController.swift */,
+				448AA88221B0526700293F0A /* EditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */,
 				A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */,
+				448AA88321B0526700293F0A /* EditViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
 				8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */,
 				A5F79A5821AB32950056CC37 /* Review.swift in Sources */,
