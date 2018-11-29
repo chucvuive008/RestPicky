@@ -44,6 +44,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         //Load Profile Image
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
         let userID = Auth.auth().currentUser?.uid
         let starsRef = Storage.storage().reference().child("image.jpg")
         let prf = "profileImage"
