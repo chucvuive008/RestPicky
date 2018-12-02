@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    
+    var restaurants = [Restaurant]()
     //Firebase database reference
     var ref: DatabaseReference!
     var userID: String = ""
