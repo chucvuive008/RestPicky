@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		448AA88321B0526700293F0A /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448AA88221B0526700293F0A /* EditViewController.swift */; };
 		8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576A870218BBF2700B5C628 /* ReviewsViewController.swift */; };
 		85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1262D2184F879009EC4DD /* ProfileViewController.swift */; };
 		9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DCF7218B4B7900493ED2 /* Menu.swift */; };
@@ -28,9 +29,11 @@
 		A5F10490218435AB0035A202 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048E218435AB0035A202 /* User.swift */; };
 		A5F79A5821AB32950056CC37 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5721AB32950056CC37 /* Review.swift */; };
 		A5F79A5A21ABB3140056CC37 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5921ABB3140056CC37 /* SearchViewController.swift */; };
+		A5F79A7C21B48AF30056CC37 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A7B21B48AF30056CC37 /* Bookmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		448AA88221B0526700293F0A /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		6FE28C9622B284F21607F524 /* Pods-RestPicky.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.release.xcconfig"; sourceTree = "<group>"; };
 		7592720FB12FF468283C6E7E /* Pods-RestPicky.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestPicky.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestPicky/Pods-RestPicky.debug.xcconfig"; sourceTree = "<group>"; };
 		8576A870218BBF2700B5C628 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		A5F1048E218435AB0035A202 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A5F79A5721AB32950056CC37 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A5F79A5921ABB3140056CC37 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A5F79A7B21B48AF30056CC37 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestPicky.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,6 +121,7 @@
 				A5F1048D218435AB0035A202 /* Restaurant.swift */,
 				A5F1048E218435AB0035A202 /* User.swift */,
 				A5F79A5721AB32950056CC37 /* Review.swift */,
+				A5F79A7B21B48AF30056CC37 /* Bookmark.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 				A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */,
 				8576A870218BBF2700B5C628 /* ReviewsViewController.swift */,
 				A5F79A5921ABB3140056CC37 /* SearchViewController.swift */,
+				448AA88221B0526700293F0A /* EditViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -324,9 +330,11 @@
 				A5D78C1C2160737A00E48A3B /* LoginViewController.swift in Sources */,
 				A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */,
 				A5D78C20216089D800E48A3B /* HomeViewController.swift in Sources */,
+				A5F79A7C21B48AF30056CC37 /* Bookmark.swift in Sources */,
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,
 				9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */,
 				A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */,
+				448AA88321B0526700293F0A /* EditViewController.swift in Sources */,
 				A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */,
 				8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */,
 				A5F79A5821AB32950056CC37 /* Review.swift in Sources */,

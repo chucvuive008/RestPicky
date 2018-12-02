@@ -13,19 +13,20 @@ import Firebase
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Our list for the tableview
-    let list = ["Reviews", "Photos", "Bookmarks", "Recents"]
+    let list = ["Reviews", "Photos", "Recents", "Edit"]
     
     //Elements on the page
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    
+    var restaurants = [Restaurant]()
     //Firebase database reference
     var ref: DatabaseReference!
     var userID: String = ""
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Set Back Button properties
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.navigationBar.tintColor = UIColor.white;
@@ -41,22 +42,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // if you have one. Use getTokenWithCompletion:completion: instead.
             self.userID = user.uid
         }
-        //Image properties
-//        profileImage.layer.borderWidth = 1.0
-//        profileImage.layer.masksToBounds = false
-//        profileImage.layer.borderColor = UIColor.white.cgColor
-//        profileImage.layer.cornerRadius = 150 / 2
-//        profileImage.clipsToBounds = true
-//        
-        //Firebase database reference
-        ref = Database.database().reference()
         
+        //Load Profile Image
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
+        let userID = Auth.auth().currentUser?.uid
+        let starsRef = Storage.storage().reference().child("image.jpg")
+        let prf = "profileImage"
+        self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/user%2F\(userID!)%2F\(prf).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", profImg: profileImage)
+    
         //TableView data
         tableView.delegate = self
         tableView.dataSource = self
         
         //Retreive user "name" from database
-        let userID = Auth.auth().currentUser?.uid
+        ref = Database.database().reference()
         ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -68,9 +68,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-            // Do any additional setup after loading the view.
     }
+    
+    func getPhoto (urlString : String, profImg: UIImageView){
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async {
+                if data != nil{
+                    profImg.image = UIImage(data: data!)!
+                }
+            }
+        }).resume()
+    }
+    
     var imagePicker: UIImagePickerController!
     
     //New Photo Button
@@ -81,27 +95,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             imagePicker.sourceType = .camera;
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
-            
         }
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
-        
         let scale = newWidth / image.size.width
         let newHeight = image.size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
         image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
         return newImage!
     }
     
     func uploadMedia( image: UIImage) {
-        let databaseRef = ref.child("user/").child(userID).child("profilePics/")
-        let storageRef = Storage.storage().reference().child("user/").child(userID).child("profilePics/")
-        
-        var uploadData = image.pngData()
+//        let databaseRef = ref.child("user/").child(userID).child("profilePics/")
+        let storageRef = Storage.storage().reference().child("user/").child(userID).child("profileImage.jpg/")
+        var uploadData = image.jpegData(compressionQuality: 0.6)
         let uploadTask = storageRef.putData(uploadData!, metadata: nil, completion: {(metadata, error) in
                 guard let metadata = metadata else {
                     return
@@ -112,7 +122,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // A progress event occured
             print(snapshot)
         }
-        }
+    }
     
     //Image Controller
     func imagePickerController(_ picker: UIImagePickerController,
@@ -145,11 +155,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: list[indexPath.row].lowercased() + "Segue", sender: self)
     }
     
-    
     @IBAction func signoutBtnPress(_ sender: Any) {
          self.view.window!.rootViewController?.dismiss(animated: true, completion: nil)
             try! Auth.auth().signOut()
     }
-    
-    
 }

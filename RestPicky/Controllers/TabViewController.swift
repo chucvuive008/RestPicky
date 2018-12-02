@@ -33,6 +33,8 @@ class TabViewController: UITabBarController {
         
         getBookmarkRestaurants()
         
+//        self.ref?.child("user/\(user.uid)/bookmark/\((user.bookmarks.last?.id)! + 1)").setValue(["id":(user.bookmarks.last?.id)! + 1, "restaurantId": 15])
+        
         for viewController in viewControllers!{
             if let bookmarkViewController = viewController as? BookmarkTableViewController
             {
@@ -44,6 +46,9 @@ class TabViewController: UITabBarController {
             }else if let homeViewController = viewController as? HomeViewController {
                 homeViewController.newRestaurants = self.newRestaurants
                 homeViewController.user = self.user
+            }else if let navigationController = viewController as? UINavigationController {
+                var profileViewController = navigationController.viewControllers.first as? ProfileViewController
+                profileViewController?.restaurants = self.newRestaurants
             }
         }
     }

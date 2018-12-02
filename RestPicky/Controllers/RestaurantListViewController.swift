@@ -81,6 +81,7 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
         if segue.identifier == "restaurantdetail"{
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
+            seg.user = user
         }
     }
     
