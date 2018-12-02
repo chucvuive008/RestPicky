@@ -44,8 +44,9 @@ class TabViewController: UITabBarController {
             }else if let homeViewController = viewController as? HomeViewController {
                 homeViewController.newRestaurants = self.newRestaurants
                 homeViewController.user = self.user
-            }else if let profileViewController = viewController as? ProfileViewController {
-                profileViewController.restaurants = self.newRestaurants
+            }else if let navigationController = viewController as? UINavigationController {
+                var profileViewController = navigationController.viewControllers.first as? ProfileViewController
+                profileViewController?.restaurants = self.newRestaurants
             }
         }
     }
