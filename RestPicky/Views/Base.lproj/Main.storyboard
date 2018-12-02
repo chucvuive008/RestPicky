@@ -4,7 +4,10 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+<<<<<<< HEAD
+=======
         <deployment identifier="iOS"/>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1112,10 +1115,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd5-6J-ozj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CyX-16-qWI">
+                                        <rect key="frame" x="166.5" y="34" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8KQ-dU-ELv">
-                                        <rect key="frame" x="8" y="32" width="25" height="25"/>
+                                        <rect key="frame" x="15" y="30" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Zyy-rh-GGu"/>
                                             <constraint firstAttribute="height" constant="25" id="vqQ-cn-HHq"/>
@@ -1128,11 +1137,20 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="8KQ-dU-ELv" firstAttribute="top" secondItem="fd5-6J-ozj" secondAttribute="top" constant="32" id="RLC-h2-nsg"/>
-                                    <constraint firstAttribute="height" constant="72" id="x1E-Pb-HI7"/>
-                                    <constraint firstItem="8KQ-dU-ELv" firstAttribute="leading" secondItem="fd5-6J-ozj" secondAttribute="leading" constant="8" id="xCt-6J-uEj"/>
+                                    <constraint firstItem="8KQ-dU-ELv" firstAttribute="leading" secondItem="fd5-6J-ozj" secondAttribute="leading" constant="15" id="02u-K1-c1Y"/>
+                                    <constraint firstAttribute="height" constant="65" id="AI6-lz-kAG"/>
+                                    <constraint firstItem="CyX-16-qWI" firstAttribute="centerX" secondItem="fd5-6J-ozj" secondAttribute="centerX" id="HzG-gj-1iJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="10" id="JdM-lZ-nR0"/>
+                                    <constraint firstAttribute="bottom" secondItem="8KQ-dU-ELv" secondAttribute="bottom" constant="10" id="z8H-NK-9cC"/>
                                 </constraints>
                             </view>
+<<<<<<< HEAD
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fd5-6J-ozj" firstAttribute="top" secondItem="iBC-ho-prf" secondAttribute="top" id="428-wh-6mJ"/>
+                            <constraint firstItem="fd5-6J-ozj" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" id="HFr-cM-wCF"/>
+=======
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5a5-tB-G7r">
                                 <rect key="frame" x="0.0" y="72" width="375" height="222"/>
                                 <constraints>
@@ -1400,12 +1418,15 @@
                             <constraint firstItem="CyX-16-qWI" firstAttribute="top" secondItem="5a5-tB-G7r" secondAttribute="bottom" constant="8" id="pHC-kt-8qL"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="UIV-7H-tBp" secondAttribute="trailing" constant="16" id="pYh-lV-0Wn"/>
                             <constraint firstItem="KcM-kY-qTm" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="16" id="xMB-ZR-0lm"/>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="fd5-6J-ozj" secondAttribute="trailing" id="yIn-Jy-0PA"/>
-                            <constraint firstItem="5a5-tB-G7r" firstAttribute="top" secondItem="fd5-6J-ozj" secondAttribute="bottom" id="zXD-TC-971" userLabel="Restaurant Image.top = View.bottom"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ow-9j-LIK"/>
                     </view>
                     <connections>
+<<<<<<< HEAD
+                        <outlet property="titleLabel" destination="CyX-16-qWI" id="Xr0-H9-nPo"/>
+=======
                         <outlet property="Street" destination="iFq-d6-vfp" id="v1O-f7-7zA"/>
                         <outlet property="buttonRateStar1" destination="rmv-xS-7Y6" id="TP0-aW-6Kc"/>
                         <outlet property="buttonRateStar2" destination="Ebk-xE-0Xi" id="9sv-Uh-u8M"/>
@@ -1422,10 +1443,14 @@
                         <outlet property="star4" destination="l2S-0t-CtT" id="uiZ-pK-6kE"/>
                         <outlet property="star5" destination="tLZ-Me-CNX" id="jAj-yG-lgV"/>
                         <outlet property="titleLabel" destination="CyX-16-qWI" id="Nlq-KC-wHc"/>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4V-Pa-P3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
+            <point key="canvasLocation" x="2711" y="-567"/>
+=======
             <point key="canvasLocation" x="3535" y="1027"/>
         </scene>
         <!--Reviews View Controller-->
@@ -1510,6 +1535,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVt-Ou-7JU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1122" y="2474"/>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="Lhu-rd-LXM">
@@ -2106,7 +2132,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BlankStarIcon" width="128" height="128"/>
         <image name="BurgerIcon" width="128" height="127"/>
         <image name="Camera" width="64" height="64"/>
         <image name="HeartIcon" width="128" height="128"/>
@@ -2130,6 +2155,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
+<<<<<<< HEAD
+        <segue reference="4xb-Rg-8rO"/>
+=======
         <segue reference="91z-fY-mCg"/>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
     </inferredMetricsTieBreakers>
 </document>
