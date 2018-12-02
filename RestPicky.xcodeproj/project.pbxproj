@@ -10,6 +10,7 @@
 		8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8576A870218BBF2700B5C628 /* ReviewsViewController.swift */; };
 		85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1262D2184F879009EC4DD /* ProfileViewController.swift */; };
 		9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DCF7218B4B7900493ED2 /* Menu.swift */; };
+		9A9278F621B46A910016E477 /* RestaurantReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */; };
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */; };
 		A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594C5782188E38C0062C104 /* RestaurantListViewController.swift */; };
@@ -35,6 +36,7 @@
 		8576A870218BBF2700B5C628 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
 		85F1262D2184F879009EC4DD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9A04DCF7218B4B7900493ED2 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewsViewController.swift; sourceTree = "<group>"; };
 		A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A594C5782188E38C0062C104 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CDA723215D6940006BFF16 /* AppDelegate.swift */,
+				9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */,
 				A5D78C1B2160737A00E48A3B /* LoginViewController.swift */,
 				A5D78C1D216089B400E48A3B /* RegisterViewController.swift */,
 				A5D78C1F216089D800E48A3B /* HomeViewController.swift */,
@@ -329,6 +332,7 @@
 				A5F79A5821AB32950056CC37 /* Review.swift in Sources */,
 				85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */,
 				A5C3B64F218A99FC00502F93 /* BookmarkTableViewController.swift in Sources */,
+				9A9278F621B46A910016E477 /* RestaurantReviewsViewController.swift in Sources */,
 				A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */,
 				A5F10490218435AB0035A202 /* User.swift in Sources */,
 			);
@@ -482,13 +486,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XD8PH7862X;
+				DEVELOPMENT_TEAM = 46TU4W4DSK;
 				INFOPLIST_FILE = RestPicky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Team3.RestPicky;
+				PRODUCT_BUNDLE_IDENTIFIER = Team3.RestPicky1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -504,13 +508,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XD8PH7862X;
+				DEVELOPMENT_TEAM = 46TU4W4DSK;
 				INFOPLIST_FILE = RestPicky/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Team3.RestPicky;
+				PRODUCT_BUNDLE_IDENTIFIER = Team3.RestPicky1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

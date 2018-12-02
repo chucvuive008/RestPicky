@@ -35,6 +35,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
+    var user = User()
     var total = 0.0
     var restaurantMenu = [Menu]()
     
@@ -72,12 +73,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    @IBOutlet weak var buttonRateStar5: UIButton!
-    @IBOutlet weak var buttonRateStar4: UIButton!
-    @IBOutlet weak var buttonRateStar3: UIButton!
-    @IBOutlet weak var buttonRateStar2: UIButton!
-    @IBOutlet weak var buttonRateStar1: UIButton!
-    
     
     @IBOutlet weak var phoneNumber: UIButton!
     @IBAction func buttonCall(_ sender: Any) {
@@ -87,7 +82,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
-    @IBAction func buttonDirections(_ sender: Any) {
+    @IBAction func buttonGetDirections(_ sender: Any) {
         let lat1 : NSString = NSString(format:"%f", restaurant.latitude)
         let lng1 : NSString = NSString(format:"%f", restaurant.longitude)
         
@@ -107,56 +102,16 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         mapItem.openInMaps(launchOptions: options)
     }
     
-    
-    @IBAction func rateStar5(_ sender: Any) {
-        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar4.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar5.setImage(UIImage(named: "YellowStarIcon"), for: [])
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        rate(myRate: 5)
+        if segue.identifier == "restaurantRatingSegue"{
+            let seg = segue.destination as! RestaurantReviewsViewController
+            seg.restaurant = restaurant
+            seg.user = user
+        }
     }
-    
-    @IBAction func rateStar4(_ sender: Any) {
-        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar4.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        
-        rate(myRate: 4)
-    }
-    
-    @IBAction func rateStar3(_ sender: Any) {
-        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar3.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        
-        rate(myRate: 3)
-    }
-    
-    @IBAction func rateStar2(_ sender: Any) {
-        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar2.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar3.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        
-        rate(myRate: 2)
-    }
-    
-    @IBAction func rateStar1(_ sender: Any) {
-        buttonRateStar1.setImage(UIImage(named: "YellowStarIcon"), for: [])
-        buttonRateStar2.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar3.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar4.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        buttonRateStar5.setImage(UIImage(named: "BlankStarIcon"), for: [])
-        
-        rate(myRate: 1)
-    }
+
+//        rate(myRate: 1)
     
     @IBAction func backBtnPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
