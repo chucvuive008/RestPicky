@@ -73,7 +73,12 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRestaurant = restaurantList[indexPath.row]
+        if type == "New Restaurants"{
+            selectedRestaurant = restaurantList[restaurantList.count - indexPath.row - 1]
+        }else{
+            selectedRestaurant = restaurantList[indexPath.row]
+        }
+        
         performSegue(withIdentifier: "restaurantdetail", sender: self)
     }
     
