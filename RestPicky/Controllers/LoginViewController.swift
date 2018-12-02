@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var img = UIImage()
     var newRestaurants = [Restaurant]()
     var ref : DatabaseReference?
+    var user = User()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         getRestaurants(restaurantArray: newRestaurants)
         // Do any additional setup after loading the view.
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
     
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
@@ -69,11 +75,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 
                 SVProgressHUD.dismiss()
-                
                 if (Auth.auth().currentUser?.isEmailVerified)! {
                     print("Log in successful")
-                    self.performSegue(withIdentifier: "LoginToSearch", sender: self)
-                    
+                    self.user.uid = Auth.auth().currentUser?.uid ?? ""
+                    self.ref?.child("user/\(self.user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
+                        if let result = snapshot.value as? NSDictionary {
+                            for child in result{
+                                if child.key as! String == "bookmark"{
+                                    if let childSnapshot = snapshot.childSnapshot(forPath: "bookmark/").value as? NSArray{
+                                        for i in 1..<childSnapshot.count{
+                                            if let dic = childSnapshot[i] as? NSDictionary{
+                                                for property in dic{
+                                                    if property.key as! String == "restaurantId"{
+                                                        self.user.restaurantsIdBookmark.append(property.value as! Int)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        SVProgressHUD.dismiss()
+                        self.performSegue(withIdentifier: "LoginToSearch", sender: self)
+                    })
                 }
                 else {
                     self.alert(title: "", message: "Please verify your email")
@@ -88,7 +113,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if segue.identifier == "LoginToSearch" {
             let controller = segue.destination as! TabViewController
             controller.newRestaurants = newRestaurants
-            
+            controller.user = user
         }
     }
     
@@ -109,7 +134,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getRestaurants(restaurantArray: Array<Restaurant>){
-        ref?.child("restaurant").queryLimited(toLast: 10).observeSingleEvent(of: .value, with: { (snapshot) in
+        ref?.child("restaurant").queryLimited(toLast: 100).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [DataSnapshot] {
                 for child in result {
                     let orderID = child.key
@@ -133,7 +158,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                     self.getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/rest%2F\(self.newRestaurants[i].id)%2F\(index).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", restaurant: self.newRestaurants[i])
                                 }
                             }
-                        }else if child.key as! String == "street"{
+                        }else if child.key as! String == "review"{
+                            if let childSnapshot = snapshot.childSnapshot(forPath: "review/").value as? NSArray{
+                                for index in 1..<childSnapshot.count{
+                                    let review = Review()
+                                    if let dic = (childSnapshot[index] as? NSDictionary){
+                                        for property in dic{
+                                            if property.key as! String == "id"{
+                                                review.id = property.value as! Int
+                                            }else if property.key as! String == "comment"{
+                                                review.comment = property.value as! String
+                                            }else if property.key as! String == "rating"{
+                                                review.rating = property.value as! Double
+                                            }else if property.key as! String == "userId"{
+                                                review.userId = property.value as! String
+                                            }
+                                        }
+                                    }
+                                    self.newRestaurants[i].review.append(review)
+                                }
+                            }
+                        }
+                        else if child.key as! String == "street"{
                             self.newRestaurants[i].street = child.value as! String
                         }else if child.key as! String == "city"{
                             self.newRestaurants[i].city = child.value as! String

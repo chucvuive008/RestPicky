@@ -15,6 +15,7 @@ class TabViewController: UITabBarController {
     var currentUser : String?
     var ref : DatabaseReference?
     var newRestaurants = [Restaurant]()
+    var bookmarkRestaurants = [Restaurant]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,22 +31,33 @@ class TabViewController: UITabBarController {
             }
         }
         
-
-
+        getBookmarkRestaurants()
         
-        guard let viewControllers = viewControllers else {
-            return
-        }
-    
-        for viewController in viewControllers{
-            if let searchViewController = viewController as? SearchViewController {
-                searchViewController.newRestaurants = newRestaurants
+        for viewController in viewControllers!{
+            if let bookmarkViewController = viewController as? BookmarkTableViewController
+            {
+                bookmarkViewController.restaurants = self.bookmarkRestaurants
+                bookmarkViewController.user = self.user
+            }else if let searchViewController = viewController as? SearchViewController{
+                searchViewController.restaurantList = self.newRestaurants
+                searchViewController.user = self.user
+            }else if let homeViewController = viewController as? HomeViewController {
+                homeViewController.newRestaurants = self.newRestaurants
+                homeViewController.user = self.user
+            }else if let profileViewController = viewController as? ProfileViewController {
+                profileViewController.restaurants = self.newRestaurants
             }
-        
         }
     }
     
-
+    func getBookmarkRestaurants(){
+        for restaurant in newRestaurants{
+            if user.restaurantsIdBookmark.contains(restaurant.id){
+                bookmarkRestaurants.append(restaurant)
+            }
+            
+        }
+    }
     
     /*
      // MARK: - Navigation

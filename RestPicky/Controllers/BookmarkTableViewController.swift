@@ -1,82 +1,68 @@
 //
-//  SearchViewController.swift
+//  BookmarkTableViewController.swift
 //  RestPicky
 //
-//  Created by Nghia Vuong on 11/25/18.
+//  Created by Nghia Vuong on 10/31/18.
 //  Copyright © 2018 Nghia Vuong. All rights reserved.
 //
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
-    
-    var restaurantList = [Restaurant]()
-    var currentRestaurantList = [Restaurant]()
+class BookmarkTableViewController: UITableViewController {
+
+    var restaurants = [Restaurant]()
     var selectedRestaurant = Restaurant()
     var user = User()
-    @IBOutlet weak var restaurantsTableView: UITableView!
-    
-    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        currentRestaurantList = restaurantList
-        searchBar.backgroundImage = UIImage()
-        searchBar.layer.borderWidth = 0
-        searchBar.layer.cornerRadius = 10
-        searchBar.layer.masksToBounds = true
-        restaurantsTableView.delegate = self
-        restaurantsTableView.dataSource = self
-        searchBar.delegate = self
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
 
-        self.view.endEditing(true)
-//        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: Selector("endEditing:")))
-        // Do any additional setup after loading the view.
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.reloadData()
     }
-    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentRestaurantList.count
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return restaurants.count
     }
+
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        let name = cell.viewWithTag(100) as! UILabel
-        let address = cell.viewWithTag(101) as! UILabel
-        let phone = cell.viewWithTag(102) as! UILabel
-        let image = cell.viewWithTag(103) as! UIImageView
-        let heatImage = cell.viewWithTag(104) as! UIImageView
+        let nameLabel = cell.viewWithTag(1) as! UILabel
+        let addressLabel = cell.viewWithTag(2) as! UILabel
+        let phoneLabel = cell.viewWithTag(3) as! UILabel
+        let restaurantImageView = cell.viewWithTag(4) as! UIImageView
         let starImage1 = cell.viewWithTag(50) as! UIImageView
         let starImage2 = cell.viewWithTag(51) as! UIImageView
         let starImage3 = cell.viewWithTag(52) as! UIImageView
         let starImage4 = cell.viewWithTag(53) as! UIImageView
         let starImage5 = cell.viewWithTag(54) as! UIImageView
         
-        setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: currentRestaurantList[indexPath.row])
-        setBookMarkImage(heartImage: heatImage, user: user, restaurantId: currentRestaurantList[indexPath.row].id)
-        name.text = currentRestaurantList[indexPath.row].name
-        address.text = currentRestaurantList[indexPath.row].street + ", " + currentRestaurantList[indexPath.row].city + ", " + currentRestaurantList[indexPath.row].state + ", \(currentRestaurantList[indexPath.row].zipcode)"
-        phone.text = currentRestaurantList[indexPath.row].phoneNumber
-        image.image = currentRestaurantList[indexPath.row].images[0]
+        setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, restaurant: restaurants[indexPath.row])
         
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        nameLabel.text = restaurants[indexPath.row].name
+        addressLabel.text = restaurants[indexPath.row].street + ", " + restaurants[indexPath.row].city + ", " + restaurants[indexPath.row].state + ", \(restaurants[indexPath.row].zipcode)"
+        phoneLabel.text = restaurants[indexPath.row].phoneNumber
         
+        restaurantImageView.image = restaurants[indexPath.row].images[0]
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none 
+        // Configure the cell...
+
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedRestaurant = currentRestaurantList[indexPath.row]
-        performSegue(withIdentifier: "restaurantdetail", sender: self)
-    }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "restaurantdetail"{
             let seg = segue.destination as! RestaurantDetailViewController
@@ -84,20 +70,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else {
-            currentRestaurantList = restaurantList
-            restaurantsTableView.reloadData()
-            return
-        }
-        currentRestaurantList = restaurantList.filter({ (restaurant) -> Bool in
-            restaurant.name.lowercased().contains(searchText.lowercased())  ||
-            restaurant.city.lowercased().contains(searchText.lowercased())  ||
-            restaurant.street.lowercased().contains(searchText.lowercased()) ||
-            restaurant.type.lowercased().contains(searchText.lowercased())
-        })
-        restaurantsTableView.reloadData()
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRestaurant = restaurants[indexPath.row]
+        performSegue(withIdentifier: "restaurantdetail", sender: self)
     }
     
     func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, restaurant: Restaurant){
@@ -149,15 +124,41 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             image5.image = UIImage(named: "YellowStarIcon")
         }
     }
-    
-    func setBookMarkImage(heartImage : UIImageView, user : User, restaurantId : Int){
-        if user.restaurantsIdBookmark.contains(restaurantId)
-        {
-            heartImage.image = UIImage(named: "HeartIcon")
-        }else{
-            heartImage.image = UIImage(named: "heart")
-        }
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
     /*
     // MARK: - Navigation
 

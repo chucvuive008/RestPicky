@@ -79,7 +79,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         actionCodeSettings.url = URL(string: "https://www.restpicky.com")
                         actionCodeSettings.handleCodeInApp = true
                         actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-                        self.ref?.child("user").child(Auth.auth().currentUser!.uid).setValue(["name":self.NameTextField.text, "email": self.emailTextField.text])
+                        self.ref?.child("user").child(Auth.auth().currentUser!.uid).setValue(["name":self.NameTextField.text!, "email": self.emailTextField.text!, "address": "", "phone": ""])
+                        self.uploadMedia(image: UIImage(named: "UserIcon")!)
                         SVProgressHUD.dismiss()
                         Auth.auth().currentUser?.sendEmailVerification( completion: { (error) in
                             if let error = error {
@@ -105,6 +106,22 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             alert(title: "", message: "Please enter your name")
         }
         
+    }
+    func uploadMedia( image: UIImage) {
+        //        let databaseRef = ref.child("user/").child(userID).child("profilePics/")
+        let userID = Auth.auth().currentUser?.uid
+        let storageRef = Storage.storage().reference().child("user/").child(userID!).child("profileImage.jpg/")
+        var uploadData = image.jpegData(compressionQuality: 0.6)
+        let uploadTask = storageRef.putData(uploadData!, metadata: nil, completion: {(metadata, error) in
+            guard let metadata = metadata else {
+                return
+            }
+        })
+        // Add a progress observer to an upload task
+        let observer = uploadTask.observe(.progress) { snapshot in
+            // A progress event occured
+            print(snapshot)
+        }
     }
     
     func alert (title: String , message: String){

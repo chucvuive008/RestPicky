@@ -7,7 +7,11 @@
 		<key>RestPicky.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+<<<<<<< HEAD
 			<integer>0</integer>
+=======
+			<integer>16</integer>
+>>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 	</dict>
 </dict>

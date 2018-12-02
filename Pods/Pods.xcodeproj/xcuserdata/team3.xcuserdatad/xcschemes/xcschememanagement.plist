@@ -7,146 +7,82 @@
 		<key>ChameleonFramework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
-			<integer>1</integer>
-=======
 			<integer>0</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>2</integer>
-=======
-			<integer>1</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseCore.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>3</integer>
-=======
-			<integer>2</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseDatabase.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>4</integer>
-=======
-			<integer>3</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseStorage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>5</integer>
-=======
-			<integer>4</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseUI-FirebaseAuthUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>7</integer>
-=======
-			<integer>6</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseUI-FirebaseGoogleAuthUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>8</integer>
-=======
-			<integer>7</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>FirebaseUI.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>6</integer>
-=======
-			<integer>5</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>11</integer>
-=======
-			<integer>10</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>12</integer>
-=======
-			<integer>11</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>9</integer>
-=======
-			<integer>8</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>10</integer>
-=======
-			<integer>9</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>Pods-RestPicky.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>15</integer>
-=======
-			<integer>14</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>16</integer>
-=======
-			<integer>15</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>13</integer>
-=======
-			<integer>12</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-<<<<<<< HEAD
 			<integer>14</integer>
-=======
-			<integer>13</integer>
->>>>>>> 9f4c211bcf86398de0706f64f5629b6c98e59e4c
 		</dict>
 	</dict>
 </dict>
