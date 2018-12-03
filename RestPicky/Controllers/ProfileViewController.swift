@@ -42,14 +42,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                         reviewsInt.append(review.id)
                         print("Found your comment")
                     }
-//                    print(review.rating)
+//    /Users/team3/Desktop/RestPicky/RestPicky/Controllers/RestaurantListViewController.swift                print(review.rating)
 //                    print(review.userId)
                 }
             }
             
             let seg = segue.destination as! ReviewsViewController
-            seg.restaurants = yourReviewsRestaurants
-            seg.reviewsInt = reviewsInt
+            print(seg.reviewsInt)
+            print(seg.restaurants)
+//            if seg.reviewsInt.count == reviewsInt.count {
+//                seg.restaurants = []
+//                seg.reviewsInt = []
+//                print("nothing")
+//            } else {
+                seg.reviewsInt = reviewsInt
+                seg.restaurants = yourReviewsRestaurants
+//            }
         }
     }
     

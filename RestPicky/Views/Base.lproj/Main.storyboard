@@ -1448,37 +1448,85 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUi-NA-R0m">
-                                                    <rect key="frame" x="15" y="15" width="80" height="81"/>
+                                                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UUi-NA-R0m">
+                                                    <rect key="frame" x="15" y="15" width="80" height="80"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="3M8-mU-aZh"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="3ce-sP-Rze"/>
                                                         <constraint firstAttribute="height" constant="80" id="PqX-Qf-cbN"/>
                                                         <constraint firstAttribute="width" constant="80" id="so9-a2-M5n"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eM-Kr-dTR">
-                                                    <rect key="frame" x="103" y="15" width="148" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of restaurant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eM-Kr-dTR">
+                                                    <rect key="frame" x="100" y="5" width="270" height="25.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThF-pQ-CfK">
-                                                    <rect key="frame" x="103" y="45" width="84" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKB-CQ-uye">
-                                                    <rect key="frame" x="103" y="75" width="257" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="HMV-15-kJ3">
+                                                    <rect key="frame" x="100" y="35.5" width="124" height="20"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1QD-y3-xyB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="6fP-vA-TAF"/>
+                                                                <constraint firstAttribute="width" constant="20" id="I3C-8E-baW"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BaY-Fa-hGN">
+                                                            <rect key="frame" x="26" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="d8I-98-Cle"/>
+                                                                <constraint firstAttribute="height" constant="20" id="smg-V3-wQ1"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="52" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pcT-ce-oMq">
+                                                            <rect key="frame" x="52" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="2Ie-9g-4hX"/>
+                                                                <constraint firstAttribute="width" constant="20" id="bTt-Rm-ejf"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="53" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JLB-q6-wh9">
+                                                            <rect key="frame" x="78" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="6ts-dt-2je"/>
+                                                                <constraint firstAttribute="height" constant="20" id="xN8-gU-dqd"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" tag="54" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="YellowStarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="3as-hK-dqN">
+                                                            <rect key="frame" x="104" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="4ZC-Q1-vra"/>
+                                                                <constraint firstAttribute="height" constant="20" id="gpJ-TF-sDZ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your review" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKB-CQ-uye">
+                                                    <rect key="frame" x="100" y="60.5" width="270" height="84"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="84" id="NcQ-4q-Lsy"/>
+                                                        <constraint firstAttribute="width" constant="270" id="vmc-eq-zPp"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UUi-NA-R0m" firstAttribute="leading" secondItem="InS-2d-coA" secondAttribute="leading" constant="15" id="2AK-9k-RjM"/>
+                                                <constraint firstItem="HMV-15-kJ3" firstAttribute="leading" secondItem="UUi-NA-R0m" secondAttribute="trailing" constant="5" id="7jA-tq-unD"/>
+                                                <constraint firstAttribute="bottom" secondItem="eKB-CQ-uye" secondAttribute="bottom" constant="5" id="E2L-Zl-VTF"/>
+                                                <constraint firstItem="7eM-Kr-dTR" firstAttribute="top" secondItem="InS-2d-coA" secondAttribute="top" constant="5" id="INv-Zi-hYq"/>
+                                                <constraint firstItem="UUi-NA-R0m" firstAttribute="leading" secondItem="InS-2d-coA" secondAttribute="leading" constant="15" id="QSd-KX-eBr"/>
+                                                <constraint firstItem="eKB-CQ-uye" firstAttribute="leading" secondItem="UUi-NA-R0m" secondAttribute="trailing" constant="5" id="QWM-fO-bKd"/>
+                                                <constraint firstItem="7eM-Kr-dTR" firstAttribute="leading" secondItem="UUi-NA-R0m" secondAttribute="trailing" constant="5" id="WLK-cA-4AK"/>
+                                                <constraint firstItem="7eM-Kr-dTR" firstAttribute="leading" secondItem="UUi-NA-R0m" secondAttribute="trailing" constant="5" id="eLO-ao-eGI"/>
+                                                <constraint firstAttribute="trailing" secondItem="7eM-Kr-dTR" secondAttribute="trailing" constant="5" id="iu2-x1-mFa"/>
+                                                <constraint firstAttribute="trailing" secondItem="eKB-CQ-uye" secondAttribute="trailing" constant="5" id="jmc-qx-WuV"/>
+                                                <constraint firstItem="HMV-15-kJ3" firstAttribute="top" secondItem="7eM-Kr-dTR" secondAttribute="bottom" constant="5" id="yg0-ay-RQf"/>
+                                                <constraint firstItem="UUi-NA-R0m" firstAttribute="top" secondItem="InS-2d-coA" secondAttribute="top" constant="15" id="yqR-L2-i1i"/>
+                                                <constraint firstItem="eKB-CQ-uye" firstAttribute="top" secondItem="HMV-15-kJ3" secondAttribute="bottom" constant="5" id="zFs-jl-tv2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
