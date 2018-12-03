@@ -58,6 +58,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 seg.reviewsInt = reviewsInt
                 seg.restaurants = yourReviewsRestaurants
 //            }
+            yourReviewsRestaurants = []
+            reviewsInt = []
         }
     }
     

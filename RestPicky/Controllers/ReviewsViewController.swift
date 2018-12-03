@@ -23,6 +23,8 @@ class ReviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         reviewsTableView.delegate = self
         reviewsTableView.dataSource = self
         reviewsTableView.reloadData()
+        print(restaurants)
+        print(reviewsInt)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
