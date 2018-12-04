@@ -13,17 +13,56 @@ import Firebase
 class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //Our list for the tableview
-    let list = ["Reviews", "Photos", "Recents", "Edit"]
+    let list = ["Reviews", "Edit"]
     
     //Elements on the page
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     var restaurants = [Restaurant]()
+    var reviewsInt = [Int]()
     //Firebase database reference
     var ref: DatabaseReference!
     var userID: String = ""
-
+    var yourReviewsRestaurants = [Restaurant]()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "reviewsSegue" {
+            let userID = Auth.auth().currentUser?.uid
+            for restaurant in restaurants {
+                //            print(restaurant.id)
+                //            print(restaurant.images)
+//                print(restaurant.name)
+//                print(restaurant.rating)
+                for review in restaurant.review {
+//                    print(review.comment)
+//                    print(review.id)
+                    if review.userId == userID {
+                        yourReviewsRestaurants.append(restaurant)
+                        reviewsInt.append(review.id)
+                        print("Found your comment")
+                    }
+//    /Users/team3/Desktop/RestPicky/RestPicky/Controllers/RestaurantListViewController.swift                print(review.rating)
+//                    print(review.userId)
+                }
+            }
+            
+            let seg = segue.destination as! ReviewsViewController
+            print(seg.reviewsInt)
+            print(seg.restaurants)
+//            if seg.reviewsInt.count == reviewsInt.count {
+//                seg.restaurants = []
+//                seg.reviewsInt = []
+//                print("nothing")
+//            } else {
+                seg.reviewsInt = reviewsInt
+                seg.restaurants = yourReviewsRestaurants
+//            }
+            yourReviewsRestaurants = []
+            reviewsInt = []
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
