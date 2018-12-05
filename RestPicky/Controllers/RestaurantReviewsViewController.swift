@@ -70,9 +70,15 @@ class RestaurantReviewsViewController: UIViewController {
     }
     
     @IBAction func postReview(_ sender: Any) {
-        
+        var message : String
+        if myReviewExists(){
+            message = "You are about to update your review. Do you want to continue?."
+        }
+        else {
+            message = "You are about to post your review. Do you want to continue?."
+        }
         // create the alert
-        let alert = UIAlertController(title: "Alert", message: "You are about to post your review. Do you want to continue?.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: UIAlertController.Style.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
