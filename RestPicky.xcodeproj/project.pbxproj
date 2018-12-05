@@ -15,7 +15,6 @@
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */; };
 		A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594C5782188E38C0062C104 /* RestaurantListViewController.swift */; };
-		A5C3B64F218A99FC00502F93 /* BookmarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */; };
 		A5CDA724215D6940006BFF16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CDA723215D6940006BFF16 /* AppDelegate.swift */; };
 		A5CDA729215D6940006BFF16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA727215D6940006BFF16 /* Main.storyboard */; };
 		A5CDA72B215D6943006BFF16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CDA72A215D6943006BFF16 /* Assets.xcassets */; };
@@ -27,6 +26,7 @@
 		A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D78C2121608A6600E48A3B /* TabViewController.swift */; };
 		A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048D218435AB0035A202 /* Restaurant.swift */; };
 		A5F10490218435AB0035A202 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048E218435AB0035A202 /* User.swift */; };
+		A5F6A59021B64BB700FA7E4D /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */; };
 		A5F79A5821AB32950056CC37 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5721AB32950056CC37 /* Review.swift */; };
 		A5F79A5A21ABB3140056CC37 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5921ABB3140056CC37 /* SearchViewController.swift */; };
 		A5F79A7C21B48AF30056CC37 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A7B21B48AF30056CC37 /* Bookmark.swift */; };
@@ -42,7 +42,6 @@
 		9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewsViewController.swift; sourceTree = "<group>"; };
 		A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A594C5782188E38C0062C104 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
-		A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkTableViewController.swift; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CDA723215D6940006BFF16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5CDA728215D6940006BFF16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		A5D78C2121608A6600E48A3B /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		A5F1048D218435AB0035A202 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A5F1048E218435AB0035A202 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
 		A5F79A5721AB32950056CC37 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A5F79A5921ABB3140056CC37 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A5F79A7B21B48AF30056CC37 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
@@ -138,10 +138,10 @@
 				85F1262D2184F879009EC4DD /* ProfileViewController.swift */,
 				A594C5782188E38C0062C104 /* RestaurantListViewController.swift */,
 				A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */,
-				A5C3B64E218A99FC00502F93 /* BookmarkTableViewController.swift */,
 				8576A870218BBF2700B5C628 /* ReviewsViewController.swift */,
 				A5F79A5921ABB3140056CC37 /* SearchViewController.swift */,
 				448AA88221B0526700293F0A /* EditViewController.swift */,
+				A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -339,9 +339,9 @@
 				8576A871218BBF2700B5C628 /* ReviewsViewController.swift in Sources */,
 				A5F79A5821AB32950056CC37 /* Review.swift in Sources */,
 				85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */,
-				A5C3B64F218A99FC00502F93 /* BookmarkTableViewController.swift in Sources */,
 				9A9278F621B46A910016E477 /* RestaurantReviewsViewController.swift in Sources */,
 				A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */,
+				A5F6A59021B64BB700FA7E4D /* BookmarkViewController.swift in Sources */,
 				A5F10490218435AB0035A202 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

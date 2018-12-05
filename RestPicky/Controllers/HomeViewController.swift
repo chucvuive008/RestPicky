@@ -17,6 +17,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     var user = User()
     var newRestaurants = [Restaurant]()
+    var mostReviewRestaurants = [Restaurant]()
+    var topRestaurants = [Restaurant]()
     var randomRestaurants = [Restaurant]()
     var americanRestaurants = [Restaurant]()
     var italianRestaurants = [Restaurant]()
@@ -33,6 +35,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mostReviewRestaurants = newRestaurants.sorted{
+            $0.review.count > $1.review.count
+        }
         
         CollectionTableView.delegate = self
         CollectionTableView.dataSource = self
@@ -166,16 +172,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = randomRestaurants[i - 1].name
             }else if indexPath.row == 3 {
-                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as? UIButton
                 let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
                 let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
                 let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
                 let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
                 let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
-                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: newRestaurants[newRestaurants.count - i])
-                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: mostReviewRestaurants[i - 1])
+                if restaurantImage != nil {
+                    restaurantImage!.setImage(mostReviewRestaurants[i - 1].images[0], for: .normal)
+                    restaurantImage!.tag = 100 * i + indexPath.row
+                    restaurantImage!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+                }
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[newRestaurants.count - i].name
+                restaurantName.text = mostReviewRestaurants[i - 1].name
             }
             
             let forwardArrowButton = cell.viewWithTag(6) as? UIButton
@@ -197,7 +207,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 102{
             selectedRestaurant = randomRestaurants[0]
         }else if sender.tag == 103 {
-            
+            selectedRestaurant = mostReviewRestaurants[0]
         }else if sender.tag == 200 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 2]
         }else if sender.tag == 201 {
@@ -205,7 +215,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 202{
             selectedRestaurant = randomRestaurants[1]
         }else if sender.tag == 203 {
-            
+            selectedRestaurant = mostReviewRestaurants[1]
         }else if sender.tag == 300 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 3]
         }else if sender.tag == 301 {
@@ -213,7 +223,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 302{
             selectedRestaurant = randomRestaurants[2]
         }else if sender.tag == 303 {
-            
+            selectedRestaurant = mostReviewRestaurants[2]
         } else if sender.tag == 400 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 4]
         }else if sender.tag == 401 {
@@ -221,7 +231,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 402{
             selectedRestaurant = randomRestaurants[3]
         }else if sender.tag == 403 {
-            
+            selectedRestaurant = mostReviewRestaurants[3]
         }else if sender.tag == 500 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 5]
         }else if sender.tag == 501 {
@@ -229,7 +239,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 502{
             selectedRestaurant = randomRestaurants[4]
         }else if sender.tag == 503 {
-            
+            selectedRestaurant = mostReviewRestaurants[4]
         }else if sender.tag == 600 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 6]
         }else if sender.tag == 601 {
@@ -237,7 +247,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 602{
             selectedRestaurant = randomRestaurants[5]
         }else if sender.tag == 603 {
-            
+            selectedRestaurant = mostReviewRestaurants[5]
         }
         
         performSegue(withIdentifier: "restaurantdetail", sender: self)
@@ -270,6 +280,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             selectedRestaurantList = randomRestaurants
         }else if sender.tag == 3 {
             selectedType = "Most Review"
+            selectedRestaurantList = mostReviewRestaurants
         }
         performSegue(withIdentifier: "restaurantlist", sender: self)
     }

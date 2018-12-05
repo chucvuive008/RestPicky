@@ -88,16 +88,25 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                                             if let dic = childSnapshot[i] as? NSDictionary{
                                                 for property in dic{
                                                     if property.key as! String == "restaurantId"{
-                                                        self.user.restaurantsIdBookmark.append(property.value as! Int)
                                                             bookmark.restaurantId = property.value as! Int
                                                     }
                                                     if property.key as! String == "id"{
                                                         bookmark.id = property.value as! Int
                                                     }
+                                                    if property.key as! String == "mark"{
+                                                        bookmark.mark = property.value as! Bool
+                                                    }
                                                 }
                                             }
                                             if bookmark.id != 0 && bookmark.restaurantId != 0{
                                                 self.user.bookmarks.append(bookmark)
+                                            }
+                                        }
+                                        if self.user.bookmarks != nil{
+                                            for bookmark in self.user.bookmarks{
+                                                if bookmark.mark{
+                                                    self.user.restaurantsIdBookmark.append(bookmark.restaurantId)
+                                                }
                                             }
                                         }
                                     }

@@ -36,7 +36,7 @@ class TabViewController: UITabBarController {
 //        self.ref?.child("user/\(user.uid)/bookmark/\((user.bookmarks.last?.id)! + 1)").setValue(["id":(user.bookmarks.last?.id)! + 1, "restaurantId": 15])
         
         for viewController in viewControllers!{
-            if let bookmarkViewController = viewController as? BookmarkTableViewController
+            if let bookmarkViewController = viewController as? BookmarkViewController
             {
                 bookmarkViewController.restaurants = self.bookmarkRestaurants
                 bookmarkViewController.user = self.user
