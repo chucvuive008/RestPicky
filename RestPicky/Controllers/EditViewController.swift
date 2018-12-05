@@ -44,9 +44,9 @@ class EditViewController: UIViewController {
             print(phone)
             print(type(of: phone))
             //Set usernameLabel
-            self.nameTextField.placeholder = username
-            self.addressTextField.placeholder = address
-            self.phoneTextField.placeholder = phone
+            self.nameTextField.text = username
+            self.addressTextField.text = address
+            self.phoneTextField.text = phone
         }) { (error) in
             print(error.localizedDescription)
         }
