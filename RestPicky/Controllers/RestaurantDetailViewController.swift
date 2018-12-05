@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 protocol updateRestaurantsDelegate{
     func updatedRestaurant(restaurant: Restaurant)
@@ -20,8 +21,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
     var user = User()
+    var ref:DatabaseReference?
     var total = 0.0
     var restaurantMenu = [Menu]()
+    var isBookmarked = false
     
     var updateDelegate : updateRestaurantsDelegate?
     // number of rows in table view
@@ -86,18 +89,27 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+        
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
         restaurantImage.image = restaurant.images[0]
+        for bookmarked in user.bookmarks
+        {
+            if bookmarked.restaurantId == restaurant.id && bookmarked.mark
+            {
+                isBookmarked = true
+                bookMarkHeart.setImage(UIImage(named: "HeartIcon"), for: [])
+                bookMarkLabel.text = "Bookmarked!"
+            }
+        }
         
         numberReviews.text = "\(restaurant.review.count)"
         paintStars(raiting: getRestaurnatRaiting())
         phoneNumber.setTitle("Call (\(restaurant.phoneNumber))", for: [])
         
     }
-    
-    
     
     @IBOutlet weak var numberReviews: UILabel!
     
@@ -107,13 +119,67 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    
     @IBOutlet weak var phoneNumber: UIButton!
     
     @IBAction func buttonMyRating(_ sender: Any) {
         performSegue(withIdentifier: "restaurantRatingSegue", sender: self)
     }
     
+    @IBOutlet weak var bookMarkHeart: UIButton!
+    @IBOutlet weak var bookMarkLabel: UILabel!
+    
+    @IBAction func buttonBookmark(_ sender: Any) {
+        
+        var wasBookmarked = false
+        var bookmarkId = 0
+        
+        for bookmarked in user.bookmarks
+        {
+            if bookmarked.restaurantId == restaurant.id
+            {
+                wasBookmarked = true
+                bookmarkId = bookmarked.id
+            }
+        }
+        
+        if isBookmarked
+        {
+            isBookmarked = false
+            user.bookmarks[bookmarkId - 1].mark = false
+            bookMarkHeart.setImage(UIImage(named: "heart"), for: [])
+            bookMarkLabel.text = "Bookmark?"
+        }
+        else
+        {
+            isBookmarked = true
+            
+            if wasBookmarked
+            {
+                user.bookmarks[bookmarkId - 1].mark = true
+            }
+            else{
+                let newBookmark = Bookmark()
+                
+                if user.bookmarks.last?.id == nil
+                {
+                    bookmarkId = 1
+                }
+                else{
+                    bookmarkId = (user.bookmarks.last?.id)! + 1
+                }
+
+                newBookmark.id = bookmarkId
+                newBookmark.mark = true
+                newBookmark.restaurantId = restaurant.id
+                user.bookmarks.append(newBookmark)
+            }
+            
+            bookMarkHeart.setImage(UIImage(named: "HeartIcon"), for: [])
+            bookMarkLabel.text = "Bookmarked!"
+        }
+        
+        self.ref?.child("user/\(self.user.uid)/bookmark/\(bookmarkId)").setValue(["id" : bookmarkId, "mark" : isBookmarked, "restaurantId" : self.restaurant.id])
+    }
     
     @IBAction func buttonCall(_ sender: Any) {
         if let url = URL(string: "tel://\(restaurant.phoneNumber)") {

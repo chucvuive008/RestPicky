@@ -1349,9 +1349,12 @@
                                     <constraint firstAttribute="height" constant="45" id="S8t-Tc-XjS"/>
                                 </constraints>
                                 <state key="normal" title="Bookmark" image="heart"/>
+                                <connections>
+                                    <action selector="buttonBookmark:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="TS1-AI-cDC"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-K2-Hyn">
-                                <rect key="frame" x="300" y="395" width="57" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-K2-Hyn">
+                                <rect key="frame" x="300" y="395" width="63" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1405,7 +1408,7 @@
                             <constraint firstItem="fd5-6J-ozj" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" id="HFr-cM-wCF"/>
                             <constraint firstItem="MFh-03-Ke0" firstAttribute="leading" secondItem="aUJ-XD-NLK" secondAttribute="trailing" constant="7.5" id="ICs-oH-nuN"/>
                             <constraint firstItem="7Bu-K2-Hyn" firstAttribute="top" secondItem="dvG-dX-M4q" secondAttribute="bottom" constant="6" id="K7v-5o-HtU"/>
-                            <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="7Bu-K2-Hyn" secondAttribute="trailing" constant="18" id="PYP-y3-ahW"/>
+                            <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="7Bu-K2-Hyn" secondAttribute="trailing" constant="12" id="PYP-y3-ahW"/>
                             <constraint firstItem="Bt8-Bq-ELF" firstAttribute="top" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="8" id="Qi7-YX-SAQ"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="Wef-LB-wDw" secondAttribute="trailing" constant="8" id="QnT-aq-nsM"/>
                             <constraint firstItem="buS-Ey-Yfe" firstAttribute="top" secondItem="aUJ-XD-NLK" secondAttribute="bottom" constant="8" id="Rd1-VY-P1G"/>
@@ -1435,6 +1438,8 @@
                     </view>
                     <connections>
                         <outlet property="Street" destination="iFq-d6-vfp" id="v1O-f7-7zA"/>
+                        <outlet property="bookMarkHeart" destination="dvG-dX-M4q" id="KXM-BS-h7b"/>
+                        <outlet property="bookMarkLabel" destination="7Bu-K2-Hyn" id="nZl-1t-xqr"/>
                         <outlet property="cityStateZip" destination="ciu-ET-a3H" id="hNo-of-jsB"/>
                         <outlet property="numberReviews" destination="u66-Vp-Kcv" id="b7t-WK-CZa"/>
                         <outlet property="phoneNumber" destination="buS-Ey-Yfe" id="MEw-Az-S3h"/>
@@ -2382,6 +2387,7 @@
         <image name="user" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4yP-rV-bFi"/>
         <segue reference="bNi-N1-t4M"/>
         <segue reference="5e0-yr-qhP"/>
     </inferredMetricsTieBreakers>
