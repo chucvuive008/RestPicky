@@ -87,6 +87,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         numberReviews.setTitle("\(restaurant.review.count) Reviews", for: .normal)
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -296,6 +298,33 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             star1.image = UIImage(named: "BlankStarIcon")
         }
         
+    }
+    
+    func getUserReview(userId: String, localUser: User){
+        ref = Database.database().reference()
+        ref!.child("user").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            localUser.name = value?["name"] as? String ?? ""
+            
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getPhoto (urlString : String, profImg: UIImageView){
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            DispatchQueue.main.async {
+                if data != nil{
+                    profImg.image = UIImage(data: data!)!
+                }
+            }
+        }).resume()
     }
     /*
      // MARK: - Navigation
