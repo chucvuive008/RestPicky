@@ -9,7 +9,30 @@
 import UIKit
 import Firebase
 
-class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,updateRestaurantsDelegate {
+    func updatedRestaurant(restaurant: Restaurant) {
+        calculateRating(restaurant: restaurant)
+        for i in 0 ..< newRestaurants.count{
+            if newRestaurants[i].id == restaurant.id{
+                newRestaurants[i] = restaurant
+            }
+        }
+        
+        for i in 0 ..< randomRestaurants.count{
+            if randomRestaurants[i].id == restaurant.id{
+                randomRestaurants[i] = restaurant
+            }
+        }
+        
+        mostReviewRestaurants = newRestaurants.sorted{
+            $0.review.count > $1.review.count
+        }
+        
+        topRestaurants = newRestaurants.sorted{
+            $0.rating > $1.rating
+        }
+    }
+    
     
     var ref : DatabaseReference?
     var selectedType = ""
@@ -67,6 +90,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 randomRestaurants.append(newRestaurants[randomNum])
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        CollectionTableView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -277,6 +304,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
             seg.user = user
+            seg.updateDelegate = self
         }
     }
     
