@@ -36,7 +36,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
-    var user = User()
     var total = 0.0
     var restaurantMenu = [Menu]()
     
@@ -49,22 +48,17 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         restaurantMenu.append(Menu(uid: "4", category: "Entry", name: "Shrimp Coctail", price: 9.99))
         restaurantMenu.append(Menu(uid: "5", category: "Entry", name: "Fish Especial Soup", price: 6.99))
         
-        
-        total = restaurant.rating * Double(reviews)
-        
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
         restaurantImage.image = restaurant.images[0]
         
-        numberReviews.text = "\(reviews)"
-        paintStars(raiting: restaurant.rating)
-        
-        
+        numberReviews.text = "\(restaurant.review.count)"
+        paintStars(raiting: getRestaurnatRaiting())
         phoneNumber.setTitle("Call (\(restaurant.phoneNumber))", for: [])
-        
-        // Do any additional setup after loading the view.
     }
+    
+    
     
     @IBOutlet weak var numberReviews: UILabel!
     
@@ -76,6 +70,12 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     
     @IBOutlet weak var phoneNumber: UIButton!
+    
+    @IBAction func buttonMyRating(_ sender: Any) {
+        performSegue(withIdentifier: "restaurantRatingSegue", sender: self)
+    }
+    
+    
     @IBAction func buttonCall(_ sender: Any) {
         if let url = URL(string: "tel://\(restaurant.phoneNumber)") {
             UIApplication.shared.openURL(url)
@@ -116,6 +116,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBAction func backBtnPress(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+
     }
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -135,6 +136,21 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         total += Double(myRate)
         numberReviews.text = "\(reviews)"
         paintStars(raiting: total / Double(reviews))
+    }
+    
+    func getRestaurnatRaiting() -> Double
+    {
+        var totalRating : Double = 0
+        for review in restaurant.review{
+            totalRating += review.rating
+        }
+        var averageRating = 0.0
+        
+        if restaurant.review.count != 0{
+            averageRating = totalRating/Double(restaurant.review.count)
+        }
+        
+        return averageRating
     }
     
     func paintStars(raiting: Double)
@@ -164,7 +180,6 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     /*
      // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

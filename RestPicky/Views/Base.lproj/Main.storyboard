@@ -1323,7 +1323,7 @@
                                 </constraints>
                                 <state key="normal" title="My Review"/>
                                 <connections>
-                                    <segue destination="ur6-fa-JGt" kind="show" identifier="restaurantRatingSegue" id="4yP-rV-bFi"/>
+                                    <action selector="buttonMyRating:" destination="P1F-DW-ZWB" eventType="touchUpInside" id="T0O-ak-p1n"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1381,6 +1381,7 @@
                         <outlet property="star4" destination="l2S-0t-CtT" id="uiZ-pK-6kE"/>
                         <outlet property="star5" destination="tLZ-Me-CNX" id="jAj-yG-lgV"/>
                         <outlet property="titleLabel" destination="CyX-16-qWI" id="Nlq-KC-wHc"/>
+                        <segue destination="ur6-fa-JGt" kind="show" identifier="restaurantRatingSegue" id="j90-GY-rWU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4V-Pa-P3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1518,6 +1519,9 @@
                                     <constraint firstAttribute="height" constant="30" id="q0O-aW-ucG"/>
                                 </constraints>
                                 <state key="normal" title="Post Review"/>
+                                <connections>
+                                    <action selector="postReview:" destination="ur6-fa-JGt" eventType="touchUpInside" id="YvH-sh-GLe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1543,7 +1547,9 @@
                         <outlet property="buttonRateStar3" destination="eMQ-kc-hfe" id="AgH-Lq-79v"/>
                         <outlet property="buttonRateStar4" destination="HCC-4R-jrd" id="tpS-u8-kKn"/>
                         <outlet property="buttonRateStar5" destination="YiV-t5-Bcw" id="8F3-hi-e3T"/>
+                        <outlet property="myReviewBox" destination="S2c-0Y-Kb0" id="PTl-Qy-Lma"/>
                         <outlet property="restaurantName" destination="vD3-XD-Gl3" id="cyr-DZ-Gbf"/>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="reviewToDetailSegue" id="hU6-xF-A3z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yb-fy-JEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2252,6 +2258,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wol-aI-qrj"/>
-        <segue reference="PMx-lm-UNI"/>
+        <segue reference="hU6-xF-A3z"/>
     </inferredMetricsTieBreakers>
 </document>
