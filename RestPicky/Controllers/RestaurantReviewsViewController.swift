@@ -50,6 +50,7 @@ class RestaurantReviewsViewController: UIViewController {
             if myReviewExists()
             {
                 reviewId = myReview.id
+                print("My review exists")
             }
             else{
                 reviewId = (restaurant.review.last?.id)! + 1

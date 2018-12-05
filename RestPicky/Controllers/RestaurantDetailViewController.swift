@@ -11,31 +11,6 @@ import MapKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // number of rows in table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(restaurantMenu.count)
-    }
-    
-    // create a cell for each table view row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        // set the text from the data model
-        let menuItem = cell.viewWithTag(1000) as! UILabel
-        let price = cell.viewWithTag(1001) as! UILabel
-        
-        menuItem.text = restaurantMenu[indexPath.row].name
-        price.text = "$\(restaurantMenu[indexPath.row].price)"
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        
-        return cell
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        paintStars(raiting: getRestaurnatRaiting())
-        numberReviews.text = "\(restaurant.review.count)"
-    }
-    
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
@@ -43,14 +18,67 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var total = 0.0
     var restaurantMenu = [Menu]()
     
+    // number of rows in table view
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return(restaurant.review.count)
+    }
+    
+    // create a cell for each table view row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        // set the text from the data model
+        let userName = cell.viewWithTag(1000) as! UILabel
+        let comment = cell.viewWithTag(1001) as! UILabel
+        let starImage1 = cell.viewWithTag(2001) as! UIImageView
+        let starImage2 = cell.viewWithTag(2002) as! UIImageView
+        let starImage3 = cell.viewWithTag(2003) as! UIImageView
+        let starImage4 = cell.viewWithTag(2004) as! UIImageView
+        let starImage5 = cell.viewWithTag(2005) as! UIImageView
+
+        setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, review: restaurant.review[indexPath.row])
+        
+        userName.text = restaurant.review[indexPath.row].userId
+        comment.text = restaurant.review[indexPath.row].comment
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        
+        return cell
+    }
+    
+    func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, review: Review){
+        
+        let rating = review.rating
+        
+        image1.image = UIImage(named: "YellowStarIcon")
+        image2.image = UIImage(named: "YellowStarIcon")
+        image3.image = UIImage(named: "YellowStarIcon")
+        image4.image = UIImage(named: "YellowStarIcon")
+        image5.image = UIImage(named: "YellowStarIcon")
+        
+        if rating < 4.5{
+            image5.image = UIImage(named: "BlankStarIcon")
+        }
+        if rating < 3.5{
+            image4.image = UIImage(named: "BlankStarIcon")
+        }
+        if rating < 2.5{
+            image3.image = UIImage(named: "BlankStarIcon")
+        }
+        if rating < 1.5{
+            image2.image = UIImage(named: "BlankStarIcon")
+        }
+        if rating < 0.5{
+            image1.image = UIImage(named: "BlankStarIcon")
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        paintStars(raiting: getRestaurnatRaiting())
+        numberReviews.text = "\(restaurant.review.count)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        restaurantMenu.append(Menu(uid: "1", category: "Entry", name: "Calamary Fried", price: 5.99))
-        restaurantMenu.append(Menu(uid: "2", category: "Entry", name: "Fish Taco Bits", price: 7.99))
-        restaurantMenu.append(Menu(uid: "3", category: "Entry", name: "Coconut Shrimp", price: 8.99))
-        restaurantMenu.append(Menu(uid: "4", category: "Entry", name: "Shrimp Coctail", price: 9.99))
-        restaurantMenu.append(Menu(uid: "5", category: "Entry", name: "Fish Especial Soup", price: 6.99))
         
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
@@ -60,6 +88,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         numberReviews.text = "\(restaurant.review.count)"
         paintStars(raiting: getRestaurnatRaiting())
         phoneNumber.setTitle("Call (\(restaurant.phoneNumber))", for: [])
+        
     }
     
     
