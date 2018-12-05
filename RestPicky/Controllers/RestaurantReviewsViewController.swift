@@ -70,23 +70,34 @@ class RestaurantReviewsViewController: UIViewController {
     }
     
     @IBAction func postReview(_ sender: Any) {
-        let reviewId = getReviewId()
         
-        self.ref?.child("restaurant/\(restaurant.id)/review/\(reviewId)").setValue(["comment" : myReviewBox.text, "id" : reviewId, "rating" : myRating, "userId" : user.uid])
-        if myReviewExists(){
-            restaurant.review[reviewId - 1].comment = myReviewBox.text
-            restaurant.review[reviewId - 1].rating = myRating
-        }else {
-            var review = Review()
-            review.id = reviewId
-            review.comment = myReviewBox.text
-            review.rating = myRating
-            review.userId = user.uid
-            restaurant.review.append(review)
-        }
-        ref?.child("Restaurant/\(self.restaurant.id)").observeSingleEvent(of: .value, with: { (snapshot) in
-            self.restaurant = snapshot.value as? Restaurant ?? Restaurant()
-        })
+        // create the alert
+        let alert = UIAlertController(title: "Alert", message: "You are about to post your review. Do you want to continue?.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.default, handler: { action in
+            let reviewId = self.getReviewId()
+            
+            self.ref?.child("restaurant/\(self.restaurant.id)/review/\(reviewId)").setValue(["comment" : self.myReviewBox.text, "id" : reviewId, "rating" : self.myRating, "userId" : self.user.uid])
+            
+            if self.myReviewExists(){
+                self.restaurant.review[reviewId - 1].comment = self.myReviewBox.text
+                self.restaurant.review[reviewId - 1].rating = self.myRating
+            }else {
+                let review = Review()
+                review.id = reviewId
+                review.comment = self.myReviewBox.text
+                review.rating = self.myRating
+                review.userId = self.user.uid
+                self.restaurant.review.append(review)
+            }
+            
+            self.dismiss(animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet weak var myReviewBox: UITextView!
