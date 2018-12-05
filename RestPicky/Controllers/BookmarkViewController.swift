@@ -121,6 +121,7 @@ class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewD
         if segue.identifier == "restaurantdetail"{
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
+            seg.user = currentUser
         }
     }
     

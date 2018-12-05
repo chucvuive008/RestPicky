@@ -21,6 +21,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
     var user = User()
+    var users = [User]()
     var ref:DatabaseReference?
     var total = 0.0
     var restaurantMenu = [Menu]()
@@ -83,14 +84,15 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewWillAppear(_ animated: Bool) {
         paintStars(raiting: getRestaurnatRaiting())
-        numberReviews.text = "\(restaurant.review.count)"
+        numberReviews.setTitle("\(restaurant.review.count) Reviews", for: .normal)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        
+        callBtn.layer.cornerRadius = 5
+        getDirectionBtn.layer.cornerRadius = 5
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
@@ -105,13 +107,20 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             }
         }
         
-        numberReviews.text = "\(restaurant.review.count)"
+        numberReviews.setTitle("\(restaurant.review.count) Reviews", for: .normal)
         paintStars(raiting: getRestaurnatRaiting())
         phoneNumber.setTitle("Call (\(restaurant.phoneNumber))", for: [])
         
     }
+
     
-    @IBOutlet weak var numberReviews: UILabel!
+    @IBOutlet weak var getDirectionBtn: UIButton!
+    @IBOutlet weak var callBtn: UIButton!
+    @IBAction func reviewsBtnPress(_ sender: Any) {
+        performSegue(withIdentifier: "detailtoreviews", sender: self)
+    }
+    
+    @IBOutlet weak var numberReviews: UIButton!
     
     @IBOutlet weak var star1: UIImageView!
     @IBOutlet weak var star2: UIImageView!
@@ -215,6 +224,11 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
             seg.restaurant = restaurant
             seg.user = user
         }
+        
+        if segue.identifier == "detailtoreviews"{
+            let seg = segue.destination as! RestaurantReviewsListViewController
+            seg.restaurant = restaurant
+        }
     }
     
     //        rate(myRate: 1)
@@ -239,7 +253,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         myRating = myRate
         reviews += 1
         total += Double(myRate)
-        numberReviews.text = "\(reviews)"
+        numberReviews.setTitle("\(reviews) Reviews", for: .normal)
         paintStars(raiting: total / Double(reviews))
     }
     

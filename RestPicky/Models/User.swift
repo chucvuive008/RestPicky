@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 public class User {
     var name : String
     var uid : String
     var email : String
     var restaurantsIdBookmark = [Int]()
+    var image = UIImage()
     var bookmarks = [Bookmark]()
     
     init() {

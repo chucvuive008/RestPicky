@@ -27,6 +27,7 @@
 		A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048D218435AB0035A202 /* Restaurant.swift */; };
 		A5F10490218435AB0035A202 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F1048E218435AB0035A202 /* User.swift */; };
 		A5F6A59021B64BB700FA7E4D /* BookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */; };
+		A5F6A59221B8851F00FA7E4D /* RestaurantReviewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6A59121B8851F00FA7E4D /* RestaurantReviewsListViewController.swift */; };
 		A5F79A5821AB32950056CC37 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5721AB32950056CC37 /* Review.swift */; };
 		A5F79A5A21ABB3140056CC37 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A5921ABB3140056CC37 /* SearchViewController.swift */; };
 		A5F79A7C21B48AF30056CC37 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F79A7B21B48AF30056CC37 /* Bookmark.swift */; };
@@ -56,6 +57,7 @@
 		A5F1048D218435AB0035A202 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		A5F1048E218435AB0035A202 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkViewController.swift; sourceTree = "<group>"; };
+		A5F6A59121B8851F00FA7E4D /* RestaurantReviewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewsListViewController.swift; sourceTree = "<group>"; };
 		A5F79A5721AB32950056CC37 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		A5F79A5921ABB3140056CC37 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		A5F79A7B21B48AF30056CC37 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				A5F79A5921ABB3140056CC37 /* SearchViewController.swift */,
 				448AA88221B0526700293F0A /* EditViewController.swift */,
 				A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */,
+				A5F6A59121B8851F00FA7E4D /* RestaurantReviewsListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				A5F79A5821AB32950056CC37 /* Review.swift in Sources */,
 				85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */,
 				9A9278F621B46A910016E477 /* RestaurantReviewsViewController.swift in Sources */,
+				A5F6A59221B8851F00FA7E4D /* RestaurantReviewsListViewController.swift in Sources */,
 				A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */,
 				A5F6A59021B64BB700FA7E4D /* BookmarkViewController.swift in Sources */,
 				A5F10490218435AB0035A202 /* User.swift in Sources */,
