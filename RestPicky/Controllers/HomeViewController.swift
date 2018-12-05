@@ -39,6 +39,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         mostReviewRestaurants = newRestaurants.sorted{
             $0.review.count > $1.review.count
         }
+        for restaurant in newRestaurants{
+            calculateRating(restaurant: restaurant)
+        }
+        
+        topRestaurants = newRestaurants.sorted{
+            $0.rating > $1.rating
+        }
         
         CollectionTableView.delegate = self
         CollectionTableView.dataSource = self
@@ -146,16 +153,20 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
                 restaurantName.text = newRestaurants[newRestaurants.count - i].name
             }else if indexPath.row == 1 {
-                let restaurantImage = cell.viewWithTag(i+6) as! UIButton
+                let restaurantImage = cell.viewWithTag(i+6) as? UIButton
                 let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
                 let starImage2 = cell.viewWithTag(i*5 + 46) as? UIImageView
                 let starImage3 = cell.viewWithTag(i*5 + 47) as? UIImageView
                 let starImage4 = cell.viewWithTag(i*5 + 48) as? UIImageView
                 let starImage5 = cell.viewWithTag(i*5 + 49) as? UIImageView
-                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: newRestaurants[newRestaurants.count - i])
-                restaurantImage.setImage(newRestaurants[newRestaurants.count - i].images[0], for: .normal)
+                setRatingImagesByRestaurantRating(image1: starImage1!, image2: starImage2!, image3: starImage3!, image4: starImage4!, image5: starImage5!, restaurant: topRestaurants[i - 1])
+                if restaurantImage != nil{
+                    restaurantImage!.setImage(topRestaurants[i - 1].images[0], for: .normal)
+                    restaurantImage!.tag = 100 * i + indexPath.row
+                    restaurantImage!.addTarget(self, action: #selector(self.restaurantBtnPress(sender:)), for: .touchUpInside)
+                }
                 let restaurantName = cell.viewWithTag(i + 12) as! UILabel
-                restaurantName.text = newRestaurants[newRestaurants.count - i].name
+                restaurantName.text = topRestaurants[i - 1].name
             }else if indexPath.row == 2 {
                 let restaurantImage = cell.viewWithTag(i+6) as? UIButton
                 let starImage1 = cell.viewWithTag(i*5 + 45) as? UIImageView
@@ -203,7 +214,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if sender.tag == 100 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 1]
         }else if sender.tag == 101 {
-            
+            selectedRestaurant = topRestaurants[0]
         } else if sender.tag == 102{
             selectedRestaurant = randomRestaurants[0]
         }else if sender.tag == 103 {
@@ -211,7 +222,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else if sender.tag == 200 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 2]
         }else if sender.tag == 201 {
-            
+            selectedRestaurant = topRestaurants[1]
         } else if sender.tag == 202{
             selectedRestaurant = randomRestaurants[1]
         }else if sender.tag == 203 {
@@ -219,7 +230,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else if sender.tag == 300 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 3]
         }else if sender.tag == 301 {
-            
+            selectedRestaurant = topRestaurants[2]
         } else if sender.tag == 302{
             selectedRestaurant = randomRestaurants[2]
         }else if sender.tag == 303 {
@@ -227,7 +238,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if sender.tag == 400 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 4]
         }else if sender.tag == 401 {
-            
+            selectedRestaurant = topRestaurants[3]
         } else if sender.tag == 402{
             selectedRestaurant = randomRestaurants[3]
         }else if sender.tag == 403 {
@@ -235,7 +246,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else if sender.tag == 500 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 5]
         }else if sender.tag == 501 {
-            
+            selectedRestaurant = topRestaurants[4]
         } else if sender.tag == 502{
             selectedRestaurant = randomRestaurants[4]
         }else if sender.tag == 503 {
@@ -243,7 +254,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else if sender.tag == 600 {
             selectedRestaurant = newRestaurants[newRestaurants.count - 6]
         }else if sender.tag == 601 {
-            
+            selectedRestaurant = topRestaurants[5]
         } else if sender.tag == 602{
             selectedRestaurant = randomRestaurants[5]
         }else if sender.tag == 603 {
@@ -275,6 +286,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             selectedRestaurantList = newRestaurants
         }else if sender.tag == 1 {
             selectedType = "Top Restaurants"
+            selectedRestaurantList = topRestaurants
         }else if sender.tag == 2 {
             selectedType = "Random Restaurants"
             selectedRestaurantList = randomRestaurants
@@ -299,6 +311,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 }
             }
         }).resume()
+    }
+    
+    func calculateRating(restaurant: Restaurant){
+        var totalRating : Double = 0
+        for review in restaurant.review{
+            totalRating += review.rating
+        }
+        var averageRating = 0.0
+        
+        if restaurant.review.count != 0{
+            averageRating = totalRating/Double(restaurant.review.count)
+        }
+        restaurant.rating = averageRating
     }
     
     func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, restaurant: Restaurant){
