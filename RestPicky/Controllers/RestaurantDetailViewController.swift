@@ -35,6 +35,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
+    var user = User()
     var total = 0.0
     var restaurantMenu = [Menu]()
     
