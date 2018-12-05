@@ -8,8 +8,17 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class RestaurantListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,updateRestaurantsDelegate {
+    
+    func updatedRestaurant(restaurant: Restaurant) {
+        for i in 0..<restaurantList.count{
+            if restaurantList[i].id == restaurant.id{
+                restaurantList[i] = restaurant
+            }
+        }
+        restaurantsTableView.reloadData()
+    }
+    
     var restaurantList = [Restaurant]()
     var selectedRestaurant = Restaurant()
     var user = User()
@@ -87,6 +96,7 @@ class RestaurantListViewController: UIViewController, UITableViewDataSource, UIT
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
             seg.user = user
+            seg.updateDelegate = self
         }
     }
     

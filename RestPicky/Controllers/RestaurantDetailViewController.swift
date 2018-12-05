@@ -11,6 +11,7 @@ import MapKit
 
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+<<<<<<< HEAD
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
     var restaurant = Restaurant()
@@ -18,6 +19,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     var total = 0.0
     var restaurantMenu = [Menu]()
     
+=======
+>>>>>>> c406a02ff6ff0f031f54f707083166c351cf3bf9
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(restaurant.review.count)
@@ -148,8 +151,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     //        rate(myRate: 1)
     
     @IBAction func backBtnPress(_ sender: Any) {
+        updateDelegate?.updatedRestaurant(restaurant: restaurant)
         dismiss(animated: true, completion: nil)
-        
     }
     
     @IBOutlet weak var titleLabel: UILabel!
