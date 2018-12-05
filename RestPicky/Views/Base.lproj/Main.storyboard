@@ -1548,11 +1548,12 @@
                         <outlet property="buttonRateStar5" destination="YiV-t5-Bcw" id="8F3-hi-e3T"/>
                         <outlet property="myReviewBox" destination="S2c-0Y-Kb0" id="BcA-jF-Agn"/>
                         <outlet property="restaurantName" destination="vD3-XD-Gl3" id="cyr-DZ-Gbf"/>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="reviewToDetailSegue" id="5e0-yr-qhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yb-fy-JEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4636" y="1333.5832083958021"/>
+            <point key="canvasLocation" x="4890" y="1371"/>
         </scene>
         <!--Reviews View Controller-->
         <scene sceneID="TQE-dS-s9C">
@@ -2317,6 +2318,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="bNi-N1-t4M"/>
-        <segue reference="91z-fY-mCg"/>
+        <segue reference="5e0-yr-qhP"/>
     </inferredMetricsTieBreakers>
 </document>
