@@ -39,7 +39,8 @@ class TabViewController: UITabBarController {
             if let bookmarkViewController = viewController as? BookmarkViewController
             {
                 bookmarkViewController.restaurants = self.bookmarkRestaurants
-                bookmarkViewController.user = self.user
+                bookmarkViewController.currentUser = self.user
+                bookmarkViewController.allRestaurants = self.newRestaurants
             }else if let searchViewController = viewController as? SearchViewController{
                 searchViewController.restaurantList = self.newRestaurants
                 searchViewController.user = self.user
@@ -62,6 +63,9 @@ class TabViewController: UITabBarController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("sdas")
+    }
     /*
      // MARK: - Navigation
      

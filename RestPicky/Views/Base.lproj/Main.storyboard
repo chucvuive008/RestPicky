@@ -1518,6 +1518,9 @@
                                     <constraint firstAttribute="height" constant="30" id="q0O-aW-ucG"/>
                                 </constraints>
                                 <state key="normal" title="Post Review"/>
+                                <connections>
+                                    <action selector="postReview:" destination="ur6-fa-JGt" eventType="touchUpInside" id="Tjp-eC-gkg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1543,12 +1546,14 @@
                         <outlet property="buttonRateStar3" destination="eMQ-kc-hfe" id="AgH-Lq-79v"/>
                         <outlet property="buttonRateStar4" destination="HCC-4R-jrd" id="tpS-u8-kKn"/>
                         <outlet property="buttonRateStar5" destination="YiV-t5-Bcw" id="8F3-hi-e3T"/>
+                        <outlet property="myReviewBox" destination="S2c-0Y-Kb0" id="BcA-jF-Agn"/>
                         <outlet property="restaurantName" destination="vD3-XD-Gl3" id="cyr-DZ-Gbf"/>
+                        <segue destination="P1F-DW-ZWB" kind="show" identifier="reviewToDetailSegue" id="5e0-yr-qhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yb-fy-JEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4636" y="1333.5832083958021"/>
+            <point key="canvasLocation" x="4890" y="1371"/>
         </scene>
         <!--Reviews View Controller-->
         <scene sceneID="TQE-dS-s9C">
