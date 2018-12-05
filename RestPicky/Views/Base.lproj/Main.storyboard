@@ -2403,13 +2403,10 @@
         <image name="user" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
         <segue reference="4yP-rV-bFi"/>
         <segue reference="bNi-N1-t4M"/>
         <segue reference="5e0-yr-qhP"/>
-=======
         <segue reference="wol-aI-qrj"/>
         <segue reference="91z-fY-mCg"/>
->>>>>>> 1e0717e15757e1accc24bd007760040b62aedc77
     </inferredMetricsTieBreakers>
 </document>
