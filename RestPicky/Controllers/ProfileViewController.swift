@@ -19,6 +19,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    
     var restaurants = [Restaurant]()
     var reviewsInt = [Int]()
     //Firebase database reference
@@ -100,13 +103,40 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Get user value
             let value = snapshot.value as? NSDictionary
             let username = value?["name"] as? String ?? ""
+            let email = value?["email"] as? String ?? ""
+            let phone = value?["phone"] as? String ?? ""
             print(username)
+            print(email)
+            print(phone)
+            print(type(of: phone))
             //Set usernameLabel
             self.usernameLabel.text = username
             // ...
+            
+            //Set emailLabel
+            self.emailLabel.text = "Email: \(email)"
+            //...
+            
+            //Set phoneLabel
+            self.phoneLabel.text = "Phone: \(phone)"
+            //...
         }) { (error) in
             print(error.localizedDescription)
         }
+//        //Retrieve user "email" from database
+//        ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let email = value?["email"] as? String ?? ""
+//            print(email)
+//            //Set emailLabel
+//            self.emailLabel.text = email
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+        
+        
     }
     
     func getPhoto (urlString : String, profImg: UIImageView){

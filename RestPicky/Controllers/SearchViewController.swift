@@ -8,7 +8,17 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, updateRestaurantsDelegate{
+    func updatedRestaurant(restaurant: Restaurant) {
+        for i in 0 ..< restaurantList.count{
+            if restaurantList[i].id == restaurant.id{
+                restaurantList[i] = restaurant
+            }
+        }
+        
+        restaurantsTableView.reloadData()
+    }
+    
     
     var restaurantList = [Restaurant]()
     var currentRestaurantList = [Restaurant]()
@@ -82,6 +92,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
             seg.user = user
+            seg.updateDelegate = self
         }
     }
     

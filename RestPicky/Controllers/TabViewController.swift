@@ -64,7 +64,11 @@ class TabViewController: UITabBarController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("sdas")
+//        for viewController in viewControllers!{
+//            if let homeViewController = viewController as? HomeViewController {
+//                homeViewController.CollectionTableView.reloadData()
+//            }
+//        }
     }
     /*
      // MARK: - Navigation
