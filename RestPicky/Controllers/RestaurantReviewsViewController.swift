@@ -73,12 +73,17 @@ class RestaurantReviewsViewController: UIViewController {
         let reviewId = getReviewId()
         
         self.ref?.child("restaurant/\(restaurant.id)/review/\(reviewId)").setValue(["comment" : myReviewBox.text, "id" : reviewId, "rating" : myRating, "userId" : user.uid])
-        var review = Review()
-        review.id = reviewId
-        review.comment = myReviewBox.text
-        review.rating = myRating
-        review.userId = user.uid
-        restaurant.review.append(review)
+        if myReviewExists(){
+            restaurant.review[reviewId - 1].comment = myReviewBox.text
+            restaurant.review[reviewId - 1].rating = myRating
+        }else {
+            var review = Review()
+            review.id = reviewId
+            review.comment = myReviewBox.text
+            review.rating = myRating
+            review.userId = user.uid
+            restaurant.review.append(review)
+        }
         ref?.child("Restaurant/\(self.restaurant.id)").observeSingleEvent(of: .value, with: { (snapshot) in
             self.restaurant = snapshot.value as? Restaurant ?? Restaurant()
         })

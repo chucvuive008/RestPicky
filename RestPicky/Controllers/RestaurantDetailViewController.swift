@@ -31,6 +31,10 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        paintStars(raiting: getRestaurnatRaiting())
+        numberReviews.text = "\(restaurant.review.count)"
+    }
     
     var reviews = 0 //Should be restaurant.reviews
     var myRating = 0 //Should be userrestaurant.raiting
