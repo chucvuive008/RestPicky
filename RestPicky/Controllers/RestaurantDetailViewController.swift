@@ -9,8 +9,13 @@
 import UIKit
 import MapKit
 
+protocol updateRestaurantsDelegate{
+    func updatedRestaurant(restaurant: Restaurant)
+}
+
 class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var updateDelegate : updateRestaurantsDelegate?
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return(restaurantMenu.count)
@@ -119,8 +124,8 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     //        rate(myRate: 1)
     
     @IBAction func backBtnPress(_ sender: Any) {
+        updateDelegate?.updatedRestaurant(restaurant: restaurant)
         dismiss(animated: true, completion: nil)
-        
     }
     
     @IBOutlet weak var titleLabel: UILabel!

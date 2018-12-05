@@ -63,6 +63,9 @@ class TabViewController: UITabBarController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("sdas")
+    }
     /*
      // MARK: - Navigation
      
