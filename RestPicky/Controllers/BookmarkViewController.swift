@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
-
-    
+    var ref : DatabaseReference?
     var restaurants = [Restaurant]()
+    var allRestaurants = [Restaurant]()
     var selectedRestaurant = Restaurant()
-    var user = User()
+    var currentUser = User()
     @IBOutlet weak var restaurantTableView: UITableView!
     
     override func viewDidLoad() {
@@ -23,7 +24,62 @@ class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewD
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
         // Do any additional setup after loading the view.
-        restaurantTableView.reloadData()
+        ref = Database.database().reference()
+        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        var user = User()
+        user.uid = currentUser.uid
+        self.ref?.child("user/\(user.uid)").observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.value as? NSDictionary {
+                for child in result{
+                    if child.key as! String == "bookmark"{
+                        if let childSnapshot = snapshot.childSnapshot(forPath: "bookmark/").value as? NSArray{
+                            for i in 1..<childSnapshot.count{
+                                let bookmark = Bookmark()
+                                if let dic = childSnapshot[i] as? NSDictionary{
+                                    for property in dic{
+                                        if property.key as! String == "restaurantId"{
+                                            bookmark.restaurantId = property.value as! Int
+                                        }
+                                        if property.key as! String == "id"{
+                                            bookmark.id = property.value as! Int
+                                        }
+                                        if property.key as! String == "mark"{
+                                            bookmark.mark = property.value as! Bool
+                                        }
+                                    }
+                                }
+                                if bookmark.id != 0 && bookmark.restaurantId != 0{
+                                    user.bookmarks.append(bookmark)
+                                }
+                            }
+                            if user.bookmarks != nil{
+                                for bookmark in user.bookmarks{
+                                    if bookmark.mark{
+                                        user.restaurantsIdBookmark.append(bookmark.restaurantId)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            self.restaurants =  self.getBookmarkRestaurants(user: user)
+            self.restaurantTableView.reloadData()
+        })
+    }
+    
+    func getBookmarkRestaurants(user: User) -> [Restaurant]{
+        var bookmarkRestaurants = [Restaurant]()
+        for restaurant in allRestaurants{
+            if user.restaurantsIdBookmark.contains(restaurant.id){
+                bookmarkRestaurants.append(restaurant)
+            }
+        }
+        return bookmarkRestaurants
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
