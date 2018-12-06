@@ -10,9 +10,15 @@ import UIKit
 import Firebase
 
 //Delegate and datasource needed for tableview
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, updateUserDelegate {
     
-    //Our list for the tableview
+    func updateUser(_user: User) {
+        usernameLabel.text = _user.name
+        emailLabel.text = _user.email
+        phoneLabel.text = _user.phone
+        addressLabel.text = _user.address
+    }
+    
     let list = ["Reviews", "Edit"]
     
     //Elements on the page
@@ -21,6 +27,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     var restaurants = [Restaurant]()
     var reviewsInt = [Int]()
@@ -33,20 +40,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "reviewsSegue" {
             let userID = Auth.auth().currentUser?.uid
             for restaurant in restaurants {
-                //            print(restaurant.id)
-                //            print(restaurant.images)
-//                print(restaurant.name)
-//                print(restaurant.rating)
                 for review in restaurant.review {
-//                    print(review.comment)
-//                    print(review.id)
                     if review.userId == userID {
                         yourReviewsRestaurants.append(restaurant)
                         reviewsInt.append(review.id)
                         print("Found your comment")
                     }
-//    /Users/team3/Desktop/RestPicky/RestPicky/Controllers/RestaurantListViewController.swift                print(review.rating)
-//                    print(review.userId)
                 }
             }
             
@@ -63,6 +62,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 //            }
             yourReviewsRestaurants = []
             reviewsInt = []
+        }
+        
+        if segue.identifier == "editSegue" {
+            let seg = segue.destination as! EditViewController
+            seg.updateUserDelegate = self
         }
     }
     
@@ -105,6 +109,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             let username = value?["name"] as? String ?? ""
             let email = value?["email"] as? String ?? ""
             let phone = value?["phone"] as? String ?? ""
+            let address = value?["address"] as? String ?? ""
             print(username)
             print(email)
             print(phone)
@@ -116,27 +121,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             //Set emailLabel
             self.emailLabel.text = "Email: \(email)"
             //...
-            
+            self.addressLabel.text = "Address: \(address)"
             //Set phoneLabel
             self.phoneLabel.text = "Phone: \(phone)"
             //...
         }) { (error) in
             print(error.localizedDescription)
         }
-//        //Retrieve user "email" from database
-//        ref.child("user").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            let email = value?["email"] as? String ?? ""
-//            print(email)
-//            //Set emailLabel
-//            self.emailLabel.text = email
-//            // ...
-//        }) { (error) in
-//            print(error.localizedDescription)
-//        }
-        
-        
     }
     
     func getPhoto (urlString : String, profImg: UIImageView){

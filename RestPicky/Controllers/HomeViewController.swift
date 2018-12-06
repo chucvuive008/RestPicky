@@ -10,8 +10,11 @@ import UIKit
 import Firebase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,updateRestaurantsDelegate {
-    func updatedRestaurant(restaurant: Restaurant) {
+    
+    func updatedRestaurant(restaurant: Restaurant, _user: User) {
         calculateRating(restaurant: restaurant)
+        restaurantCollectionsName.removeAll()
+        CollectionTableView.reloadData()
         for i in 0 ..< newRestaurants.count{
             if newRestaurants[i].id == restaurant.id{
                 newRestaurants[i] = restaurant
@@ -31,13 +34,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         topRestaurants = newRestaurants.sorted{
             $0.rating > $1.rating
         }
+        restaurantCollectionsName = ["New Restaurants", "Top Restaurants", "Random Restaurants", "Most review"]
+        CollectionTableView.reloadData()
+        user = _user
+        updatedelegate?.updatedRestaurant(restaurant: restaurant, _user: user)
     }
     
     
     var ref : DatabaseReference?
     var selectedType = ""
     var selectedRestaurant = Restaurant()
-    
+    var updatedelegate : updateRestaurantsDelegate?
     var user = User()
     var newRestaurants = [Restaurant]()
     var mostReviewRestaurants = [Restaurant]()
@@ -53,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var soupRestaurants = [Restaurant]()
     var steakRestaurants = [Restaurant]()
     var selectedRestaurantList = [Restaurant]()
-    let restaurantCollectionsName = ["New Restaurants", "Top Restaurants", "Random Restaurants", "Most review"]
+    var restaurantCollectionsName = ["New Restaurants", "Top Restaurants", "Random Restaurants", "Most review"]
     @IBOutlet weak var CollectionTableView: UITableView!
     
     override func viewDidLoad() {
