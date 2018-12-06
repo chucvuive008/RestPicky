@@ -28,6 +28,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     var ref: DatabaseReference!
     var userID: String = ""
     var yourReviewsRestaurants = [Restaurant]()
+    var username: String?
+    var address: String?
+    var phone: String?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "reviewsSegue" {

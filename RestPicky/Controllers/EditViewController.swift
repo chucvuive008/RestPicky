@@ -8,10 +8,16 @@
 
 import UIKit
 import Firebase
+protocol editDelegate {
+    func addUserFunction(Name: String, Address: String, Phone: String)
+}
 class EditViewController: UIViewController {
     var databaseRef : DatabaseReference!
+    var delegate: editDelegate?
     var userID: String = ""
-    
+    var uName: String?
+    var uAddress: String?
+    var uPhone: String?
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -22,10 +28,22 @@ class EditViewController: UIViewController {
 //        if(addressTextField.text != ""){postProfileInfo(type: "address", text: addressTextField.text!)}
 //        if(phoneTextField.text != ""){postProfileInfo(type: "phone", text: phoneTextField.text!)}
         let alert = UIAlertController(title: "Confirmation", message: "Do you want to confirm these changes?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in print("Confirming")
-            }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in print("Cancelling")
-            }))
+       
+        let alert1 = UIAlertAction(title: "Yes", style: .default, handler: { action in
+//            If text field is not empty update database with values entered
+            if(self.nameTextField.text != ""){self.postProfileInfo(type: "name", text: self.nameTextField.text!)}
+            if(self.addressTextField.text != ""){self.postProfileInfo(type: "address", text: self.addressTextField.text!)}
+            if(self.phoneTextField.text != ""){self.postProfileInfo(type: "phone", text: self.phoneTextField.text!)}
+            self.performSegue(withIdentifier: "toProfile", sender: self)
+            
+        })
+        alert.addAction(alert1)
+        
+        let alert2 = UIAlertAction(title: "No", style: .cancel, handler: { (action: UIAlertAction!) in
+            print("Cancelling")
+            })
+        alert.addAction(alert2)
+
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -57,6 +75,10 @@ class EditViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toProfile" {
             let seguetoProf = segue.destination as! ProfileViewController
+//            seguetoProf.username = uName!
+//            seguetoProf.address = uAddress!
+//            seguetoProf.phone = uPhone!
+//            delegate?.addUserFunction(Name: uName!, Address: uAddress!, Phone: uPhone!)
         }
     }
 }
