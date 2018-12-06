@@ -11,9 +11,10 @@ import UIKit
 class RestaurantReviewsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var restaurant = Restaurant()
-
+    var users = [User]()
     @IBOutlet weak var reviewTableView: UITableView!
     
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +39,7 @@ class RestaurantReviewsListViewController: UIViewController, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         // set the text from the data model
+        let userImage = cell.viewWithTag(1) as! UIImageView
         let userName = cell.viewWithTag(2) as! UILabel
         let comment = cell.viewWithTag(8) as! UILabel
         let starImage1 = cell.viewWithTag(3) as! UIImageView
@@ -48,7 +50,8 @@ class RestaurantReviewsListViewController: UIViewController, UITableViewDelegate
         
         setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, review: restaurant.review[indexPath.row])
         
-        userName.text = restaurant.review[indexPath.row].userId
+        userName.text = users[indexPath.row].name
+        userImage.image = users[indexPath.row].image
         comment.text = restaurant.review[indexPath.row].comment
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         

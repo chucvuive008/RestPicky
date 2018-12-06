@@ -14,7 +14,7 @@ protocol updateRestaurantsDelegate{
     func updatedRestaurant(restaurant: Restaurant)
 }
 
-class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RestaurantDetailViewController: UIViewController {
     
 
     var reviews = 0 //Should be restaurant.reviews
@@ -29,31 +29,9 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     
     var updateDelegate : updateRestaurantsDelegate?
     // number of rows in table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return(restaurant.review.count)
-    }
     
     // create a cell for each table view row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        // set the text from the data model
-        let userName = cell.viewWithTag(1000) as! UILabel
-        let comment = cell.viewWithTag(1001) as! UILabel
-        let starImage1 = cell.viewWithTag(2001) as! UIImageView
-        let starImage2 = cell.viewWithTag(2002) as! UIImageView
-        let starImage3 = cell.viewWithTag(2003) as! UIImageView
-        let starImage4 = cell.viewWithTag(2004) as! UIImageView
-        let starImage5 = cell.viewWithTag(2005) as! UIImageView
-
-        setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, review: restaurant.review[indexPath.row])
-        
-        userName.text = restaurant.review[indexPath.row].userId
-        comment.text = restaurant.review[indexPath.row].comment
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
-        
-        return cell
-    }
+    
     
     func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, review: Review){
         
@@ -83,11 +61,17 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        users = [User]()
         paintStars(raiting: getRestaurnatRaiting())
         numberReviews.setTitle("\(restaurant.review.count) Reviews", for: .normal)
+        for review in restaurant.review{
+            users.append(User())
+            getUserDidReview(userId: review.userId, localUser: users.last!)
+        }
     }
     
     
+    @IBOutlet weak var myreviewBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +79,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         ref = Database.database().reference()
         callBtn.layer.cornerRadius = 5
         getDirectionBtn.layer.cornerRadius = 5
+        myreviewBtn.layer.cornerRadius = 5
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
@@ -230,6 +215,7 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         if segue.identifier == "detailtoreviews"{
             let seg = segue.destination as! RestaurantReviewsListViewController
             seg.restaurant = restaurant
+            seg.users = users
         }
     }
     
@@ -300,8 +286,14 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         
     }
     
-    func getUserReview(userId: String, localUser: User){
+    func getUserDidReview(userId: String, localUser: User){
         ref = Database.database().reference()
+        let prf = "profileImage"
+        do {
+        try getPhoto(urlString: "https://firebasestorage.googleapis.com/v0/b/restpicky-39f7d.appspot.com/o/user%2F\(userId)%2F\(prf).jpg?alt=media&token=6cb93cf1-69eb-439d-80f3-ae0e622e1f51", user: localUser)
+        } catch {
+            localUser.image = UIImage()
+        }
         ref!.child("user").child(userId).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
@@ -312,19 +304,16 @@ class RestaurantDetailViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
-    func getPhoto (urlString : String, profImg: UIImageView){
+    func getPhoto (urlString : String, user: User) throws {
         let url = URL(string: urlString)
-        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-            if error != nil {
-                print(error!)
-                return
+        DispatchQueue.global().sync {
+            do {
+                let data = try Data(contentsOf: url!)
+                user.image = UIImage(data: data)!
+            } catch{
+                user.image = UIImage(named: "UserIcon")!
             }
-            DispatchQueue.main.async {
-                if data != nil{
-                    profImg.image = UIImage(data: data!)!
-                }
-            }
-        }).resume()
+        }
     }
     /*
      // MARK: - Navigation
