@@ -22,14 +22,16 @@ class ReviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         reviewsTableView.delegate = self
         reviewsTableView.dataSource = self
-        reviewsTableView.reloadData()
         print(restaurants)
         print(reviewsInt)
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int
-    {
-        return 1
+    override func viewWillAppear(_ animated: Bool) {
+        reviewsTableView.reloadData()
+    }
+    
+    @IBAction func backBtnPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +41,7 @@ class ReviewsViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150.0;
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let index = indexPath.row
 //        print(index)
@@ -61,7 +64,7 @@ class ReviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let restaurantImage = cell.viewWithTag(4) as! UIImageView
         restaurantImage.image = restaurants[index].images[0]
-        return cell
+        
         
         let starImage1 = cell.viewWithTag(50) as! UIImageView
         let starImage2 = cell.viewWithTag(51) as! UIImageView
@@ -71,6 +74,7 @@ class ReviewsViewController: UIViewController, UITableViewDataSource, UITableVie
         
         setRatingImagesByRestaurantRating(image1: starImage1, image2: starImage2, image3: starImage3, image4: starImage4, image5: starImage5, userRating: CGFloat(yourRating))
         
+        return cell
     }
     
     func setRatingImagesByRestaurantRating(image1: UIImageView, image2: UIImageView, image3: UIImageView, image4: UIImageView, image5: UIImageView, userRating: CGFloat){
