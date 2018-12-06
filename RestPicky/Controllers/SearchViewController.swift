@@ -163,13 +163,17 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func setBookMarkImage(heartImage : UIImageView, user : User, restaurantId : Int){
-        for bookmark in user.bookmarks{
-            if bookmark.restaurantId == restaurantId && bookmark.mark{
-                heartImage.image = UIImage(named: "HeartIcon")
-                break
-            }else{
-                heartImage.image = UIImage(named: "heart")
+        if user.bookmarks != nil && user.bookmarks.count != 0{
+            for bookmark in user.bookmarks{
+                if bookmark.restaurantId == restaurantId && bookmark.mark{
+                    heartImage.image = UIImage(named: "HeartIcon")
+                    break
+                }else{
+                    heartImage.image = UIImage(named: "heart")
+                }
             }
+        }else{
+            heartImage.image = UIImage(named: "heart")
         }
     }
     /*
