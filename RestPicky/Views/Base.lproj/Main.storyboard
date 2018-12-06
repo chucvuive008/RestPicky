@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1703,7 +1703,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="9Hs-2i-qKX">
-                                <rect key="frame" x="30" y="94" width="315" height="250"/>
+                                <rect key="frame" x="30" y="50" width="315" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJB-Dg-u57">
                                         <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
@@ -1804,6 +1804,7 @@
                         <outlet property="addressTextField" destination="GXg-9t-bvs" id="xTR-PU-5hJ"/>
                         <outlet property="nameTextField" destination="7Y3-8E-Hd4" id="uLb-ra-fVp"/>
                         <outlet property="phoneTextField" destination="OEb-Nl-pWR" id="YC3-o2-OBK"/>
+                        <segue destination="WND-we-non" kind="presentation" identifier="toProfile" id="gjU-UH-Ykq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dhe-qc-lcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1819,13 +1820,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIp-Af-3a9">
-                                <rect key="frame" x="138.5" y="334" width="98" height="26.5"/>
+                                <rect key="frame" x="138.5" y="290" width="98" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="xsv-fO-Shf">
-                                <rect key="frame" x="87.5" y="104" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="60" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="13y-Fn-SI8"/>
@@ -1848,7 +1849,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Od-42-edc">
-                                <rect key="frame" x="313" y="104" width="52" height="45"/>
+                                <rect key="frame" x="313" y="60" width="52" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="hrj-w4-e8k"/>
                                     <constraint firstAttribute="width" constant="52" id="umU-Vx-6uQ"/>
@@ -1859,13 +1860,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AH-EW-7dW">
-                                <rect key="frame" x="16" y="383" width="49" height="21"/>
+                                <rect key="frame" x="16" y="339" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmp-T3-MVp">
-                                <rect key="frame" x="16" y="412" width="41" height="21"/>
+                                <rect key="frame" x="16" y="368" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2423,8 +2424,8 @@
     </scenes>
     <resources>
         <image name="BlankStarIcon" width="128" height="128"/>
-        <image name="BurgerIcon" width="128" height="127.5"/>
-        <image name="Camera" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="BurgerIcon" width="128" height="127"/>
+        <image name="Camera" width="64" height="64"/>
         <image name="HeartIcon" width="128" height="128"/>
         <image name="Indian" width="128" height="128"/>
         <image name="LoginPageBackground" width="674" height="1200"/>
@@ -2433,21 +2434,22 @@
         <image name="ShrimpIcon" width="128" height="128"/>
         <image name="SushiIcon" width="128" height="128"/>
         <image name="TacoIcon" width="128" height="128"/>
-        <image name="UserIcon" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="UserIcon" width="512" height="512"/>
         <image name="YellowStarIcon" width="128" height="128"/>
         <image name="back" width="128" height="128"/>
         <image name="bookmark" width="29" height="29"/>
         <image name="food" width="128" height="128"/>
         <image name="heart" width="128" height="128"/>
-        <image name="home" width="33.5" height="33.5"/>
+        <image name="home" width="33" height="33"/>
         <image name="meat" width="128" height="128"/>
-        <image name="placeholder" width="240" height="240"/>
+        <image name="placeholder" width="320" height="320"/>
         <image name="search" width="29" height="29"/>
         <image name="soup" width="128" height="128"/>
         <image name="user" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wol-aI-qrj"/>
+        <segue reference="gjU-UH-Ykq"/>
         <segue reference="4xb-Rg-8rO"/>
     </inferredMetricsTieBreakers>
 </document>
