@@ -12,6 +12,7 @@
 		85F1262E2184F879009EC4DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1262D2184F879009EC4DD /* ProfileViewController.swift */; };
 		9A04DCF8218B4B7900493ED2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A04DCF7218B4B7900493ED2 /* Menu.swift */; };
 		9A9278F621B46A910016E477 /* RestaurantReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */; };
+		9AA22DC521B9925700F54F2E /* DataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA22DC421B9925700F54F2E /* DataCollectionViewCell.swift */; };
 		A31D1EFF4E2CC0A4395F7B1C /* Pods_RestPicky.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A85B9D7884957E8606C74109 /* Pods_RestPicky.framework */; };
 		A51AEB5B218914B300508959 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */; };
 		A594C5792188E38C0062C104 /* RestaurantListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A594C5782188E38C0062C104 /* RestaurantListViewController.swift */; };
@@ -41,6 +42,7 @@
 		85F1262D2184F879009EC4DD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9A04DCF7218B4B7900493ED2 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		9A9278F521B46A910016E477 /* RestaurantReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantReviewsViewController.swift; sourceTree = "<group>"; };
+		9AA22DC421B9925700F54F2E /* DataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCollectionViewCell.swift; sourceTree = "<group>"; };
 		A51AEB5A218914B300508959 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A594C5782188E38C0062C104 /* RestaurantListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewController.swift; sourceTree = "<group>"; };
 		A5CDA720215D6940006BFF16 /* RestPicky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestPicky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				448AA88221B0526700293F0A /* EditViewController.swift */,
 				A5F6A58F21B64BB700FA7E4D /* BookmarkViewController.swift */,
 				A5F6A59121B8851F00FA7E4D /* RestaurantReviewsListViewController.swift */,
+				9AA22DC421B9925700F54F2E /* DataCollectionViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				A5D78C1E216089B400E48A3B /* RegisterViewController.swift in Sources */,
 				A5D78C1C2160737A00E48A3B /* LoginViewController.swift in Sources */,
 				A5F1048F218435AB0035A202 /* Restaurant.swift in Sources */,
+				9AA22DC521B9925700F54F2E /* DataCollectionViewCell.swift in Sources */,
 				A5D78C20216089D800E48A3B /* HomeViewController.swift in Sources */,
 				A5F79A7C21B48AF30056CC37 /* Bookmark.swift in Sources */,
 				A5D78C2221608A6600E48A3B /* TabViewController.swift in Sources */,

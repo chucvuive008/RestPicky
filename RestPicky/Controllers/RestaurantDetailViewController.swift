@@ -83,7 +83,8 @@ class RestaurantDetailViewController: UIViewController {
         titleLabel.text = restaurant.name
         Street.text = restaurant.street
         cityStateZip.text = restaurant.city + ", " + restaurant.state + " \(restaurant.zipcode)"
-        restaurantImage.image = restaurant.images[0]
+        
+        
         for bookmarked in user.bookmarks
         {
             if bookmarked.restaurantId == restaurant.id && bookmarked.mark
@@ -100,6 +101,7 @@ class RestaurantDetailViewController: UIViewController {
         
     }
 
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var getDirectionBtn: UIButton!
     @IBOutlet weak var callBtn: UIButton!
@@ -324,4 +326,41 @@ class RestaurantDetailViewController: UIViewController {
      }
      */
     
+}
+
+extension  RestaurantDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection Section: Int) -> Int {
+        
+        return restaurant.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as? DataCollectionViewCell
+        
+        cell?.restaurantImage.image = restaurant.images[indexPath.row]
+        
+        return cell!
+    }
+}
+
+extension RestaurantDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = UIScreen.main.bounds
+        
+        return CGSize(width: size.width, height: 220.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

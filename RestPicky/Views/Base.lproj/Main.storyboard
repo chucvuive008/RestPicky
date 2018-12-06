@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1133,12 +1133,47 @@
                                     <constraint firstItem="8KQ-dU-ELv" firstAttribute="leading" secondItem="fd5-6J-ozj" secondAttribute="leading" constant="8" id="xCt-6J-uEj"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5a5-tB-G7r">
-                                <rect key="frame" x="0.0" y="72" width="375" height="222"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-5X-sg6">
+                                <rect key="frame" x="0.0" y="72" width="375" height="220"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="5a5-tB-G7r" secondAttribute="height" multiplier="125:74" id="kSe-Ct-PIk"/>
+                                    <constraint firstAttribute="height" constant="220" id="kTN-zg-seI"/>
                                 </constraints>
-                            </imageView>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fHg-Yc-q1u">
+                                    <size key="itemSize" width="374" height="223"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="ROz-Bb-UQF" customClass="DataCollectionViewCell" customModule="RestPicky" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-1.5" width="374" height="223"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="223"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncR-oJ-mL2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="223"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="ncR-oJ-mL2" secondAttribute="trailing" id="2qT-cC-YVB"/>
+                                            <constraint firstAttribute="bottom" secondItem="ncR-oJ-mL2" secondAttribute="bottom" id="FE0-2w-Rax"/>
+                                            <constraint firstItem="ncR-oJ-mL2" firstAttribute="top" secondItem="ROz-Bb-UQF" secondAttribute="top" id="K4E-lu-A7X"/>
+                                            <constraint firstItem="ncR-oJ-mL2" firstAttribute="leading" secondItem="ROz-Bb-UQF" secondAttribute="leading" id="vaG-nF-4L4"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="restaurantImage" destination="ncR-oJ-mL2" id="Yzn-ld-N6f"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="P1F-DW-ZWB" id="3gS-f1-wyB"/>
+                                    <outlet property="delegate" destination="P1F-DW-ZWB" id="XVJ-1F-Wzq"/>
+                                </connections>
+                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RestaurantName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="52" translatesAutoresizingMaskIntoConstraints="NO" id="CyX-16-qWI">
                                 <rect key="frame" x="16" y="302" width="344" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -1313,36 +1348,36 @@
                         <constraints>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="jpM-JV-Vw2" secondAttribute="trailing" constant="15" id="1K3-a9-ghs"/>
                             <constraint firstItem="fd5-6J-ozj" firstAttribute="top" secondItem="iBC-ho-prf" secondAttribute="top" id="428-wh-6mJ"/>
+                            <constraint firstItem="CyX-16-qWI" firstAttribute="top" secondItem="TMD-5X-sg6" secondAttribute="bottom" constant="10" id="4b9-So-YFq"/>
+                            <constraint firstItem="dvG-dX-M4q" firstAttribute="top" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="8.5" id="51J-Hj-Hq0"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="CyX-16-qWI" secondAttribute="trailing" constant="15" id="AM5-1a-9GQ"/>
                             <constraint firstItem="fd5-6J-ozj" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" id="HFr-cM-wCF"/>
                             <constraint firstItem="7Bu-K2-Hyn" firstAttribute="top" secondItem="dvG-dX-M4q" secondAttribute="bottom" constant="6" id="K7v-5o-HtU"/>
                             <constraint firstItem="fIT-2I-Is1" firstAttribute="top" secondItem="XUk-yX-Gek" secondAttribute="bottom" constant="20" id="Mj0-QY-blz"/>
+                            <constraint firstItem="TMD-5X-sg6" firstAttribute="trailing" secondItem="9ow-9j-LIK" secondAttribute="trailing" id="Oa4-Ue-x1V"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="7Bu-K2-Hyn" secondAttribute="trailing" constant="12" id="PYP-y3-ahW"/>
                             <constraint firstItem="XUk-yX-Gek" firstAttribute="top" secondItem="7fe-wo-AXE" secondAttribute="bottom" constant="20" id="RGt-gf-cT3"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="dvG-dX-M4q" secondAttribute="trailing" constant="24" id="UVz-mK-MIa"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="fIT-2I-Is1" secondAttribute="trailing" constant="15" id="VKl-SC-U0x"/>
                             <constraint firstItem="Slu-7k-ntk" firstAttribute="top" secondItem="KcM-kY-qTm" secondAttribute="bottom" constant="10" id="VQI-xq-8W5"/>
                             <constraint firstItem="fIT-2I-Is1" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="15" id="Wgj-Xw-5rl"/>
-                            <constraint firstItem="5a5-tB-G7r" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" id="YXj-Qy-HaB"/>
                             <constraint firstItem="KcM-kY-qTm" firstAttribute="top" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="8" id="YbQ-xK-C9V"/>
                             <constraint firstItem="Slu-7k-ntk" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="15" id="al3-ys-egZ"/>
-                            <constraint firstItem="dvG-dX-M4q" firstAttribute="top" secondItem="5a5-tB-G7r" secondAttribute="bottom" constant="50" id="b1b-mD-uj8"/>
                             <constraint firstItem="cvR-wH-PDf" firstAttribute="top" secondItem="CyX-16-qWI" secondAttribute="bottom" constant="1.5" id="dan-ke-Fzn"/>
-                            <constraint firstItem="5a5-tB-G7r" firstAttribute="trailing" secondItem="9ow-9j-LIK" secondAttribute="trailing" id="deG-5J-mnG"/>
                             <constraint firstItem="cvR-wH-PDf" firstAttribute="leading" secondItem="KcM-kY-qTm" secondAttribute="trailing" constant="10" id="flz-KR-va1"/>
+                            <constraint firstItem="TMD-5X-sg6" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" id="h61-FV-trq"/>
                             <constraint firstItem="jpM-JV-Vw2" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="15" id="hLP-bL-5RG"/>
+                            <constraint firstItem="TMD-5X-sg6" firstAttribute="top" secondItem="fd5-6J-ozj" secondAttribute="bottom" id="hZY-sS-UQg"/>
                             <constraint firstItem="7fe-wo-AXE" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="15" id="hjG-yg-lja"/>
                             <constraint firstItem="jpM-JV-Vw2" firstAttribute="top" secondItem="fIT-2I-Is1" secondAttribute="bottom" constant="10" id="icR-dm-kyZ"/>
                             <constraint firstItem="dvG-dX-M4q" firstAttribute="leading" secondItem="cvR-wH-PDf" secondAttribute="trailing" constant="20" id="mgE-Nd-JmS"/>
                             <constraint firstItem="7fe-wo-AXE" firstAttribute="top" secondItem="Slu-7k-ntk" secondAttribute="bottom" constant="15" id="mtU-IO-O9a"/>
                             <constraint firstItem="CyX-16-qWI" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="16" id="oSQ-bA-EnY"/>
-                            <constraint firstItem="CyX-16-qWI" firstAttribute="top" secondItem="5a5-tB-G7r" secondAttribute="bottom" constant="8" id="pHC-kt-8qL"/>
                             <constraint firstItem="XUk-yX-Gek" firstAttribute="leading" secondItem="iBC-ho-prf" secondAttribute="leading" id="vOW-xJ-Tq1"/>
                             <constraint firstItem="dvG-dX-M4q" firstAttribute="leading" secondItem="Slu-7k-ntk" secondAttribute="trailing" constant="30" id="wR9-sF-ShA"/>
                             <constraint firstItem="KcM-kY-qTm" firstAttribute="leading" secondItem="9ow-9j-LIK" secondAttribute="leading" constant="16" id="xMB-ZR-0lm"/>
                             <constraint firstItem="9ow-9j-LIK" firstAttribute="trailing" secondItem="fd5-6J-ozj" secondAttribute="trailing" id="yIn-Jy-0PA"/>
                             <constraint firstItem="XUk-yX-Gek" firstAttribute="trailing" secondItem="9ow-9j-LIK" secondAttribute="trailing" id="zCv-kV-M37"/>
-                            <constraint firstItem="5a5-tB-G7r" firstAttribute="top" secondItem="fd5-6J-ozj" secondAttribute="bottom" id="zXD-TC-971" userLabel="Restaurant Image.top = View.bottom"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9ow-9j-LIK"/>
                     </view>
@@ -1352,11 +1387,11 @@
                         <outlet property="bookMarkLabel" destination="7Bu-K2-Hyn" id="nZl-1t-xqr"/>
                         <outlet property="callBtn" destination="buS-Ey-Yfe" id="bOC-85-eX6"/>
                         <outlet property="cityStateZip" destination="ciu-ET-a3H" id="hNo-of-jsB"/>
+                        <outlet property="collectionView" destination="TMD-5X-sg6" id="taS-f6-5uB"/>
                         <outlet property="getDirectionBtn" destination="Wef-LB-wDw" id="VH6-At-Rqt"/>
                         <outlet property="myreviewBtn" destination="jpM-JV-Vw2" id="DcG-Yw-34P"/>
                         <outlet property="numberReviews" destination="cvR-wH-PDf" id="06i-mI-yaR"/>
                         <outlet property="phoneNumber" destination="buS-Ey-Yfe" id="MEw-Az-S3h"/>
-                        <outlet property="restaurantImage" destination="5a5-tB-G7r" id="210-Sq-ond"/>
                         <outlet property="star1" destination="2AL-60-sse" id="2qM-6v-1Fa"/>
                         <outlet property="star2" destination="H59-pU-Aby" id="CMh-LE-fgx"/>
                         <outlet property="star3" destination="jEX-u8-Wy0" id="eGb-S9-RVq"/>
@@ -2423,8 +2458,8 @@
     </scenes>
     <resources>
         <image name="BlankStarIcon" width="128" height="128"/>
-        <image name="BurgerIcon" width="128" height="127.5"/>
-        <image name="Camera" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="BurgerIcon" width="128" height="127"/>
+        <image name="Camera" width="64" height="64"/>
         <image name="HeartIcon" width="128" height="128"/>
         <image name="Indian" width="128" height="128"/>
         <image name="LoginPageBackground" width="674" height="1200"/>
@@ -2433,15 +2468,15 @@
         <image name="ShrimpIcon" width="128" height="128"/>
         <image name="SushiIcon" width="128" height="128"/>
         <image name="TacoIcon" width="128" height="128"/>
-        <image name="UserIcon" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="UserIcon" width="512" height="512"/>
         <image name="YellowStarIcon" width="128" height="128"/>
         <image name="back" width="128" height="128"/>
         <image name="bookmark" width="29" height="29"/>
         <image name="food" width="128" height="128"/>
         <image name="heart" width="128" height="128"/>
-        <image name="home" width="33.5" height="33.5"/>
+        <image name="home" width="33" height="33"/>
         <image name="meat" width="128" height="128"/>
-        <image name="placeholder" width="240" height="240"/>
+        <image name="placeholder" width="320" height="320"/>
         <image name="search" width="29" height="29"/>
         <image name="soup" width="128" height="128"/>
         <image name="user" width="29" height="29"/>
