@@ -8,19 +8,46 @@
 
 import UIKit
 import Firebase
+
+protocol updateUserDelegate{
+    func updateUser(_user: User)
+}
+
 class EditViewController: UIViewController {
     var databaseRef : DatabaseReference!
     var userID: String = ""
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    var updateUserDelegate : updateUserDelegate?
+    var user = User()
     
     @IBAction func submitButton(_ sender: Any) {
         //If text field is not empty update database with values entered
-        if(nameTextField.text != ""){postProfileInfo(type: "name", text: nameTextField.text!)}
-        if(addressTextField.text != ""){postProfileInfo(type: "address", text: addressTextField.text!)}
-        if(phoneTextField.text != ""){postProfileInfo(type: "phone", text: phoneTextField.text!)}
+        let alert = UIAlertController(title: "", message: "Do you want to submit the changes", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "Submit", style: UIAlertAction.Style.default, handler: { action in
+            if(self.nameTextField.text != ""){
+                self.postProfileInfo(type: "name", text: self.nameTextField.text!)
+                self.user.name = self.nameTextField.text!
+            }
+            if(self.addressTextField.text != ""){
+                self.postProfileInfo(type: "address", text: self.addressTextField.text!)
+                self.user.address = self.addressTextField.text!
+            }
+            if(self.phoneTextField.text != ""){
+                self.postProfileInfo(type: "phone", text: self.phoneTextField.text!)
+                self.user.phone = self.addressTextField.text!
+            }
+            self.updateUserDelegate?.updateUser(_user: self.user)
+            self.performSegue(withIdentifier: "edittoprofile", sender: self)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
+    
     
     func postProfileInfo(type:String, text:String) {
         let userId = Auth.auth().currentUser?.uid
