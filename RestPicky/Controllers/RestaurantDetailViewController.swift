@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 
 protocol updateRestaurantsDelegate{
-    func updatedRestaurant(restaurant: Restaurant)
+    func updatedRestaurant(restaurant: Restaurant, _user: User)
 }
 
 class RestaurantDetailViewController: UIViewController {
@@ -222,7 +222,7 @@ class RestaurantDetailViewController: UIViewController {
     //        rate(myRate: 1)
     
     @IBAction func backBtnPress(_ sender: Any) {
-        updateDelegate?.updatedRestaurant(restaurant: restaurant)
+        updateDelegate?.updatedRestaurant(restaurant: restaurant, _user: user)
         dismiss(animated: true, completion: nil)
     }
     
