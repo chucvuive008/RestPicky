@@ -32,9 +32,8 @@ class TabViewController: UITabBarController, updateRestaurantsDelegate {
                 homeViewController.newRestaurants = self.newRestaurants
                 homeViewController.user = self.user
                 homeViewController.updatedelegate = self
-            }else if let navigationController = viewController as? UINavigationController {
-                var profileViewController = navigationController.viewControllers.first as? ProfileViewController
-                profileViewController?.restaurants = self.newRestaurants
+            }else if let profileViewController = viewController as? ProfileViewController {
+                profileViewController.restaurants = self.newRestaurants
             }
         }
     }
@@ -78,9 +77,8 @@ class TabViewController: UITabBarController, updateRestaurantsDelegate {
                 homeViewController.newRestaurants = self.newRestaurants
                 homeViewController.user = self.user
                 homeViewController.updatedelegate = self
-            }else if let navigationController = viewController as? UINavigationController {
-                var profileViewController = navigationController.viewControllers.first as? ProfileViewController
-                profileViewController?.restaurants = self.newRestaurants
+            }else if let profileViewController = viewController as? ProfileViewController {
+                profileViewController.restaurants = self.newRestaurants
             }
         }
     }

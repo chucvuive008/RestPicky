@@ -10,14 +10,9 @@ import UIKit
 import Firebase
 
 //Delegate and datasource needed for tableview
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, updateUserDelegate {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    func updateUser(_user: User) {
-        usernameLabel.text = _user.name
-        emailLabel.text = _user.email
-        phoneLabel.text = _user.phone
-        addressLabel.text = _user.address
-    }
+
     
     let list = ["Reviews", "Edit"]
     
@@ -66,7 +61,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if segue.identifier == "editSegue" {
             let seg = segue.destination as! EditViewController
-            seg.updateUserDelegate = self
         }
     }
     

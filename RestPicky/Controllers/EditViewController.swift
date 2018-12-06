@@ -40,7 +40,7 @@ class EditViewController: UIViewController {
                 self.user.phone = self.addressTextField.text!
             }
             self.updateUserDelegate?.updateUser(_user: self.user)
-            self.performSegue(withIdentifier: "edittoprofile", sender: self)
+            self.dismiss(animated: true, completion: nil)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
@@ -48,6 +48,9 @@ class EditViewController: UIViewController {
         
     }
     
+    @IBAction func backBtnPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func postProfileInfo(type:String, text:String) {
         let userId = Auth.auth().currentUser?.uid
