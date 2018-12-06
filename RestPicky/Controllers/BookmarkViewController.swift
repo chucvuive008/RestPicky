@@ -9,7 +9,25 @@
 import UIKit
 import Firebase
 
-class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, updateRestaurantsDelegate {
+    
+    func updatedRestaurant(restaurant: Restaurant, _user: User) {
+        restaurants.removeAll()
+        restaurantTableView.reloadData()
+        currentUser = _user
+        currentUser.restaurantsIdBookmark.removeAll()
+        for bookmark in currentUser.bookmarks{
+            if bookmark.mark{
+                currentUser.restaurantsIdBookmark.append(bookmark.restaurantId)
+            }
+        }
+        for restaurant in allRestaurants{
+            if currentUser.restaurantsIdBookmark.contains(restaurant.id){
+                restaurants.append(restaurant)
+            }
+        }
+        restaurantTableView.reloadData()
+    }
     
     var ref : DatabaseReference?
     var restaurants = [Restaurant]()
@@ -122,6 +140,7 @@ class BookmarkViewController: UIViewController,UITableViewDelegate, UITableViewD
             let seg = segue.destination as! RestaurantDetailViewController
             seg.restaurant = selectedRestaurant
             seg.user = currentUser
+            seg.updateDelegate = self
         }
     }
     

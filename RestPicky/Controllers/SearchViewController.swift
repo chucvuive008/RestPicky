@@ -9,16 +9,16 @@
 import UIKit
 
 class SearchViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, updateRestaurantsDelegate{
-    func updatedRestaurant(restaurant: Restaurant) {
+    
+    func updatedRestaurant(restaurant: Restaurant, _user: User) {
         for i in 0 ..< restaurantList.count{
             if restaurantList[i].id == restaurant.id{
                 restaurantList[i] = restaurant
             }
         }
-        
+        user = _user
         restaurantsTableView.reloadData()
     }
-    
     
     var restaurantList = [Restaurant]()
     var currentRestaurantList = [Restaurant]()
@@ -163,11 +163,13 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func setBookMarkImage(heartImage : UIImageView, user : User, restaurantId : Int){
-        if user.restaurantsIdBookmark.contains(restaurantId)
-        {
-            heartImage.image = UIImage(named: "HeartIcon")
-        }else{
-            heartImage.image = UIImage(named: "heart")
+        for bookmark in user.bookmarks{
+            if bookmark.restaurantId == restaurantId && bookmark.mark{
+                heartImage.image = UIImage(named: "HeartIcon")
+                break
+            }else{
+                heartImage.image = UIImage(named: "heart")
+            }
         }
     }
     /*
