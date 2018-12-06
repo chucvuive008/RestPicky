@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class RestaurantReviewsViewController: UIViewController {
+class RestaurantReviewsViewController: UIViewController,UITextViewDelegate {
 
     var restaurant = Restaurant()
     var user = User()
@@ -19,6 +19,7 @@ class RestaurantReviewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myReviewBox.delegate = self
         ref = Database.database().reference()
         
         restaurantName.text = restaurant.name
@@ -26,6 +27,10 @@ class RestaurantReviewsViewController: UIViewController {
         populateValuesIfmyReviewExists()
         
         // Do any additional setup after loading the view.
+    }
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
     
     func myReviewExists() -> Bool
