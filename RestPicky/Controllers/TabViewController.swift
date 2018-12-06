@@ -9,7 +9,37 @@
 import UIKit
 import Firebase
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController, updateRestaurantsDelegate {
+    
+    func updatedRestaurant(restaurant: Restaurant, _user: User) {
+        for i in 0 ..< newRestaurants.count{
+            if newRestaurants[i].id == restaurant.id{
+                newRestaurants[i] = restaurant
+            }
+        }
+        user = _user
+        getBookmarkRestaurants()
+        for viewController in viewControllers!{
+            if let bookmarkViewController = viewController as? BookmarkViewController
+            {
+                bookmarkViewController.restaurants = self.bookmarkRestaurants
+                bookmarkViewController.currentUser = self.user
+                bookmarkViewController.allRestaurants = self.newRestaurants
+            }else if let searchViewController = viewController as? SearchViewController{
+                searchViewController.restaurantList = self.newRestaurants
+                searchViewController.user = self.user
+            }else if let homeViewController = viewController as? HomeViewController {
+                homeViewController.newRestaurants = self.newRestaurants
+                homeViewController.user = self.user
+                homeViewController.updatedelegate = self
+            }else if let navigationController = viewController as? UINavigationController {
+                var profileViewController = navigationController.viewControllers.first as? ProfileViewController
+                profileViewController?.restaurants = self.newRestaurants
+            }
+        }
+    }
+    
+    
     var finish = false
     var user = User()
     var currentUser : String?
@@ -47,6 +77,7 @@ class TabViewController: UITabBarController {
             }else if let homeViewController = viewController as? HomeViewController {
                 homeViewController.newRestaurants = self.newRestaurants
                 homeViewController.user = self.user
+                homeViewController.updatedelegate = self
             }else if let navigationController = viewController as? UINavigationController {
                 var profileViewController = navigationController.viewControllers.first as? ProfileViewController
                 profileViewController?.restaurants = self.newRestaurants
