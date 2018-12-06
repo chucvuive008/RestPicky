@@ -27,15 +27,15 @@ class EditViewController: UIViewController {
         let alert = UIAlertController(title: "", message: "Do you want to submit the changes", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "Submit", style: UIAlertAction.Style.default, handler: { action in
-            if(self.nameTextField.text != ""){
+            if(self.nameTextField.text != nil){
                 self.postProfileInfo(type: "name", text: self.nameTextField.text!)
                 self.user.name = self.nameTextField.text!
             }
-            if(self.addressTextField.text != ""){
+            if(self.addressTextField.text != nil){
                 self.postProfileInfo(type: "address", text: self.addressTextField.text!)
                 self.user.address = self.addressTextField.text!
             }
-            if(self.phoneTextField.text != ""){
+            if(self.phoneTextField.text != nil){
                 self.postProfileInfo(type: "phone", text: self.phoneTextField.text!)
                 self.user.phone = self.addressTextField.text!
             }
