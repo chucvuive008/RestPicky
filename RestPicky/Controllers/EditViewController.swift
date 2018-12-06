@@ -37,7 +37,7 @@ class EditViewController: UIViewController {
             }
             if(self.phoneTextField.text != nil){
                 self.postProfileInfo(type: "phone", text: self.phoneTextField.text!)
-                self.user.phone = self.addressTextField.text!
+                self.user.phone = self.phoneTextField.text!
             }
             self.updateUserDelegate?.updateUser(_user: self.user)
             self.dismiss(animated: true, completion: nil)
